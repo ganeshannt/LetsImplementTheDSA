@@ -1,5 +1,7 @@
 package com.algorithm.sorting.stable;
 
+import com.algorithm.sorting.PrintOutput;
+
 public class InsertionSort {
 
 
@@ -14,7 +16,7 @@ public class InsertionSort {
             }
             arr[j + 1] = key;
         }
-        printArray(arr);
+        PrintOutput.printArray(arr);
     }
 
     public static void recursiveInsertionSortImpl(int arr[], int n) {
@@ -32,20 +34,11 @@ public class InsertionSort {
         }
         arr[j + 1] = key;
         System.out.println();
-        printArray(arr);
+        PrintOutput.printArray(arr);
     }
 
     public static void recursiveInsertionSort(int arr[]) {
         recursiveInsertionSortImpl(arr, arr.length);
-    }
-
-
-    public static void printArray(int arr[]) {
-        System.out.print("[ ");
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
-        System.out.print(" ]");
     }
 
     public static void main(String Args[]) {

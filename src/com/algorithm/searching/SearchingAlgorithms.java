@@ -2,6 +2,10 @@ package com.algorithm.searching;
 
 import java.util.Arrays;
 
+//sdfsd
+/*
+hi .... 
+*/
 
 public class SearchingAlgorithms {
 
@@ -13,6 +17,7 @@ public class SearchingAlgorithms {
         return -1;
     }
 
+    
     public static int recursiveLinearSearchImpl(int arr[],int searchElement,int index){
         if(index>=arr.length)
             return -1;
