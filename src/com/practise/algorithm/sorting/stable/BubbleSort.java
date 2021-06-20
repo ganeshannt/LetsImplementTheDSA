@@ -1,6 +1,6 @@
-package com.algorithm.sorting.stable;
+package com.practise.algorithm.sorting.stable;
 
-import com.algorithm.sorting.PrintOutput;
+import com.practise.PrintOutput;
 
 public class BubbleSort {
 

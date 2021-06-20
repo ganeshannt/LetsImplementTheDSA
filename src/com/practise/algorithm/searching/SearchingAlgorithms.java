@@ -1,4 +1,4 @@
-package com.algorithm.searching;
+package com.practise.algorithm.searching;
 
 import java.util.Arrays;
 

@@ -1,6 +1,7 @@
-package com.algorithm.sorting.stable;
+package com.practise.algorithm.sorting.stable;
 
-import com.algorithm.sorting.*;
+import com.practise.PrintOutput;
+import com.practise.algorithm.sorting.*;
 
 public class CountSort {
     

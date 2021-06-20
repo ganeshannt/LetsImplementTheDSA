@@ -1,6 +1,6 @@
-package com.algorithm.sorting.stable;
+package com.practise.algorithm.sorting.stable;
 
-import com.algorithm.sorting.PrintOutput;
+import com.practise.PrintOutput;
 
 public class MergeSort {
 
@@ -49,20 +49,15 @@ public class MergeSort {
         PrintOutput.printArray(arr);
     }
 
-
     public static void mergeProcedure(int arr[], int start, int end, int mid) {
         int i, j, temp_index = 0;
-        if (arr[mid] > arr[mid - 1]) {
-            return;
-        }
-
         i = start;
-        j = mid;
+        j = mid + 1;
 
-        int[] temparr = new int[end - start];
+        int[] temparr = new int[end - start + 1];
 
-        while (i < mid && j < end) {
-            if (arr[i] < arr[j]) {
+        while (i <= mid && j <= end) {
+            if (arr[i] <= arr[j]) {
                 temparr[temp_index] = arr[i];
                 i += 1;
             } else {
@@ -72,37 +67,41 @@ public class MergeSort {
             temp_index += 1;
         }
 
-        while (i < mid) {
+        while (i <= mid) {
             temparr[temp_index] = arr[i];
             i += 1;
             temp_index += 1;
         }
 
-        while (j < end) {
+        while (j <= end) {
             temparr[temp_index] = arr[j];
             j += 1;
             temp_index += 1;
         }
-        System.out.println();
-        PrintOutput.printArray(temparr);
+
+        // copy temp to original interval
+        for(i = start; i <= end; i += 1) {
+            arr[i] = temparr[i - start];
+        }
+
+        PrintOutput.printArray(arr);
     }
 
     public static void recursiveMergeSort(int arr[], int start, int end) {
-        if ((end - start) < 2) {
-            return;
+        if (start < end) {
+            int mid = (end + start) / 2;
+            recursiveMergeSort(arr, start, mid);
+            recursiveMergeSort(arr, mid + 1, end);
+            mergeProcedure(arr, start, end, mid);
         }
-
-        int mid = (end + start) / 2;
-        recursiveMergeSort(arr, start, mid);
-        recursiveMergeSort(arr, mid, end);
-        mergeProcedure(arr, start, end, mid);
     }
 
     public static void main(String Args[]) {
-        int arr[] = { 23, 21, 4, 2, 54, 67, 86, 67, 34, 7, 6, 43, 8, 9, 665, 346, 97, 546, 675, 25, 76 };
+        // int arr[] = { 23, 21, 4, 2, 54, 67, 86, 67, 34, 7, 6, 43, 8, 9, 665, 346, 97,
+        // 546, 675, 25, 76 };
         int arr2[] = { 9, 6, 5, 0, 8, 2 };
         // iterativeSelectionSort(arr2);
-        recursiveMergeSort(arr, 0, arr.length);
+        recursiveMergeSort(arr2, 0, arr2.length-1);
     }
 
 }

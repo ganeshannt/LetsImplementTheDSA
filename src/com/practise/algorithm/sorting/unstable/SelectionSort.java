@@ -1,5 +1,5 @@
-package com.algorithm.sorting.unstable;
-import com.algorithm.sorting.PrintOutput;
+package com.practise.algorithm.sorting.unstable;
+import com.practise.PrintOutput;
 
 public class SelectionSort {
     
