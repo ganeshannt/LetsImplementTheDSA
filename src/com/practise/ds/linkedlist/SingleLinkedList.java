@@ -33,20 +33,29 @@ public class SingleLinkedList {
             head = tail = node;
         } else {
             tail.next = node;
-            node = tail;
+            tail = node;
             size++;
         }
     }
 
-    public void insertAtSomePoint(int point,int value){
+    public void insertAtSomePoint(int point, int value) {
         Node node = new Node(value);
-        if(isEmpty())
+        if (isEmpty())
             System.err.println("Given point isn't found");
-        
-        while(head!=null){
-            if(head.value == point){
-                
+
+        if(tail.value == point){
+            insertNodeAtEnd(value);
+            return;
+        }
+
+        Node temp = head;
+        while (temp != null) {
+            if (temp.value == point && temp.next != null) {
+                node.next = temp.next;
+                temp.next = node;
+                size++;
             }
+            temp = temp.next;
         }
     }
 
@@ -59,13 +68,13 @@ public class SingleLinkedList {
         return size;
     }
 
-    private boolean isContains(int value){
-        if(isEmpty())
+    private boolean isContains(int value) {
+        if (isEmpty())
             return false;
-        
+
         Node node = head;
-        while(node.next !=null){
-            if(node.value == value)
+        while (node.next != null) {
+            if (node.value == value)
                 return true;
             node = node.next;
         }
@@ -88,6 +97,11 @@ public class SingleLinkedList {
         singleLinkedList.insertNodeAtFront(30);
         singleLinkedList.insertNodeAtFront(40);
         singleLinkedList.insertNodeAtEnd(50);
+        singleLinkedList.insertNodeAtEnd(60);
+        singleLinkedList.insertAtSomePoint(10, 90);
+        singleLinkedList.insertAtSomePoint(90, 80);
+        singleLinkedList.insertAtSomePoint(40, 100);
+        singleLinkedList.insertAtSomePoint(60, 110);
         printLinkedList(head);
     }
 }
