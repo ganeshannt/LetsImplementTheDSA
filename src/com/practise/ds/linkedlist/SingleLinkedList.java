@@ -1,11 +1,15 @@
 package com.practise.ds.linkedlist;
 
-import com.practise.PrintOutput;
-
 public class SingleLinkedList {
 
-    public static Node head, tail;
-    private static int size = 0;
+    public Node head, tail;
+    private int size;
+
+    public SingleLinkedList() {
+        head = null;
+        tail = null;
+        size = 0;
+    }
 
     class Node {
         int value;
@@ -13,49 +17,6 @@ public class SingleLinkedList {
 
         public Node(int value) {
             this.value = value;
-        }
-    }
-
-    public void insertNodeAtFront(int value) {
-        Node node = new Node(value);
-        if (isEmpty()) {
-            head = tail = node;
-        } else {
-            node.next = head;
-            head = node;
-            size++;
-        }
-    }
-
-    public void insertNodeAtEnd(int value) {
-        Node node = new Node(value);
-        if (isEmpty()) {
-            head = tail = node;
-        } else {
-            tail.next = node;
-            tail = node;
-            size++;
-        }
-    }
-
-    public void insertAtSomePoint(int point, int value) {
-        Node node = new Node(value);
-        if (isEmpty())
-            System.err.println("Given point isn't found");
-
-        if(tail.value == point){
-            insertNodeAtEnd(value);
-            return;
-        }
-
-        Node temp = head;
-        while (temp != null) {
-            if (temp.value == point && temp.next != null) {
-                node.next = temp.next;
-                temp.next = node;
-                size++;
-            }
-            temp = temp.next;
         }
     }
 
@@ -81,13 +42,111 @@ public class SingleLinkedList {
         return false;
     }
 
-    public static void printLinkedList(Node head) {
+    public void printLinkedList() {
         int i = 0;
         while (head != null) {
             System.out.println(i + " -> " + head.value);
             head = head.next;
             i++;
         }
+    }
+
+    /***********************************************************/
+
+    public void insertNodeAtFront(int value) {
+        Node node = new Node(value);
+        if (isEmpty()) {
+            head = tail = node;
+        } else {
+            node.next = head;
+            head = node;
+            size++;
+        }
+    }
+
+    public void insertNodeAtEnd(int value) {
+        Node node = new Node(value);
+        if (isEmpty()) {
+            head = tail = node;
+        } else {
+            tail.next = node;
+            tail = node;
+            size++;
+        }
+    }
+
+    public void insertAtSomePoint(int point, int value) {
+        Node node = new Node(value);
+        if (isContains(value)) {
+            System.err.println("Given element isn't found");
+            return;
+        }
+
+        if (tail.value == point) {
+            insertNodeAtEnd(value);
+            return;
+        }
+
+        Node temp = head;
+        while (temp != null) {
+            if (temp.value == point && temp.next != null) {
+                node.next = temp.next;
+                temp.next = node;
+                size++;
+                break;
+            }
+            temp = temp.next;
+        }
+    }
+
+    public void delete(int value) {
+        if (!isContains(value)) {
+            System.err.println("Given element isn't found");
+            return;
+        }
+
+        Node node = head;
+        while (node.next != null) {
+            if (node.next.value == value) {
+                node.next = node.next.next;
+                size--;
+                break;
+            }
+            node = node.next;
+        }
+    }
+
+    public void deleteAtFront() {
+        if (isEmpty()) {
+            System.err.println("Empty List");
+            return;
+        }
+        if (head.next.next != null) {
+            head.next = head.next.next;
+            size--;
+            return;
+        }
+        head.next = null;
+    }
+
+    public void deleteAtEnd() {
+        if (isEmpty()) {
+            System.err.println("Empty List");
+            return;
+        }
+        // condition to handle single node in linkedlist
+        if (head == tail) {
+            head = tail = null;
+            return;
+        }
+        Node node = head;
+        // go to previous node of last node
+        while (node.next.next != null) {
+            node = node.next;
+        }
+        tail = node.next;
+        node.next = null;
+        size--;
     }
 
     public static void main(String[] args) {
@@ -102,6 +161,8 @@ public class SingleLinkedList {
         singleLinkedList.insertAtSomePoint(90, 80);
         singleLinkedList.insertAtSomePoint(40, 100);
         singleLinkedList.insertAtSomePoint(60, 110);
-        printLinkedList(head);
+        // singleLinkedList.delete(90);
+        singleLinkedList.deleteAtEnd();
+        singleLinkedList.printLinkedList();
     }
 }

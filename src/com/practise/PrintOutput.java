@@ -1,7 +1,5 @@
 package com.practise;
 
-import com.practise.ds.linkedlist.SingleLinkedList;
-
 public class PrintOutput {
 
 
@@ -12,13 +10,5 @@ public class PrintOutput {
             System.out.print(i + " ");
         }
         System.out.print(" ]");
-    }
-
-    public void printLinkedList() {        
-        int i = 0;
-        while (head != null) {
-            System.out.println(i + " -> " + head.value);
-            head = head.next;
-        }
     }
 }
