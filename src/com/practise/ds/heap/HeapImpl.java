@@ -27,7 +27,7 @@ public class HeapImpl {
     }
 
     private void buildMaxHeapImpl(int[] arr, int n) {
-        for (int i = n / 2; i >= 0;i--) {
+        for (int i = n / 2; i >= 0; i--) {
             heapify(arr, n, i);
         }
     }
@@ -51,8 +51,32 @@ public class HeapImpl {
         }
     }
 
+    private void heapSortImpl(int[] arr, int n) {
+        int temp;
+        buildMaxHeapImpl(arr, n);
+
+
+        for (int i=n-1; i>=0; i--) {
+
+            //arr[0] is a root of the heap and is the max element in heap
+            temp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = temp;
+
+            // call max heapify on the reduced heap
+            heapify(arr, i, 0);
+        }
+    }
+
     private void buildMaxHeap() {
-        buildMaxHeapImpl(arr, arr.length-1);
+        buildMaxHeapImpl(arr, arr.length);
+        for (int i : arr) {
+            System.out.println(i);
+        }
+    }
+
+    private void heapSort() {
+        heapSortImpl(arr, arr.length);
         for (int i : arr) {
             System.out.println(i);
         }
@@ -61,8 +85,8 @@ public class HeapImpl {
     public static void main(String[] args) {
         int given[] = { 4, 1, 3, 2, 16, 9, 10, 14, 8, 7 };
         HeapImpl heap = new HeapImpl(given);
-        heap.buildMaxHeap();
-        
+        // heap.buildMaxHeap();
+        heap.heapSort();
     }
 
 }
