@@ -1,8 +1,6 @@
 package com.practise.problemsolving.linkedlist;
 
-import java.util.Stack;
-
-public class FindKthNodeFromEnd {
+public class SSLProblems {
 
     Node head;
 
@@ -128,6 +126,61 @@ public class FindKthNodeFromEnd {
         return null;
     }
 
+    private void splitSLL(Node head) {
+        Node list1;
+        Node list2;
+        for (int i = 0; head != null; i++) {
+            if (i % 2 == 0) {
+                list1 = insert(head.data);
+            } else {
+                list2 = insert(head.data);
+            }
+            head = head.next;
+        }
+    }
+
+    private Node addNumbers(Node first, Node second) {
+        int q = 0;
+        int r = 0;
+        int sum = 0;
+        Node head = null;
+        Node temp = null;
+        while (first != null || second != null) {
+            sum = q + (((first != null) ? first.data : 0) + ((second != null) ? second.data : 0));
+            r = sum % 10;
+            q = sum / 10;
+            Node newNode = new Node(r);
+            if (head == null) {
+                head = newNode;
+            } else {
+                temp = head;
+                while (temp.next != null) {
+                    temp = temp.next;
+                }
+                temp.next = newNode;
+                newNode.next = null;
+            }
+            if (first != null) {
+                first = first.next;
+            }
+            if (second != null) {
+                second = second.next;
+            }
+        }
+        // to cover the edge case like 900+901 = 1801 - here we have to create extra one
+        // node to store last digit
+        if (q > 0) {
+            Node newNode = new Node(q);
+            temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+            newNode.next = null;
+        }
+        return head;
+    }
+
     private Node reverse(Node head) {
         Node previous = null;
         Node current = head;
@@ -141,8 +194,47 @@ public class FindKthNodeFromEnd {
         return previous;
     }
 
+    static Node mergeTwoSortedList(Node head1, Node head2) {
+        // edge case - if one of the given list is null, it will return another one.
+        if (head1 == null) {
+            return head2;
+        }
+        if (head2 == null) {
+            return head1;
+        }
+        Node temp;
+        Node mergeList;
+        // Set correct head value to mergeList to keep track and it will be used as head of  mergeList 
+        if (head1.data > head2.data) {
+            mergeList = head2;
+            head2 = head2.next;
+        } else {
+            mergeList = head1;
+            head1 = head1.next;
+        }
+        temp = mergeList;
+        while (head1 != null && head2 != null) {
+            if (head1.data > head2.data) {
+                temp.next = head2;
+                head2 = head2.next;
+            } else {
+                temp.next = head1;
+                head1 = head1.next;
+            }
+            temp = temp.next;
+        }
+        // edge case - will execute when number nodes of two list is not equal
+        if (head1 != null) {
+            temp.next = head1;
+        }
+        if (head2 != null) {
+            temp.next = head2;
+        }
+        return mergeList;
+    }
+
     public static void main(String[] args) {
-        FindKthNodeFromEnd findKthNodeFromEnd = new FindKthNodeFromEnd();
+        SSLProblems findKthNodeFromEnd = new SSLProblems();
         int arr[] = { 1, 2, 2, 2, 2, 1 };
         for (int i : arr) {
             findKthNodeFromEnd.head = findKthNodeFromEnd.insert(i);
