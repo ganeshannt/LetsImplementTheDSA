@@ -1,5 +1,8 @@
 package com.practise.problemsolving.array;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RotateArrayKtimes {
 
     private void avarageApproach(int[] arr, int k) {
@@ -63,9 +66,37 @@ public class RotateArrayKtimes {
         arr[second] = temp;
     }
 
+    public void rotateLeft(int d, List<Integer> arr) {
+        // Write your code here
+        int n = arr.size();
+        d = n-d;
+        reverseList(arr, n - d, n - 1);
+        reverseList(arr, 0, n - d - 1);
+        reverseList(arr, 0, n - 1);
+    }
+
+    private void reverseList(List<Integer> arr, int low, int high) {
+        while (low < high) {
+            swapList(arr, low, high);
+            low++;
+            high--;
+        }
+    }
+
+    private void swapList(List<Integer> arr, int first, int second) {
+        int temp = arr.get(first);
+        arr.set(first, arr.get(second));
+        arr.set(second, temp);
+    }
+
     public static void main(String[] args) {
         RotateArrayKtimes element = new RotateArrayKtimes();
-        int arr[] = { 1, 2, 3, 4, 5, 6, 7 };
+        int arr[] = { 1, 2, 3, 4, 5 };
         element.bestApproach3(arr, 3);
+        List<Integer> arrList = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            arrList.add(i, arr[i]);
+        }
+        element.rotateLeft(4,arrList);
     }
 }
