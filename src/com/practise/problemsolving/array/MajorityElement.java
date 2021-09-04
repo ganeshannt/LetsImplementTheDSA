@@ -58,5 +58,4 @@ public class MajorityElement {
         m = element.boyerMooreAlgorithm(arr);
         System.out.println(m);
     }
-
 }

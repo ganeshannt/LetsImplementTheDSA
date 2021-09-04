@@ -84,6 +84,8 @@ public class MergeSort {
             arr[i] = temparr[i - start];
         }
 
+
+
         PrintOutput.printArray(arr);
     }
 
@@ -99,7 +101,7 @@ public class MergeSort {
     public static void main(String Args[]) {
         // int arr[] = { 23, 21, 4, 2, 54, 67, 86, 67, 34, 7, 6, 43, 8, 9, 665, 346, 97,
         // 546, 675, 25, 76 };
-        int arr2[] = { 9, 6, 5, 0, 8, 2 };
+        int arr2[] = { 1, 234, 45, 3453, 45345, 2354, 34545, 43, 2, 34, 435345, 23 };
         // iterativeSelectionSort(arr2);
         recursiveMergeSort(arr2, 0, arr2.length-1);
     }
