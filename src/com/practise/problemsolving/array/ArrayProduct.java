@@ -1,5 +1,7 @@
 package com.practise.problemsolving.array;
 
+import org.junit.Test;
+
 public class ArrayProduct {
 
     private void firstApproach(int[] arr) {
@@ -51,5 +53,10 @@ public class ArrayProduct {
         int arr[] = { 1, 2, 3, 4 };
         ArrayProduct arrayProduct = new ArrayProduct();
         arrayProduct.bestApproach(arr);
+    }
+
+    @Test
+    public void testArrayProduct(){
+
     }
 }
