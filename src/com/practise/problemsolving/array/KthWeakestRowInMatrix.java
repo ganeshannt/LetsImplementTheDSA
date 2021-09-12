@@ -1,7 +1,11 @@
 package com.practise.problemsolving.array;
 
+
 import java.util.Arrays;
 import java.util.PriorityQueue;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 public class KthWeakestRowInMatrix {
 
@@ -36,7 +40,7 @@ public class KthWeakestRowInMatrix {
         }
     }
 
-    private void arrayBasedApproach(int[][] arr,int k) {
+    private int[] arrayBasedApproach(int[][] arr, int k) {
         int row = arr.length;
         int col = arr[0].length;
         int count = 0;
@@ -59,14 +63,23 @@ public class KthWeakestRowInMatrix {
             k--;
             result[k] = arr2[k] % 1000;
         }
+
         for (int i : result) {
             System.out.println(i);
         }
+        return result;
     }
 
-    public static void main(String[] args) {
-        KthWeakestRowInMatrix matrix = new KthWeakestRowInMatrix();
+    // public static void main(String[] args) {
+    // KthWeakestRowInMatrix matrix = new KthWeakestRowInMatrix();
+    // int[][] arr = { { 1, 1, 0, 0, 0 }, { 1, 1, 1, 1, 0 }, { 1, 0, 0, 0, 0 }, { 1,
+    // 1, 0, 0, 0 }, { 1, 1, 1, 1, 1 } };
+    // matrix.priorityQueueBasedApproach(arr, 3);
+    // }
+
+    @Test
+    public void testArrayBasedApproach() {
         int[][] arr = { { 1, 1, 0, 0, 0 }, { 1, 1, 1, 1, 0 }, { 1, 0, 0, 0, 0 }, { 1, 1, 0, 0, 0 }, { 1, 1, 1, 1, 1 } };
-        matrix.priorityQueueBasedApproach(arr, 3);
+        Assert.assertArrayEquals(new int[] { 2, 0, 3 }, arrayBasedApproach(arr, 3));
     }
 }

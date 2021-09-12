@@ -54,9 +54,4 @@ public class ArrayProduct {
         ArrayProduct arrayProduct = new ArrayProduct();
         arrayProduct.bestApproach(arr);
     }
-
-    @Test
-    public void testArrayProduct(){
-
-    }
 }
