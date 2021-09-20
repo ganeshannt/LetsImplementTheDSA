@@ -1,5 +1,7 @@
 package com.practise.problemsolving.string;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 import org.junit.Assert;
@@ -80,14 +82,59 @@ public class RemoveAllDuplicates {
         return builder.reverse().toString().trim();
     }
 
+    // tc - o(n)
+    // sc - o(n)
+    private int firstUniqueCharacterBruteForceApprach(String s) {
+        char[] chararr = s.toCharArray();
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < chararr.length; i++) {
+            if (map.containsKey(chararr[i])) {
+                chararr[map.get(chararr[i])] = '0';
+                chararr[i] = '0';
+            } else {
+                map.put(chararr[i], i);
+            }
+        }
+        for (int i = 0; i < chararr.length; i++) {
+            if (chararr[i] != '0') {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    // Time complexity : O(N) since we go through the string of length
+    // N two times.
+    // Space complexity : O(1) because English alphabet contains 26
+    // letters.
+    private int firstUniqueCharacterBestApproach(String s) {
+        HashMap<Character, Integer> count = new HashMap<Character, Integer>();
+        int n = s.length();
+        // build hash map : character and how often it appears
+        for (int i = 0; i < n; i++) {
+            char c = s.charAt(i);
+            count.put(c, count.getOrDefault(c, 0) + 1);
+        }
+
+        // find the index
+        for (int i = 0; i < n; i++) {
+            if (count.get(s.charAt(i)) == 1)
+                return i;
+        }
+        return -1;
+    }
+
     @Test
     public void testRemoveAllDuplicates() {
         RemoveAllDuplicates allDuplicates = new RemoveAllDuplicates();
         // String input = "ganeshannagarajan";
         // String output = "ganeshrj";
         // Assert.assertEquals(output, allDuplicates.bruteForceApproach(input));
-        String input2 = "azxxxzy";
-        String output2 = "azxzy";
-        Assert.assertEquals(output2, allDuplicates.removeAllAdjecentDuplicatesUsingStack(input2));
+        // String input2 = "azxxxzy";
+        // String output2 = "azxzy";
+        // Assert.assertEquals(output2,
+        // allDuplicates.removeAllAdjecentDuplicatesUsingStack(input2));
+        String input3 = "loveleetcode";
+        Assert.assertEquals(2, allDuplicates.firstUniqueCharacterBruteForceApprach(input3));
     }
 }

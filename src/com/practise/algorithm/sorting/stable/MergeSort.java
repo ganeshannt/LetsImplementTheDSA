@@ -53,7 +53,6 @@ public class MergeSort {
         int i, j, temp_index = 0;
         i = start;
         j = mid + 1;
-
         int[] temparr = new int[end - start + 1];
 
         while (i <= mid && j <= end) {
@@ -72,21 +71,15 @@ public class MergeSort {
             i += 1;
             temp_index += 1;
         }
-
         while (j <= end) {
             temparr[temp_index] = arr[j];
             j += 1;
             temp_index += 1;
         }
-
         // copy temp to original interval
         for(i = start; i <= end; i += 1) {
             arr[i] = temparr[i - start];
         }
-
-
-
-        PrintOutput.printArray(arr);
     }
 
     public static void recursiveMergeSort(int arr[], int start, int end) {

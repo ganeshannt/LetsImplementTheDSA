@@ -1,5 +1,9 @@
 package com.practise.algorithm.sorting.stable;
 
+import java.util.ArrayList;
+
+import java.util.List;
+
 import com.practise.PrintOutput;
 
 public class InsertionSort {
@@ -38,6 +42,14 @@ public class InsertionSort {
 
     public static void recursiveInsertionSort(int arr[]) {
         recursiveInsertionSortImpl(arr, arr.length);
+    }
+
+    public static void insertionSort1(int n, List<Integer> arr) {
+        List<Integer> arr1 = new ArrayList<>();
+        
+        for(int i:arr){
+            System.out.println(i+" ");
+        }
     }
 
     public static void main(String Args[]) {

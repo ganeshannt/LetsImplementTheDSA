@@ -185,14 +185,14 @@ public class HeapImpl {
     public static void main(String[] args) {
         int given[] = { 4, 1, 3, 2, 16, 9, 10, 14, 8, 7 };
         HeapImpl heap = new HeapImpl(given);
-        heap.buildMaxHeap();
-        // heap.heapSort();
+        // heap.buildMaxHeap();
+        heap.heapSort();
         System.out.println("==================================");
         // heap.insertIntoHeap(5);
         // heap.printHeap();
         // heap.increaseKey(3, 18);
         // heap.printHeap();
-        heap.extractMax();
-        heap.printHeap();
+        // heap.extractMax();
+        // heap.printHeap();
     }
 }
