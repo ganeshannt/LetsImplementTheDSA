@@ -1,6 +1,6 @@
 package com.practise.algorithm.sorting.stable;
 
-import com.practise.PrintOutput;
+import com.practise.CommonUtils;
 
 public class MergeSort {
 
@@ -14,7 +14,7 @@ public class MergeSort {
                 }
             }
         }
-        PrintOutput.printArray(arr);
+        CommonUtils.printArray(arr);
         return arr;
     }
 
@@ -46,7 +46,7 @@ public class MergeSort {
             }
             k += 1;
         }
-        PrintOutput.printArray(arr);
+        CommonUtils.printArray(arr);
     }
 
     public static void mergeProcedure(int arr[], int start, int end, int mid) {

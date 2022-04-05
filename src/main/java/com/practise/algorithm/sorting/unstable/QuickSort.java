@@ -1,17 +1,8 @@
 package com.practise.algorithm.sorting.unstable;
 
-import com.practise.PrintOutput;
+import com.practise.CommonUtils;
 
 public class QuickSort {
-
-    // Utility function to swap values
-    private static void swap(int[] arr, int i, int j) {
-        if (i != j) {
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
-    }
 
     // Quick sort partitioning
     private static int quickSortPartition(int arr[], int start, int end) {
@@ -20,10 +11,10 @@ public class QuickSort {
         for (int j = start; j <= end - 1; j++) {
             if (arr[j] < piviot) {
                 i++;
-                swap(arr, i, j);
+                CommonUtils.swapByIndex(arr, i, j);
             }
         }
-        swap(arr, i + 1, end);
+        CommonUtils.swapByIndex(arr, i + 1, end);
         return (i + 1);
     }
 
@@ -32,7 +23,7 @@ public class QuickSort {
             int pi = quickSortPartition(arr, start, end);
             recursiveQuickSort(arr, start, pi - 1);
             recursiveQuickSort(arr, pi + 1, end);
-            PrintOutput.printArray(arr);
+            CommonUtils.printArray(arr);
         }
     }
 

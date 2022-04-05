@@ -2,11 +2,6 @@ package com.practise.algorithm.searching;
 
 import java.util.Arrays;
 
-//sdfsd
-/*
-hi .... 
-*/
-
 public class SearchingAlgorithms {
 
     public static int linearSearch(int arr[], int searchElement) {

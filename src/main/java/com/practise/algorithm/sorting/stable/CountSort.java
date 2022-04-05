@@ -1,6 +1,6 @@
 package com.practise.algorithm.sorting.stable;
 
-import com.practise.PrintOutput;
+import com.practise.CommonUtils;
 
 public class CountSort {
 
@@ -26,7 +26,7 @@ public class CountSort {
                 }
             }
         }
-        PrintOutput.printArray(arr);
+        CommonUtils.printArray(arr);
     }
 
 

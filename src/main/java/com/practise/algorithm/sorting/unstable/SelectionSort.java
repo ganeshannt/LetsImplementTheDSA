@@ -1,6 +1,16 @@
 package com.practise.algorithm.sorting.unstable;
 
-import com.practise.PrintOutput;
+import com.practise.CommonUtils;
+
+/*
+Time Complexity: O(N2)
+Space Complexity: O(1)
+
+Best Suited Scenario:
+1)  Array data structures
+2)  given collection is in completely unsorted order.
+3)  due to time complexity, it is not feasible large number of data set
+ */
 
 public class SelectionSort {
 
@@ -16,12 +26,10 @@ public class SelectionSort {
                 }
             }
             if (i != min_index) {
-                arr[min_index] = arr[i] + arr[min_index];
-                arr[i] = arr[min_index] - arr[i];
-                arr[min_index] = arr[min_index] - arr[i];
+                CommonUtils.swapByIndex(arr, i, min_index);
             }
         }
-        PrintOutput.printArray(arr);
+        CommonUtils.printArray(arr);
     }
 
     public static void main(String[] args) {

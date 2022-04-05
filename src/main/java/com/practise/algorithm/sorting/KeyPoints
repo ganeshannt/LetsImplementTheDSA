@@ -26,3 +26,11 @@ In-Place Sorting algorithm:
     Bubble sort
     insertion sort
     selection sort
+
+Comparison based sorting algorithms:
+a) In comparison-based sorting algorithms, we need to compare elements of a collection with each other in order to identify the correct order of elements
+b) Algorithms in this category have a complexity lower bound of nlogn.
+
+Non-comparison based sorting algorithms:
+a) Unlike comparison-based algorithms, non-comparison-based sorting algorithms use additional information and operations other than simple elements comparison to determine the correct sorted order.
+b) As a result, they don't bound to the complexity of nlogn

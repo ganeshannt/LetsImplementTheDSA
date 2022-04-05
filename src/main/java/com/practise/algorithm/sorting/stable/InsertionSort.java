@@ -1,9 +1,22 @@
 package com.practise.algorithm.sorting.stable;
 
-import com.practise.PrintOutput;
+import com.practise.CommonUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/*
+ in-place comparison-based sorting algorithms.
+ In this algorithm, a sub-collection is maintained which is always in order(sorted)
+
+Time Complexity: O(N2)
+
+Space Complexity: O(1)
+Best Suited Scenario:
+1)  Array and Linked list data structures
+2)  given collection is in partially unsorted order
+3)  due to time complexity, it is not feasible large number of data set
+ */
 
 public class InsertionSort {
 
@@ -18,7 +31,7 @@ public class InsertionSort {
             }
             arr[j + 1] = key;
         }
-        PrintOutput.printArray(arr);
+        CommonUtils.printArray(arr);
     }
 
     public static void recursiveInsertionSortImpl(int arr[], int n) {
@@ -36,7 +49,7 @@ public class InsertionSort {
         }
         arr[j + 1] = key;
         System.out.println();
-        PrintOutput.printArray(arr);
+        CommonUtils.printArray(arr);
     }
 
     public static void recursiveInsertionSort(int arr[]) {

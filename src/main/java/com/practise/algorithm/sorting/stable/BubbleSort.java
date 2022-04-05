@@ -1,6 +1,6 @@
 package com.practise.algorithm.sorting.stable;
 
-import com.practise.PrintOutput;
+import com.practise.CommonUtils;
 
 public class BubbleSort {
 
@@ -18,9 +18,7 @@ public class BubbleSort {
             swapped = false;
             for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    arr[j] = arr[j] + arr[j + 1];
-                    arr[j + 1] = arr[j] - arr[j + 1];
-                    arr[j] = arr[j] - arr[j + 1];
+                    CommonUtils.swapByIndex(arr, j, j + 1);
                     swapped = true;
                 }
             }
@@ -28,7 +26,7 @@ public class BubbleSort {
                 break;
             }
         }
-        PrintOutput.printArray(arr);
+        CommonUtils.printArray(arr);
     }
 
     public static void main(String Args[]) {
