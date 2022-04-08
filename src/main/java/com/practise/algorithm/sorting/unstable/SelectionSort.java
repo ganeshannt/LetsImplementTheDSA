@@ -3,6 +3,13 @@ package com.practise.algorithm.sorting.unstable;
 import com.practise.CommonUtils;
 
 /*
+
+Process
+This algorithm is an in-place comparison-based algorithm that divided the list into two parts, the sorted part at the left end and the unsorted part at the right end.
+Initially, the sorted part is empty and the unsorted part is the entire list.
+The smallest element is selected from the unsorted array and swapped with the leftmost element, and that element becomes a part of the sorted array.
+This process continues moving unsorted array boundary by one element to the right.
+
 Time Complexity: O(N2)
 Space Complexity: O(1)
 
@@ -10,6 +17,7 @@ Best Suited Scenario:
 1)  Array data structures
 2)  given collection is in completely unsorted order.
 3)  due to time complexity, it is not feasible large number of data set
+
  */
 
 public class SelectionSort {

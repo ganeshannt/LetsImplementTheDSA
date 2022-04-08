@@ -2,14 +2,25 @@ package com.practise.algorithm.sorting.unstable;
 
 import com.practise.CommonUtils;
 
+/*
+
+Time Complexity ( best and average cases): O(NlogN), O(N2) - worst case
+Space Complexity: O(N)
+
+Comparison with Merge Sort
+    With quick sort, there is no need to use the auxiliary array that we used in the merge sort approach.
+    This reduces the space complexity and choosing a random pivot from array improves the time complexity as well.
+*/
+
+
 public class QuickSort {
 
     // Quick sort partitioning
     private static int quickSortPartition(int arr[], int start, int end) {
         int i = start - 1;
-        int piviot = arr[end];
+        int pivot = arr[end];
         for (int j = start; j <= end - 1; j++) {
-            if (arr[j] < piviot) {
+            if (arr[j] < pivot) {
                 i++;
                 CommonUtils.swapByIndex(arr, i, j);
             }

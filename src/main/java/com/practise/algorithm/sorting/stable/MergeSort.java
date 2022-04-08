@@ -2,15 +2,25 @@ package com.practise.algorithm.sorting.stable;
 
 import com.practise.CommonUtils;
 
+
+
+/*
+Time Complexity (all cases): O(NlogN)
+Space Complexity: O(N)
+
+Best Suited Scenario:
+	1)  Array data structures
+	2)  given collection is in completely unsorted order.
+    3)  due to time complexity, it is feasible for very large number of data set
+*
+* */
 public class MergeSort {
 
     private static int[] sortArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    arr[j] = arr[j] + arr[j + 1];
-                    arr[j + 1] = arr[j] - arr[j + 1];
-                    arr[j] = arr[j] - arr[j + 1];
+                    CommonUtils.swapByIndex(arr, j, j + 1);
                 }
             }
         }

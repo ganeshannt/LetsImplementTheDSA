@@ -14,9 +14,6 @@ Unstable Algorithm:
     Quick Sort
     Heap Sort
 
-
-
-
 In-Place Sorting algorithm:
 
     => An In-Place Sorting Algorithm directly modifies the list that is received as input instead of creating a new list that is then modified.

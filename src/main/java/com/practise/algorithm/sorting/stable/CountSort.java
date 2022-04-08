@@ -34,12 +34,9 @@ public class CountSort {
 
     }
 
-
     public static void main(String[] args) {
         int arr[] = {23, 21, 4, 2, 54, 67, 86, 67, 34, 7, 6, 43, 8, 9, 665, 346, 97, 546, 675, 25, 76};
         int arr2[] = {1, 2, 2, 3, 6, 5, 4, 7, 8, 7, 7, 6, 8, 9, 3};
         iterativeSimpleCountSort(arr2);
     }
-
-
 }

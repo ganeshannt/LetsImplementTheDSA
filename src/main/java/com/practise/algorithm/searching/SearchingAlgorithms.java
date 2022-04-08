@@ -29,7 +29,7 @@ public class SearchingAlgorithms {
     }
 
 
-    //    It should be sorted
+    //    given array should be sorted
     public static int iterativeBinarySearch(int arr[], int searchElement) {
         int start = 0;
         int end = arr.length;
@@ -71,10 +71,7 @@ public class SearchingAlgorithms {
     public static void main(String Args[]) {
         int arr[] = {23, 21, 4, 2, 54, 67, 86, 67, 34, 7, 6, 43, 8, 9, 665, 346, 97, 546, 675, 25, 76};
         int arr1[] = {15};
-//        System.out.println(linearSearch(arr, 7));
         Arrays.sort(arr);
-//        System.out.println(iterativeBinarySearch(arr,2342));
-//        System.out.println(recursiveBinarySearch(arr,2323));
         System.out.println(recursiveLinearSearch(arr1, 1));
     }
 }
