@@ -1,5 +1,7 @@
 package com.practise.ds.heap;
 
+import com.practise.CommonUtils;
+
 /**
  * heap
  * <p>
@@ -25,19 +27,6 @@ public class HeapImpl {
         size = given.length;
     }
 
-    public static void main(String[] args) {
-        int given[] = {4, 1, 3, 2, 16, 9, 10, 14, 8, 7};
-        HeapImpl heap = new HeapImpl(given);
-        // heap.buildMaxHeap();
-        heap.heapSort();
-        System.out.println("==================================");
-        // heap.insertIntoHeap(5);
-        // heap.printHeap();
-        // heap.increaseKey(3, 18);
-        // heap.printHeap();
-        // heap.extractMax();
-        // heap.printHeap();
-    }
 
     private void buildMaxHeapImpl(int[] arr, int n) {
         for (int i = n / 2; i >= 0; i--) {
@@ -57,7 +46,7 @@ public class HeapImpl {
         }
         // if root is not largest then swap the element and call heapify recursively
         if (i != largest_index) {
-            swapByUsingIndex(arr, i, largest_index);
+            CommonUtils.swapByIndex(arr, i, largest_index);
             heapify(arr, n, largest_index);
         }
     }
@@ -69,7 +58,7 @@ public class HeapImpl {
 
             // arr[0] is a root of the heap and is the max element in heap
 
-            swapByUsingIndex(arr, 0, i);
+            CommonUtils.swapByIndex(arr, 0, i);
 
             // call max heapify on the reduced heap
             heapify(arr, i, 0);
@@ -87,7 +76,7 @@ public class HeapImpl {
         size++;
         int parent_index = getParentIndex(n);
         while (n > 0 && arr[n] > arr[parent_index]) {
-            swapByUsingIndex(arr, n, parent_index);
+            CommonUtils.swapByIndex(arr, n, parent_index);
             n = parent_index;
         }
     }
@@ -118,7 +107,7 @@ public class HeapImpl {
         int oldValue_index = getIndexByValue(oldValue);
         arr[oldValue_index] = newValue;
         while (oldValue > 0 && arr[oldValue_index] > arr[getParentIndex(oldValue_index)]) {
-            swapByUsingIndex(arr, oldValue_index, getParentIndex(oldValue_index));
+            CommonUtils.swapByIndex(arr, oldValue_index, getParentIndex(oldValue_index));
             oldValue_index = getParentIndex(oldValue_index);
         }
     }
@@ -131,12 +120,6 @@ public class HeapImpl {
             }
         }
         return -1;
-    }
-
-    private void swapByUsingIndex(int arr[], int first, int second) {
-        int temp = arr[first];
-        arr[first] = arr[second];
-        arr[second] = temp;
     }
 
     private int getParentIndex(int index) {
@@ -193,5 +176,19 @@ public class HeapImpl {
 
     private void increaseKey(int oldValue, int newValue) {
         increaseKeyImpl(arr, oldValue, newValue);
+    }
+
+    public static void main(String[] args) {
+        int given[] = {4, 1, 3, 2, 16, 9, 10, 14, 8, 7};
+        HeapImpl heap = new HeapImpl(given);
+        // heap.buildMaxHeap();
+        heap.heapSort();
+        System.out.println("==================================");
+        // heap.insertIntoHeap(5);
+        // heap.printHeap();
+        // heap.increaseKey(3, 18);
+        // heap.printHeap();
+        // heap.extractMax();
+        // heap.printHeap();
     }
 }

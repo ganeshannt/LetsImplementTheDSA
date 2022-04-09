@@ -1,25 +1,17 @@
 package com.practise.ds.linkedlist;
 
+import com.practise.CommonUtils;
+
 public class DoubleLinkedList {
 
-    private Node head;
-    private Node tail;
+    private DLLNode head;
+    private DLLNode tail;
     private int size;
 
     public DoubleLinkedList() {
         head = null;
         tail = null;
         size = 0;
-    }
-
-    public static void main(String[] args) {
-        DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
-        doubleLinkedList.insertNodeAtFront(10);
-        doubleLinkedList.insertNodeAtFront(20);
-        doubleLinkedList.insertNodeAtFront(30);
-        doubleLinkedList.insertNodeAtFront(40);
-        doubleLinkedList.delete(30);
-        doubleLinkedList.printDoubleLinkedList();
     }
 
     // Utility functions
@@ -32,7 +24,7 @@ public class DoubleLinkedList {
     }
 
     public boolean isContains(int value) {
-        Node node = head;
+        DLLNode node = head;
         while (node.next != null) {
             if (node.value == value)
                 return true;
@@ -42,7 +34,7 @@ public class DoubleLinkedList {
     }
 
     public void printDoubleLinkedList() {
-        Node node = head;
+        DLLNode node = head;
         int i = 0;
         while (node != null) {
             System.out.println(i + " -> " + node.value);
@@ -54,7 +46,7 @@ public class DoubleLinkedList {
     /************************************************************** */
     // Insert operation
     public void insertNodeAtFront(int value) {
-        Node node = new Node(value);
+        DLLNode node = new DLLNode(value);
         if (isEmpty()) {
             head = tail = node;
             return;
@@ -66,7 +58,7 @@ public class DoubleLinkedList {
     }
 
     public void insertNodeAtEnd(int value) {
-        Node node = new Node(value);
+        DLLNode node = new DLLNode(value);
         if (isEmpty()) {
             head = tail = node;
             return;
@@ -93,8 +85,8 @@ public class DoubleLinkedList {
             return;
         }
 
-        Node node = new Node(value);
-        Node temp = head;
+        DLLNode node = new DLLNode(value);
+        DLLNode temp = head;
 
         while (temp.next != null) {
             if (temp.next.value == point) {
@@ -146,7 +138,7 @@ public class DoubleLinkedList {
             return;
         }
 
-        Node temp = head;
+        DLLNode temp = head;
         while (temp.next != null) {
             if (temp.next.value == point) {
                 temp.next = temp.next.next;
@@ -159,13 +151,14 @@ public class DoubleLinkedList {
         System.err.println("Element is not found");
     }
 
-    class Node {
-        Node previous;
-        Node next;
-        int value;
 
-        public Node(int value) {
-            this.value = value;
-        }
+    public static void main(String[] args) {
+        DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
+        doubleLinkedList.insertNodeAtFront(10);
+        doubleLinkedList.insertNodeAtFront(20);
+        doubleLinkedList.insertNodeAtFront(30);
+        doubleLinkedList.insertNodeAtFront(40);
+        doubleLinkedList.delete(30);
+        CommonUtils.printDoubleLinkedList(doubleLinkedList.head);
     }
 }

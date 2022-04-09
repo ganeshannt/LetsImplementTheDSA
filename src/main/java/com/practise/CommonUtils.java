@@ -1,5 +1,8 @@
 package com.practise;
 
+import com.practise.ds.linkedlist.DLLNode;
+import com.practise.ds.linkedlist.Node;
+
 import java.util.List;
 
 public class CommonUtils {
@@ -20,6 +23,33 @@ public class CommonUtils {
             System.out.println(val);
         }
         System.out.print(" ]");
+        System.out.println();
+    }
+
+    public static void printSingleLinkedList(Node head) {
+        while (head != null) {
+            System.out.print("[ ");
+            System.out.print(head.value);
+            System.out.print(" ]");
+            if (head.next != null) {
+                System.out.print(" -> ");
+            }
+            head = head.next;
+        }
+        System.out.println();
+    }
+
+
+    public static void printDoubleLinkedList(DLLNode head) {
+        while (head != null) {
+            System.out.print("[ ");
+            System.out.print(head.value);
+            System.out.print(" ]");
+            if (head.next != null) {
+                System.out.print(" -> ");
+            }
+            head = head.next;
+        }
         System.out.println();
     }
 

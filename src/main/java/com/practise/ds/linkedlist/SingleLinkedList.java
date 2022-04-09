@@ -1,5 +1,7 @@
 package com.practise.ds.linkedlist;
 
+import com.practise.CommonUtils;
+
 public class SingleLinkedList {
 
     public Node head, tail;
@@ -11,22 +13,6 @@ public class SingleLinkedList {
         size = 0;
     }
 
-    public static void main(String[] args) {
-        SingleLinkedList singleLinkedList = new SingleLinkedList();
-        singleLinkedList.insertNodeAtFront(10);
-        singleLinkedList.insertNodeAtFront(20);
-        singleLinkedList.insertNodeAtFront(30);
-        singleLinkedList.insertNodeAtFront(40);
-        singleLinkedList.insertNodeAtEnd(50);
-        singleLinkedList.insertNodeAtEnd(60);
-        singleLinkedList.insertAtSomePoint(10, 90);
-        singleLinkedList.insertAtSomePoint(90, 80);
-        singleLinkedList.insertAtSomePoint(40, 100);
-        singleLinkedList.insertAtSomePoint(60, 110);
-        // singleLinkedList.delete(90);
-        singleLinkedList.deleteAtEnd();
-        singleLinkedList.printLinkedList();
-    }
 
     // Utility functions
     private boolean isEmpty() {
@@ -48,15 +34,6 @@ public class SingleLinkedList {
             node = node.next;
         }
         return false;
-    }
-
-    public void printLinkedList() {
-        int i = 0;
-        while (head != null) {
-            System.out.println(i + " -> " + head.value);
-            head = head.next;
-            i++;
-        }
     }
 
     /***********************************************************/
@@ -157,12 +134,21 @@ public class SingleLinkedList {
         size--;
     }
 
-    class Node {
-        int value;
-        Node next;
 
-        public Node(int value) {
-            this.value = value;
-        }
+    public static void main(String[] args) {
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+        singleLinkedList.insertNodeAtFront(10);
+        singleLinkedList.insertNodeAtFront(20);
+        singleLinkedList.insertNodeAtFront(30);
+        singleLinkedList.insertNodeAtFront(40);
+        singleLinkedList.insertNodeAtEnd(50);
+        singleLinkedList.insertNodeAtEnd(60);
+        singleLinkedList.insertAtSomePoint(10, 90);
+        singleLinkedList.insertAtSomePoint(90, 80);
+        singleLinkedList.insertAtSomePoint(40, 100);
+        singleLinkedList.insertAtSomePoint(60, 110);
+        // singleLinkedList.delete(90);
+        singleLinkedList.deleteAtEnd();
+        CommonUtils.printSingleLinkedList(singleLinkedList.head);
     }
 }
