@@ -1,7 +1,7 @@
 package com.practise.random;
 
-import com.practise.CommonUtils;
-import com.practise.ds.linkedlist.Node;
+import com.practise.commons.Utils;
+import com.practise.commons.Node;
 
 /**
  * @author Ganeshan Nagarajan
@@ -50,11 +50,11 @@ public class ReverseLinkedList {
         list.addNode(30);
         list.addNode(40);
         list.addNode(50);
-        CommonUtils.printSingleLinkedList(list.head);
+        Utils.printSingleLinkedList(list.head);
         list.reverse();
-        CommonUtils.printSingleLinkedList(list.head);
+        Utils.printSingleLinkedList(list.head);
         list.reverse();
-        CommonUtils.printSingleLinkedList(list.head);
+        Utils.printSingleLinkedList(list.head);
     }
 
 }

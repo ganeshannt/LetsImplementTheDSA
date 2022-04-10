@@ -1,6 +1,7 @@
 package com.practise.ds.linkedlist;
 
-import com.practise.CommonUtils;
+import com.practise.commons.DLLNode;
+import com.practise.commons.Utils;
 
 public class DoubleLinkedList {
 
@@ -159,6 +160,6 @@ public class DoubleLinkedList {
         doubleLinkedList.insertNodeAtFront(30);
         doubleLinkedList.insertNodeAtFront(40);
         doubleLinkedList.delete(30);
-        CommonUtils.printDoubleLinkedList(doubleLinkedList.head);
+        Utils.printDoubleLinkedList(doubleLinkedList.head);
     }
 }

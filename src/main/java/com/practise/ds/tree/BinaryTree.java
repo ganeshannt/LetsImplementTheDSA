@@ -1,22 +1,15 @@
 package com.practise.ds.tree;
 
+import com.practise.commons.TreeNode;
+
+import static com.practise.commons.Utils.*;
+
 public class BinaryTree {
 
     TreeNode root;
 
     public BinaryTree() {
         root = null;
-    }
-
-    public static void main(String[] args) {
-        BinaryTree bt = new BinaryTree();
-        bt.add(10);
-        bt.add(20);
-        bt.add(30);
-        bt.add(40);
-        bt.add(50);
-        bt.add(60);
-        bt.preOrder();
     }
 
     public TreeNode addInTree(TreeNode root, int value) {
@@ -82,35 +75,6 @@ public class BinaryTree {
     }
 
     /****************************************************************************************/
-    // Traversal
-    public void preOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        preOrderTraversal(root.left);
-        preOrderTraversal(root.right);
-        System.out.println(root.value);
-    }
-
-    public void inOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        inOrderTraversal(root.left);
-        System.out.println(root.value);
-        inOrderTraversal(root.right);
-    }
-
-    public void postOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        postOrderTraversal(root.left);
-        postOrderTraversal(root.right);
-        System.out.println(root.value);
-    }
-
-    /****************************************************************************************/
 
     // Wrapper class
     public void add(int value) {
@@ -133,14 +97,14 @@ public class BinaryTree {
         postOrderTraversal(root);
     }
 
-    class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int value;
-
-        public TreeNode(int value) {
-            this.value = value;
-
-        }
+    public static void main(String[] args) {
+        BinaryTree bt = new BinaryTree();
+        bt.add(10);
+        bt.add(20);
+        bt.add(30);
+        bt.add(40);
+        bt.add(50);
+        bt.add(60);
+        bt.preOrder();
     }
 }

@@ -1,4 +1,4 @@
-package com.practise.ds.linkedlist;
+package com.practise.commons;
 
 /**
  * @author Ganeshan Nagarajan

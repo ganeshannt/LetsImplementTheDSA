@@ -1,6 +1,6 @@
 package com.practise.algorithm.sorting.unstable;
 
-import com.practise.CommonUtils;
+import com.practise.commons.Utils;
 
 /*
 
@@ -22,10 +22,10 @@ public class QuickSort {
         for (int j = start; j <= end - 1; j++) {
             if (arr[j] < pivot) {
                 i++;
-                CommonUtils.swapByIndex(arr, i, j);
+                Utils.swapByIndex(arr, i, j);
             }
         }
-        CommonUtils.swapByIndex(arr, i + 1, end);
+        Utils.swapByIndex(arr, i + 1, end);
         return (i + 1);
     }
 
@@ -34,7 +34,7 @@ public class QuickSort {
             int pi = quickSortPartition(arr, start, end);
             recursiveQuickSort(arr, start, pi - 1);
             recursiveQuickSort(arr, pi + 1, end);
-            CommonUtils.printArray(arr);
+            Utils.printArray(arr);
         }
     }
 

@@ -1,6 +1,6 @@
 package com.practise.algorithm.sorting.stable;
 
-import com.practise.CommonUtils;
+import com.practise.commons.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,13 +26,13 @@ public class InsertionSort {
 //            iterate from i to 0 th index to set given element in correct position
             for (int j = i; j > 0; j--) {
                 if (arr[j - 1] > arr[j]) {
-                    CommonUtils.swapByIndex(arr, j, j - 1);
+                    Utils.swapByIndex(arr, j, j - 1);
                 } else {
                     break;
                 }
             }
         }
-        CommonUtils.printArray(arr);
+        Utils.printArray(arr);
     }
 
     public static void iterativeInsertionSort0(int arr[]) {
@@ -46,7 +46,7 @@ public class InsertionSort {
             }
             arr[j + 1] = key;
         }
-        CommonUtils.printArray(arr);
+        Utils.printArray(arr);
     }
 
     public static void recursiveInsertionSortImpl(int arr[], int n) {
@@ -64,7 +64,7 @@ public class InsertionSort {
         }
         arr[j + 1] = key;
         System.out.println();
-        CommonUtils.printArray(arr);
+        Utils.printArray(arr);
     }
 
     public static void recursiveInsertionSort(int arr[]) {

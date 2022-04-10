@@ -1,6 +1,7 @@
 package com.practise.ds.linkedlist;
 
-import com.practise.CommonUtils;
+import com.practise.commons.Node;
+import com.practise.commons.Utils;
 
 public class SingleLinkedList {
 
@@ -149,6 +150,6 @@ public class SingleLinkedList {
         singleLinkedList.insertAtSomePoint(60, 110);
         // singleLinkedList.delete(90);
         singleLinkedList.deleteAtEnd();
-        CommonUtils.printSingleLinkedList(singleLinkedList.head);
+        Utils.printSingleLinkedList(singleLinkedList.head);
     }
 }

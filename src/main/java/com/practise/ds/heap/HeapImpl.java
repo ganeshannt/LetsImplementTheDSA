@@ -1,6 +1,6 @@
 package com.practise.ds.heap;
 
-import com.practise.CommonUtils;
+import com.practise.commons.Utils;
 
 /**
  * heap
@@ -46,7 +46,7 @@ public class HeapImpl {
         }
         // if root is not largest then swap the element and call heapify recursively
         if (i != largest_index) {
-            CommonUtils.swapByIndex(arr, i, largest_index);
+            Utils.swapByIndex(arr, i, largest_index);
             heapify(arr, n, largest_index);
         }
     }
@@ -58,7 +58,7 @@ public class HeapImpl {
 
             // arr[0] is a root of the heap and is the max element in heap
 
-            CommonUtils.swapByIndex(arr, 0, i);
+            Utils.swapByIndex(arr, 0, i);
 
             // call max heapify on the reduced heap
             heapify(arr, i, 0);
@@ -76,7 +76,7 @@ public class HeapImpl {
         size++;
         int parent_index = getParentIndex(n);
         while (n > 0 && arr[n] > arr[parent_index]) {
-            CommonUtils.swapByIndex(arr, n, parent_index);
+            Utils.swapByIndex(arr, n, parent_index);
             n = parent_index;
         }
     }
@@ -107,7 +107,7 @@ public class HeapImpl {
         int oldValue_index = getIndexByValue(oldValue);
         arr[oldValue_index] = newValue;
         while (oldValue > 0 && arr[oldValue_index] > arr[getParentIndex(oldValue_index)]) {
-            CommonUtils.swapByIndex(arr, oldValue_index, getParentIndex(oldValue_index));
+            Utils.swapByIndex(arr, oldValue_index, getParentIndex(oldValue_index));
             oldValue_index = getParentIndex(oldValue_index);
         }
     }

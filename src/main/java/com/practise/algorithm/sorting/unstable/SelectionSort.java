@@ -1,6 +1,6 @@
 package com.practise.algorithm.sorting.unstable;
 
-import com.practise.CommonUtils;
+import com.practise.commons.Utils;
 
 /*
 
@@ -34,10 +34,10 @@ public class SelectionSort {
                 }
             }
             if (i != min_index) {
-                CommonUtils.swapByIndex(arr, i, min_index);
+                Utils.swapByIndex(arr, i, min_index);
             }
         }
-        CommonUtils.printArray(arr);
+        Utils.printArray(arr);
     }
 
     public static void main(String[] args) {

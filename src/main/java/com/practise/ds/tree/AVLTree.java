@@ -1,34 +1,21 @@
 package com.practise.ds.tree;
 
+import com.practise.commons.AVLNode;
+
+import static com.practise.commons.Utils.*;
+
 public class AVLTree {
 
-    TreeNode root;
+    AVLNode root;
 
     public AVLTree() {
         this.root = null;
     }
 
-    public static void main(String[] args) {
-        AVLTree avlTree = new AVLTree();
-        avlTree.insert(21);
-        avlTree.insert(26);
-        avlTree.insert(30);
-        avlTree.insert(9);
-        avlTree.insert(4);
-        avlTree.insert(14);
-        avlTree.insert(28);
-        avlTree.insert(18);
-        avlTree.insert(15);
-        avlTree.insert(10);
-        avlTree.insert(2);
-        avlTree.insert(3);
-        avlTree.insert(7);
-        avlTree.inOrder();
-    }
 
-    private TreeNode insertInAVL(TreeNode root, int value) {
+    private AVLNode insertInAVL(AVLNode root, int value) {
         if (root == null) {
-            return new TreeNode(value);
+            return new AVLNode(value);
         }
 
         if (value < root.value) {
@@ -42,7 +29,7 @@ public class AVLTree {
         return root;
     }
 
-    private TreeNode balance(TreeNode root, int value) {
+    private AVLNode balance(AVLNode root, int value) {
         int balanceFactor = getBalanceFactor(root);
         if (balanceFactor > 1) {
             if (value < root.left.value) {
@@ -60,9 +47,9 @@ public class AVLTree {
         return root;
     }
 
-    private TreeNode leftRotation(TreeNode root) {
-        TreeNode a = root.right;
-        TreeNode b = a.left;
+    private AVLNode leftRotation(AVLNode root) {
+        AVLNode a = root.right;
+        AVLNode b = a.left;
         a.left = root;
         root.right = b;
 
@@ -71,9 +58,9 @@ public class AVLTree {
         return a;
     }
 
-    private TreeNode rightRotation(TreeNode root) {
-        TreeNode a = root.left;
-        TreeNode b = a.right;
+    private AVLNode rightRotation(AVLNode root) {
+        AVLNode a = root.left;
+        AVLNode b = a.right;
         a.right = root;
         root.left = b;
 
@@ -82,45 +69,15 @@ public class AVLTree {
         return a;
     }
 
-    private int getBalanceFactor(TreeNode root) {
+    private int getBalanceFactor(AVLNode root) {
         if (root == null) {
             return 0;
         }
         return (getHeight(root.left) - getHeight(root.right));
     }
 
-    private int getHeight(TreeNode root) {
+    private int getHeight(AVLNode root) {
         return (root == null) ? 0 : root.height;
-    }
-
-    /****************************************************************************************/
-
-    // Traversal
-    public void preOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        preOrderTraversal(root.left);
-        preOrderTraversal(root.right);
-        System.out.println(root.value);
-    }
-
-    public void inOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        inOrderTraversal(root.left);
-        System.out.println(root.value);
-        inOrderTraversal(root.right);
-    }
-
-    public void postOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        postOrderTraversal(root.left);
-        postOrderTraversal(root.right);
-        System.out.println(root.value);
     }
 
     // Wrapper class
@@ -141,15 +98,24 @@ public class AVLTree {
         postOrderTraversal(root);
     }
 
-    class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int height;
-        int value;
 
-        public TreeNode(int value) {
-            this.value = value;
-            this.height = 1;
-        }
+    public static void main(String[] args) {
+        AVLTree avlTree = new AVLTree();
+        avlTree.insert(21);
+        avlTree.insert(26);
+        avlTree.insert(30);
+        avlTree.insert(9);
+        avlTree.insert(4);
+        avlTree.insert(14);
+        avlTree.insert(28);
+        avlTree.insert(18);
+        avlTree.insert(15);
+        avlTree.insert(10);
+        avlTree.insert(2);
+        avlTree.insert(3);
+        avlTree.insert(7);
+        avlTree.inOrder();
     }
+
+
 }

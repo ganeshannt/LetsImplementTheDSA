@@ -1,6 +1,6 @@
 package com.practise.random;
 
-import com.practise.CommonUtils;
+import com.practise.commons.Utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,13 +35,13 @@ public class QuickPartition {
             if (arr.get(end) < p) {
                 start++;
                 if (arr.get(start) > p) {
-                    CommonUtils.swapByIndex(arr, start, end);
+                    Utils.swapByIndex(arr, start, end);
                 }
             } else {
                 end--;
             }
         }
-        CommonUtils.swapByIndex(arr, start, 0);
+        Utils.swapByIndex(arr, start, 0);
         return arr;
     }
 }

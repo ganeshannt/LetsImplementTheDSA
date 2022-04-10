@@ -1,6 +1,6 @@
 package com.practise.algorithm.sorting.stable;
 
-import com.practise.CommonUtils;
+import com.practise.commons.Utils;
 
 
 
@@ -20,11 +20,11 @@ public class MergeSort {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    CommonUtils.swapByIndex(arr, j, j + 1);
+                    Utils.swapByIndex(arr, j, j + 1);
                 }
             }
         }
-        CommonUtils.printArray(arr);
+        Utils.printArray(arr);
         return arr;
     }
 
@@ -56,7 +56,7 @@ public class MergeSort {
             }
             k += 1;
         }
-        CommonUtils.printArray(arr);
+        Utils.printArray(arr);
     }
 
     public static void mergeProcedure(int arr[], int start, int end, int mid) {
