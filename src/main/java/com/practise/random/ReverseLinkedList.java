@@ -1,7 +1,7 @@
 package com.practise.random;
 
-import com.practise.commons.Utils;
 import com.practise.commons.Node;
+import com.practise.commons.Utils;
 
 /**
  * @author Ganeshan Nagarajan
@@ -14,6 +14,21 @@ public class ReverseLinkedList {
 
     public ReverseLinkedList() {
         this.head = null;
+    }
+
+    public static void main(String[] args) {
+
+        ReverseLinkedList list = new ReverseLinkedList();
+        list.addNode(10);
+        list.addNode(20);
+        list.addNode(30);
+        list.addNode(40);
+        list.addNode(50);
+        Utils.printSingleLinkedList(list.head);
+        list.reverse();
+        Utils.printSingleLinkedList(list.head);
+        list.reverse();
+        Utils.printSingleLinkedList(list.head);
     }
 
     public void addNode(int value) {
@@ -40,21 +55,6 @@ public class ReverseLinkedList {
             current = next;
         }
         head = previous;
-    }
-
-    public static void main(String[] args) {
-
-        ReverseLinkedList list = new ReverseLinkedList();
-        list.addNode(10);
-        list.addNode(20);
-        list.addNode(30);
-        list.addNode(40);
-        list.addNode(50);
-        Utils.printSingleLinkedList(list.head);
-        list.reverse();
-        Utils.printSingleLinkedList(list.head);
-        list.reverse();
-        Utils.printSingleLinkedList(list.head);
     }
 
 }

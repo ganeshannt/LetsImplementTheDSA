@@ -27,6 +27,19 @@ public class HeapImpl {
         size = given.length;
     }
 
+    public static void main(String[] args) {
+        int given[] = {4, 1, 3, 2, 16, 9, 10, 14, 8, 7};
+        HeapImpl heap = new HeapImpl(given);
+        // heap.buildMaxHeap();
+        heap.heapSort();
+        System.out.println("==================================");
+        // heap.insertIntoHeap(5);
+        // heap.printHeap();
+        // heap.increaseKey(3, 18);
+        // heap.printHeap();
+        // heap.extractMax();
+        // heap.printHeap();
+    }
 
     private void buildMaxHeapImpl(int[] arr, int n) {
         for (int i = n / 2; i >= 0; i--) {
@@ -150,13 +163,13 @@ public class HeapImpl {
         return arr.length == size;
     }
 
+    // Wrapper class
+
     private void printHeap(int[] heap) {
         for (int i : heap) {
             System.out.println(i);
         }
     }
-
-    // Wrapper class
 
     private void printHeap() {
         for (int i : arr) {
@@ -176,19 +189,5 @@ public class HeapImpl {
 
     private void increaseKey(int oldValue, int newValue) {
         increaseKeyImpl(arr, oldValue, newValue);
-    }
-
-    public static void main(String[] args) {
-        int given[] = {4, 1, 3, 2, 16, 9, 10, 14, 8, 7};
-        HeapImpl heap = new HeapImpl(given);
-        // heap.buildMaxHeap();
-        heap.heapSort();
-        System.out.println("==================================");
-        // heap.insertIntoHeap(5);
-        // heap.printHeap();
-        // heap.increaseKey(3, 18);
-        // heap.printHeap();
-        // heap.extractMax();
-        // heap.printHeap();
     }
 }

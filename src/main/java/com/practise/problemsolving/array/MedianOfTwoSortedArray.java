@@ -3,10 +3,22 @@ package com.practise.problemsolving.array;
 import org.junit.Assert;
 import org.junit.Test;
 
+
+/*
+
+Name - Median of Two Sorted Arrays
+Link - https://leetcode.com/problems/median-of-two-sorted-arrays/
+
+ */
+
 public class MedianOfTwoSortedArray {
 
-    // tc = o(mn)
-    // sc = o(1)
+    /*
+    Time Complexity - o(mn)
+    Space Complexity - o(1)
+    Note - merge procedure
+    */
+
     private double mergeSortApproach(int[] arr1, int[] arr2) {
         int i = 0;
         int j = 0;
@@ -33,6 +45,13 @@ public class MedianOfTwoSortedArray {
         }
         return result[result.length / 2];
     }
+
+
+    /*
+    Time Complexity - o(logn)
+    Space Complexity - o(1)
+    Note - thick of binary search if hint was logarithmic time complexity
+    */
 
     private double binarySearchBasedApproach(int arr1[], int arr2[]) {
         int j = arr2.length / 2;

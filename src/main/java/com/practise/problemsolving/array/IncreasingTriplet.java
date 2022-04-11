@@ -1,5 +1,13 @@
 package com.practise.problemsolving.array;
 
+
+/*
+
+Name - Increasing Triplet Subsequence
+Link - https://leetcode.com/problems/increasing-triplet-subsequence/
+
+ */
+
 public class IncreasingTriplet {
 
     public static void main(String[] args) {

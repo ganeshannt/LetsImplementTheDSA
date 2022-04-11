@@ -5,10 +5,7 @@ package com.practise.problemsolving.array;
 /*
 
 Name - Product of Array Except Self
-Link - https://leetcode.com/problems/product-of-array-except-self/submissions/
-Time Complexity -
-Space Complexity -
-Note -
+Link - https://leetcode.com/problems/product-of-array-except-self/
 
  */
 
@@ -17,9 +14,14 @@ public class ArrayProduct {
     public static void main(String[] args) {
         int arr[] = {1, 2, 3, 4};
         ArrayProduct arrayProduct = new ArrayProduct();
-        arrayProduct.bestApproach(arr);
+        arrayProduct.firstApproach(arr);
     }
 
+    /*
+    Time Complexity - o(n)
+    Space Complexity - o(n)
+    Note - skip first element while calculate left and skip last element while calculate right
+     */
     private void firstApproach(int[] arr) {
         int left[] = new int[arr.length];
         int right[] = new int[arr.length];
@@ -46,6 +48,11 @@ public class ArrayProduct {
 
     }
 
+    /*
+    Time Complexity - o(n)
+    Space Complexity - o(1)
+    Note - optimized version of first approach
+     */
     private void bestApproach(int[] arr) {
         int output[] = new int[arr.length];
 

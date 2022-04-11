@@ -12,6 +12,17 @@ public class BinaryTree {
         root = null;
     }
 
+    public static void main(String[] args) {
+        BinaryTree bt = new BinaryTree();
+        bt.add(10);
+        bt.add(20);
+        bt.add(30);
+        bt.add(40);
+        bt.add(50);
+        bt.add(60);
+        bt.preOrder();
+    }
+
     public TreeNode addInTree(TreeNode root, int value) {
         if (root == null) {
             root = new TreeNode(value);
@@ -62,7 +73,6 @@ public class BinaryTree {
         return root;
     }
 
-
     private int getLeftSubTreeMaxValue(TreeNode root) {
         int max = 0;
         while (root != null) {
@@ -95,16 +105,5 @@ public class BinaryTree {
 
     private void postOrder() {
         postOrderTraversal(root);
-    }
-
-    public static void main(String[] args) {
-        BinaryTree bt = new BinaryTree();
-        bt.add(10);
-        bt.add(20);
-        bt.add(30);
-        bt.add(40);
-        bt.add(50);
-        bt.add(60);
-        bt.preOrder();
     }
 }

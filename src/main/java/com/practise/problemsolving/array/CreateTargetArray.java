@@ -1,5 +1,14 @@
 package com.practise.problemsolving.array;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/*
+
+Name - Create Target Array in the Given Order
+Link - https://leetcode.com/problems/create-target-array-in-the-given-order/
+
+ */
 public class CreateTargetArray {
 
     public static void main(String[] args) {
@@ -7,20 +16,25 @@ public class CreateTargetArray {
         int arr[] = {0, 1, 2, 3, 4};
         int index[] = {0, 1, 2, 2, 1};
         // m = element.hashTableApproach(arr);
-        element.firstApproach(arr, index);
+        element.bestApproach(arr, index);
         // element.moveahead(arr, 1, 4);
     }
 
-    // best approach
-    // best case - o(n), worst case -o(n*n)
-    private void firstApproach(int[] arr, int[] index) {
-        int j = 0;
-        while (j < index.length) {
-            if (j == index[j]) {
-                j++;
-            } else if (j > index[j]) {
-                moveahead(arr, index[j], arr[j], j);
-                j++;
+
+    /*
+    Time Complexity [best] - o(n)
+    Time Complexity [worst] - o(n*n)
+    Space Complexity - o(1)
+    Note - Without arraylist solution
+     */
+    private void bestApproach(int[] arr, int[] index) {
+        int i = 0;
+        while (i < index.length) {
+            if (i == index[i]) {
+                i++;
+            } else if (i > index[i]) {
+                moveAhead(arr, index[i], arr[i], i);
+                i++;
             }
         }
         for (int k : arr) {
@@ -28,7 +42,7 @@ public class CreateTargetArray {
         }
     }
 
-    private void moveahead(int arr[], int index, int value, int current_index) {
+    private void moveAhead(int arr[], int index, int value, int current_index) {
         int temp = arr[index];
         arr[index] = value;
         index += 1;
@@ -40,4 +54,20 @@ public class CreateTargetArray {
         }
     }
 
+    /*
+    Time Complexity [best] - o(n)
+    Time Complexity [worst] - o(n*n)
+    Space Complexity - o(n)
+    Note - if arraylist is allowed to use, very simple to get a solution
+     */
+    private void simpleApproach(int[] arr, int[] index) {
+        List<Integer> target = new ArrayList<>(arr.length - 1);
+        for (int i = 0; i < arr.length; i++) {
+            target.add(index[i], arr[i]);
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = target.get(i);
+        }
+    }
 }

@@ -15,6 +15,16 @@ public class DoubleLinkedList {
         size = 0;
     }
 
+    public static void main(String[] args) {
+        DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
+        doubleLinkedList.insertNodeAtFront(10);
+        doubleLinkedList.insertNodeAtFront(20);
+        doubleLinkedList.insertNodeAtFront(30);
+        doubleLinkedList.insertNodeAtFront(40);
+        doubleLinkedList.delete(30);
+        Utils.printDoubleLinkedList(doubleLinkedList.head);
+    }
+
     // Utility functions
     public boolean isEmpty() {
         return head == null;
@@ -150,16 +160,5 @@ public class DoubleLinkedList {
             temp = temp.next;
         }
         System.err.println("Element is not found");
-    }
-
-
-    public static void main(String[] args) {
-        DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
-        doubleLinkedList.insertNodeAtFront(10);
-        doubleLinkedList.insertNodeAtFront(20);
-        doubleLinkedList.insertNodeAtFront(30);
-        doubleLinkedList.insertNodeAtFront(40);
-        doubleLinkedList.delete(30);
-        Utils.printDoubleLinkedList(doubleLinkedList.head);
     }
 }

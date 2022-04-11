@@ -3,6 +3,13 @@ package com.practise.problemsolving.array;
 import org.junit.Assert;
 import org.junit.Test;
 
+
+/*
+
+Name - Game of Life
+Link - https://leetcode.com/problems/game-of-life/
+
+ */
 public class GameOfLife {
 
     public static void main(String[] args) {
@@ -41,7 +48,7 @@ public class GameOfLife {
             }
         }
 
-        // copy value to orginal array
+        // copy value to original array
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 board[i][j] = copy_board[i][j];

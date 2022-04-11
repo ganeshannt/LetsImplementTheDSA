@@ -12,6 +12,23 @@ public class AVLTree {
         this.root = null;
     }
 
+    public static void main(String[] args) {
+        AVLTree avlTree = new AVLTree();
+        avlTree.insert(21);
+        avlTree.insert(26);
+        avlTree.insert(30);
+        avlTree.insert(9);
+        avlTree.insert(4);
+        avlTree.insert(14);
+        avlTree.insert(28);
+        avlTree.insert(18);
+        avlTree.insert(15);
+        avlTree.insert(10);
+        avlTree.insert(2);
+        avlTree.insert(3);
+        avlTree.insert(7);
+        avlTree.inOrder();
+    }
 
     private AVLNode insertInAVL(AVLNode root, int value) {
         if (root == null) {
@@ -76,11 +93,11 @@ public class AVLTree {
         return (getHeight(root.left) - getHeight(root.right));
     }
 
+    // Wrapper class
+
     private int getHeight(AVLNode root) {
         return (root == null) ? 0 : root.height;
     }
-
-    // Wrapper class
 
     public void insert(int value) {
         root = insertInAVL(root, value);
@@ -96,25 +113,6 @@ public class AVLTree {
 
     private void postOrder() {
         postOrderTraversal(root);
-    }
-
-
-    public static void main(String[] args) {
-        AVLTree avlTree = new AVLTree();
-        avlTree.insert(21);
-        avlTree.insert(26);
-        avlTree.insert(30);
-        avlTree.insert(9);
-        avlTree.insert(4);
-        avlTree.insert(14);
-        avlTree.insert(28);
-        avlTree.insert(18);
-        avlTree.insert(15);
-        avlTree.insert(10);
-        avlTree.insert(2);
-        avlTree.insert(3);
-        avlTree.insert(7);
-        avlTree.inOrder();
     }
 
 

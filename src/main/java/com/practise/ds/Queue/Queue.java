@@ -12,6 +12,20 @@ public class Queue {
         queue = new int[10];
     }
 
+    public static void main(String[] args) {
+        System.out.println("Queue yet to be created");
+        Queue queue = new Queue();
+        queue.addInQueue(10);
+        queue.addInQueue(20);
+        queue.addInQueue(30);
+        queue.addInQueue(40);
+        queue.addInQueue(50);
+        queue.addInQueue(60);
+        queue.removeInQueue();
+        queue.removeInQueue();
+        System.out.println(queue.peek());
+        queue.printQueue();
+    }
 
     // utility functions
     public int size() {
@@ -48,20 +62,5 @@ public class Queue {
         } else {
             queue[front++] = 0;
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println("Queue yet to be created");
-        Queue queue = new Queue();
-        queue.addInQueue(10);
-        queue.addInQueue(20);
-        queue.addInQueue(30);
-        queue.addInQueue(40);
-        queue.addInQueue(50);
-        queue.addInQueue(60);
-        queue.removeInQueue();
-        queue.removeInQueue();
-        System.out.println(queue.peek());
-        queue.printQueue();
     }
 }

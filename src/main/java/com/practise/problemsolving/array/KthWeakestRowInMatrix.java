@@ -7,6 +7,13 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
+/*
+
+Name - Increasing Triplet Subsequence
+Link - https://leetcode.com/problems/increasing-triplet-subsequence/
+
+ */
+
 public class KthWeakestRowInMatrix {
 
     private void priorityQueueBasedApproach(int[][] arr, int k) {

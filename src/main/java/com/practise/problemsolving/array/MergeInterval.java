@@ -4,6 +4,12 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Stack;
 
+/*
+
+Name - Merge Intervals
+Link - https://leetcode.com/problems/merge-intervals/
+
+ */
 public class MergeInterval {
 
     public static void main(String[] args) {
@@ -12,6 +18,12 @@ public class MergeInterval {
         interval.firstApproach(arr);
     }
 
+
+    /*
+    Time Complexity - O(n)
+    Space Complexity - o(n)
+    Note - use hashmap
+    */
     private void firstApproach(int[][] arr) {
         if (arr.length == 1)
             return;

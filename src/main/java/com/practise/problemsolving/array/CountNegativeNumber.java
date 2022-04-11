@@ -1,5 +1,12 @@
 package com.practise.problemsolving.array;
 
+
+/*
+
+Name - Count Negative Numbers in a Sorted Matrix
+Link - https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/
+
+ */
 public class CountNegativeNumber {
 
     public static void main(String[] args) {
@@ -9,6 +16,13 @@ public class CountNegativeNumber {
         // int[][] arr = { { 3, 2 }, { 1, 0 } };
         matrix.bestApproach(arr);
     }
+
+    /*
+    Time Complexity [best] - o(nlogm)
+    Time Complexity [worst] - o(n*m)
+    Space Complexity - o(1)
+    Note - iterate each row from last element to till positive element
+     */
 
     private void firstApproach(int[][] arr) {
         int row = arr.length - 1;
@@ -27,6 +41,14 @@ public class CountNegativeNumber {
         System.out.println(count);
     }
 
+
+    /*
+    Time Complexity - o(n+m)
+    Space Complexity - o(1)
+    Note - In problem they have mentioned like " non-increasing order both row-wise and column-wise"
+            so here we are tracing array from last column to first by checking positivity of row element
+     */
+
     private void bestApproach(int arr[][]) {
         int row = arr.length;
         int col = arr[0].length;
@@ -37,7 +59,6 @@ public class CountNegativeNumber {
             if (arr[i][j] < 0) {
                 count += (col - j);
                 i--;
-                j = 0;
             } else {
                 j++;
             }

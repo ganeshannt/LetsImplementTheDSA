@@ -16,6 +16,16 @@ public class BST {
         this.root = null;
     }
 
+    public static void main(String[] args) {
+        BST bst = new BST();
+        bst.insert(10);
+        bst.insert(20);
+        bst.insert(30);
+        bst.insert(40);
+        bst.insert(5);
+        Utils.preOrderTraversal(bst.root);
+    }
+
     private TreeNode add(TreeNode root, int value) {
 
         if (root == null) {
@@ -31,17 +41,6 @@ public class BST {
 
     private void insert(int i) {
         root = add(root, i);
-    }
-
-
-    public static void main(String[] args) {
-        BST bst = new BST();
-        bst.insert(10);
-        bst.insert(20);
-        bst.insert(30);
-        bst.insert(40);
-        bst.insert(5);
-        Utils.preOrderTraversal(bst.root);
     }
 
 

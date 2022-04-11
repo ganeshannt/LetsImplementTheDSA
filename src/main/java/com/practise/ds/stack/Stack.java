@@ -12,6 +12,29 @@ public class Stack {
         this.pos = this.stack.length - 1;
     }
 
+    public static void main(String[] args) {
+        Stack stack = new Stack();
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        stack.push(40);
+        stack.push(50);
+        stack.push(60);
+        stack.push(70);
+        stack.push(80);
+        stack.push(90);
+        stack.printArray();
+        System.out.println(stack.peek());
+        System.out.println(stack.size);
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.printArray();
+        System.out.println(stack.peek());
+        System.out.println(stack.size);
+    }
+
     /*******************************************************/
 
     // Utility function
@@ -58,28 +81,5 @@ public class Stack {
 
     public int size() {
         return size;
-    }
-
-    public static void main(String[] args) {
-        Stack stack = new Stack();
-        stack.push(10);
-        stack.push(20);
-        stack.push(30);
-        stack.push(40);
-        stack.push(50);
-        stack.push(60);
-        stack.push(70);
-        stack.push(80);
-        stack.push(90);
-        stack.printArray();
-        System.out.println(stack.peek());
-        System.out.println(stack.size);
-        stack.pop();
-        stack.pop();
-        stack.pop();
-        stack.pop();
-        stack.printArray();
-        System.out.println(stack.peek());
-        System.out.println(stack.size);
     }
 }

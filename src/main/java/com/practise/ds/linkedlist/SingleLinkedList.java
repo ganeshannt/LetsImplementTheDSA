@@ -14,6 +14,22 @@ public class SingleLinkedList {
         size = 0;
     }
 
+    public static void main(String[] args) {
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+        singleLinkedList.insertNodeAtFront(10);
+        singleLinkedList.insertNodeAtFront(20);
+        singleLinkedList.insertNodeAtFront(30);
+        singleLinkedList.insertNodeAtFront(40);
+        singleLinkedList.insertNodeAtEnd(50);
+        singleLinkedList.insertNodeAtEnd(60);
+        singleLinkedList.insertAtSomePoint(10, 90);
+        singleLinkedList.insertAtSomePoint(90, 80);
+        singleLinkedList.insertAtSomePoint(40, 100);
+        singleLinkedList.insertAtSomePoint(60, 110);
+        // singleLinkedList.delete(90);
+        singleLinkedList.deleteAtEnd();
+        Utils.printSingleLinkedList(singleLinkedList.head);
+    }
 
     // Utility functions
     private boolean isEmpty() {
@@ -133,23 +149,5 @@ public class SingleLinkedList {
         tail = node.next;
         node.next = null;
         size--;
-    }
-
-
-    public static void main(String[] args) {
-        SingleLinkedList singleLinkedList = new SingleLinkedList();
-        singleLinkedList.insertNodeAtFront(10);
-        singleLinkedList.insertNodeAtFront(20);
-        singleLinkedList.insertNodeAtFront(30);
-        singleLinkedList.insertNodeAtFront(40);
-        singleLinkedList.insertNodeAtEnd(50);
-        singleLinkedList.insertNodeAtEnd(60);
-        singleLinkedList.insertAtSomePoint(10, 90);
-        singleLinkedList.insertAtSomePoint(90, 80);
-        singleLinkedList.insertAtSomePoint(40, 100);
-        singleLinkedList.insertAtSomePoint(60, 110);
-        // singleLinkedList.delete(90);
-        singleLinkedList.deleteAtEnd();
-        Utils.printSingleLinkedList(singleLinkedList.head);
     }
 }
