@@ -1,59 +1,57 @@
 package com.practise.problemsolving.array;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.practise.commons.Utils;
+
+
+/*
+
+Name - Rotate Array
+Link - https://leetcode.com/problems/rotate-array/
+
+ */
 
 public class RotateArrayKtimes {
 
     public static void main(String[] args) {
         RotateArrayKtimes element = new RotateArrayKtimes();
         int arr[] = {1, 2, 3, 4, 5};
-        element.bestApproach3(arr, 3);
-        List<Integer> arrList = new ArrayList<>();
-        for (int i = 0; i < arr.length; i++) {
-            arrList.add(i, arr[i]);
-        }
-        element.rotateLeft(4, arrList);
+        element.bruteForceApproach(arr, 3);
     }
 
-    private void avarageApproach(int[] arr, int k) {
-        int temp[] = new int[arr.length - 1];
-        int rotateIndex = arr.length - k;
-        int i = 0;
-        while (rotateIndex < arr.length) {
-            temp[i++] = arr[rotateIndex++];
-        }
-        rotateIndex = 0;
-        while (i < temp.length) {
-            temp[i++] = arr[rotateIndex++];
-        }
-        arr = temp;
-        for (int element : arr) {
-            System.out.println(element);
+    /*
+    Time Complexity - O(n*k) where k is number of rotation
+    Space Complexity - o(1)
+    Note - rotate k times
+    */
+    private void bruteForceApproach(int[] arr, int k) {
+        for (int i = 0; i < k; i++) {
+            rotateOnce(arr);
+            Utils.printArray(arr);
         }
     }
 
-    private void approach2(int[] arr, int k) {
-        int temp = 0;
-        int val = 0;
-        while (k > 0) {
-            temp = arr[arr.length - 1];
-            int v = 0;
-            for (int i = 0; i < arr.length - 1; i++) {
-                v = arr[i + 1];
-                arr[i + 1] = arr[i];
-
-            }
-            arr[0] = temp;
-            k--;
+    //    n-2 to 0 is the key
+    private void rotateOnce(int arr[]) {
+        int temp = arr[arr.length - 1];
+        for (int i = arr.length - 2; i >= 0; i--) {
+            arr[i + 1] = arr[i];
         }
-        for (int element : arr) {
-            System.out.println(element);
-        }
+        arr[0] = temp;
     }
 
-    private void bestApproach3(int[] arr, int k) {
+    /*
+    Time Complexity - O(k) + O(n-k) + O(n) =>O(n)
+    Space Complexity - o(1)
+    Note - reverse last k elements and then reverse n-k elements and then reverse n elements
+    */
+    private void bestApproach(int[] arr, int k) {
         int n = arr.length;
+        if (n == 0 || n < 2) {
+            return;
+        }
+//       edge case to cover if k is more than n
+        k = k % n;
+
         reverse(arr, n - k, n - 1);
         reverse(arr, 0, n - k - 1);
         reverse(arr, 0, n - 1);
@@ -63,40 +61,10 @@ public class RotateArrayKtimes {
     }
 
     private void reverse(int arr[], int low, int high) {
-
         while (low < high) {
-            swap(arr, low, high);
+            Utils.swapByIndex(arr, low, high);
             low++;
             high--;
         }
-    }
-
-    private void swap(int arr[], int first, int second) {
-        int temp = arr[first];
-        arr[first] = arr[second];
-        arr[second] = temp;
-    }
-
-    public void rotateLeft(int d, List<Integer> arr) {
-        // Write your code here
-        int n = arr.size();
-        d = n - d;
-        reverseList(arr, n - d, n - 1);
-        reverseList(arr, 0, n - d - 1);
-        reverseList(arr, 0, n - 1);
-    }
-
-    private void reverseList(List<Integer> arr, int low, int high) {
-        while (low < high) {
-            swapList(arr, low, high);
-            low++;
-            high--;
-        }
-    }
-
-    private void swapList(List<Integer> arr, int first, int second) {
-        int temp = arr.get(first);
-        arr.set(first, arr.get(second));
-        arr.set(second, temp);
     }
 }

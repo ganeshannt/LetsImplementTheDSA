@@ -20,4 +20,8 @@
 12 | [Merge Intervals](https://leetcode.com/problems/merge-intervals/)                                                     |   [Java](/src/main/java/com/practise/problemsolving/array/MergeInterval.java)
 13 | [Missing Number](https://leetcode.com/problems/missing-number/)                                                       |   [Java](/src/main/java/com/practise/problemsolving/array/MissingNumber.java)
 14 | [Missing Two Number](https://leetcode.com/problems/missing-number/)                                                   |   [Java](/src/main/java/com/practise/problemsolving/array/MissingTwoNumbers.java)
+15 | [Global and Local Inversions](https://leetcode.com/problems/global-and-local-inversions/)                                                 |   [Java](/src/main/java/com/practise/problemsolving/array/NumberOfInversion.java)
+16 | [Replace Elements with The Greatest Element on Right Side](https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/) |   [Java](/src/main/java/com/practise/problemsolving/array/ReplaceElementWithGreatestElementWithRightSide.java)
+17 | [Rotate Array](https://leetcode.com/problems/rotate-array/)                                                   |   [Java](/src/main/java/com/practise/problemsolving/array/RotateArrayKtimes.java)
+18 | [Rotate Image](https://leetcode.com/problems/rotate-image/) |   [Java](/src/main/java/com/practise/problemsolving/array/RotateMatrix.java)
 

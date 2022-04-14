@@ -3,6 +3,14 @@ package com.practise.problemsolving.array;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/*
+
+Name - Single Number
+Link - https://leetcode.com/problems/single-number/
+condition - You must implement a solution with a linear runtime complexity and use only constant extra space.
+
+ */
 public class SingleNumber {
 
     public static void main(String[] args) {
@@ -11,6 +19,11 @@ public class SingleNumber {
         element.firstApproach(arr);
     }
 
+    /*
+    Time Complexity - O(n)
+    Space Complexity - o(n)
+    Note - Hashmap
+    */
     private void firstApproach(int[] arr) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i : arr) {
@@ -27,6 +40,11 @@ public class SingleNumber {
         }
     }
 
+    /*
+    Time Complexity - O(n)
+    Space Complexity - o(1)
+    Note - XOR operation
+    */
     private void bestApproach(int[] arr) {
         int ans = 0;
         for (int i : arr) {

@@ -19,6 +19,13 @@ public class Utils {
         list.set(second_index, temp);
     }
 
+    public static void swapByIndex(int arr[][], int first_index, int second_index) {
+        if (first_index != second_index) {
+            int temp = arr[first_index][second_index];
+            arr[first_index][second_index] = arr[second_index][first_index];
+            arr[second_index][first_index] = temp;
+        }
+    }
 
     /************************************* Print Array and List **********************************/
 
@@ -29,6 +36,22 @@ public class Utils {
         }
         System.out.print(" ]");
         System.out.println();
+    }
+
+    public static void printArray(int arr[][]) {
+        int row = arr.length;
+        int colum = arr[0].length;
+        System.out.print("[ ");
+        for (int i = 0; i < row; i++) {
+            System.out.println();
+            System.out.print("[ ");
+            for (int j = 0; j < colum; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.print(" ]");
+        }
+        System.out.println();
+        System.out.print("]");
     }
 
     public static void printList(List<Integer> list) {

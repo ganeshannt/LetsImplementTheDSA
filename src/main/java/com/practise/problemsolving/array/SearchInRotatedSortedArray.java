@@ -1,74 +1,41 @@
 package com.practise.problemsolving.array;
 
+/*
+
+Name - Search in Rotated Sorted Array
+Link - https://leetcode.com/problems/search-in-rotated-sorted-array/
+condition - You must write an algorithm with O(log n) runtime complexity.
+
+ */
 public class SearchInRotatedSortedArray {
 
     public static void main(String[] args) {
         SearchInRotatedSortedArray element = new SearchInRotatedSortedArray();
-        int arr[] = {4, 5, 6, 7, 0, 1, 2};
-        element.bestApproach(arr, 6);
+//        int arr[] = {4, 5, 6, 7, 0, 1, 2};
+//        element.bestApproach(arr, 6);
+        int arr[] = {1, 0, 1, 1, 1};
+        element.bestApproach(arr, 0);
     }
 
-    private void firstApproach(int[] arr, int target) {
-        int start = 0;
-        int end = arr.length;
-        int mid = 0;
-        while (start <= end) {
-            mid = (start + end) / 2;
-            if (arr[mid] == target) {
-                System.out.println(mid);
-                break;
-            }
-            if ((arr[start] <= target && target < arr[mid]) || (arr[start] > arr[mid] && target > arr[mid])) {
-                end = mid - 1;
-            } else if ((arr[start] > target && target > arr[mid]) || (arr[start] < arr[mid] && target < arr[mid])) {
-                start = mid;
-            }
-        }
-        System.out.println(-1);
-    }
-
-    private void secondApproach(int[] arr, int target) {
-        int pivot = arr.length - 1;
-        int start = 0;
-        int end = arr.length - 1;
-        int mid = 0;
-        while (start < end) {
-            mid = (start + end) / 2;
-            if (arr[mid] > arr[mid + 1]) {
-                pivot = mid;
-                System.out.println("pivot" + pivot);
-                break;
-            }
-            if (arr[start] < arr[mid]) {
-                start = mid + 1;
-            } else {
-                end = mid - 1;
-            }
-        }
-        start = 0;
-        end = arr.length - 1;
-        mid = pivot;
-        while (start < end) {
-            if (arr[mid] == target) {
-                System.out.println(mid);
-                break;
-            }
-            if (arr[start] <= target && arr[mid] >= target) {
-                end = mid - 1;
-            } else {
-                start = mid + 1;
-            }
-            mid = (start + end) / 2;
-        }
-        System.out.println(-1);
-    }
-
+    /*
+    Time Complexity - O(log n)
+    Space Complexity - o(1)
+    Note - Binary search and even rotated array also partially sorted
+    */
     private void bestApproach(int[] arr, int target) {
         int start = 0;
         int end = arr.length - 1;
         int mid = 0;
         while (start <= end) {
+
+            // to avoid duplicates - This technique we used in three sum problem
+            while (start < end && arr[start] == arr[start + 1])
+                ++start;
+            while (start < end && arr[end] == arr[end - 1])
+                --end;
+
             mid = (start + end) / 2;
+
             if (arr[mid] == target) {
                 System.out.println(mid);
                 break;
@@ -88,5 +55,4 @@ public class SearchInRotatedSortedArray {
         }
         System.out.println(-1);
     }
-
 }

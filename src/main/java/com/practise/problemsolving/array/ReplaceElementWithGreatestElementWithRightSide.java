@@ -1,44 +1,63 @@
 package com.practise.problemsolving.array;
 
+
+import com.practise.commons.Utils;
+
+/*
+
+Name - Replace Elements with The Greatest Element on Right Side
+Link - https://leetcode.com/problems/replace-elements-with-greatest-element-on-right-side/
+
+ */
 public class ReplaceElementWithGreatestElementWithRightSide {
 
     public static void main(String[] args) {
         ReplaceElementWithGreatestElementWithRightSide element = new ReplaceElementWithGreatestElementWithRightSide();
-        int arr[] = {400};
+        int arr[] = {56903, 18666, 60499, 57517, 26961};
         // int index[] = { 18,6,6,6,1,-1 };
         // m = element.hashTableApproach(arr);
-        element.firstApproach(arr);
+        element.bestApproach(arr);
         // element.moveahead(arr, 1, 4);
     }
 
-    private void firstApproach(int[] arr) {
-        int max_index = 0;
-        for (int i = 0; i < arr.length - 1; ) {
-            max_index = largestElementInRange(arr, i + 1, arr.length);
-            if (i < max_index) {
-                while (i < max_index) {
-                    arr[i] = arr[max_index];
-                    i += 1;
+
+    /*
+    Time Complexity - O(n^2)
+    Space Complexity - o(1)
+    Note - find max and replace current element with max
+    */
+    private void bruteForceApproach(int[] arr) {
+
+        for (int i = 0; i < arr.length; i++) {
+            int max = Integer.MIN_VALUE;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] > max) {
+                    max = arr[j];
                 }
-            } else {
-                i += 1;
             }
+            arr[i] = max;
         }
         arr[arr.length - 1] = -1;
-        for (int i : arr) {
-            System.out.println(i);
-        }
+        Utils.printArray(arr);
     }
 
-    private int largestElementInRange(int arr[], int start, int last) {
-        int max = start;
-        while (start < last) {
-            if (arr[max] < arr[start]) {
-                max = start;
+
+    /*
+    Time Complexity - O(n)
+    Space Complexity - o(1)
+    Note - reverse traversing is a key
+    */
+    private void bestApproach(int[] arr) {
+        int max = -1;
+        int current_element = 0;
+        for (int i = arr.length - 1; i >= 0; i--) {
+            current_element = arr[i];
+            arr[i] = max;
+            if (current_element > max) {
+                max = current_element;
             }
-            start++;
         }
-        return max;
+        Utils.printArray(arr);
     }
 
 }

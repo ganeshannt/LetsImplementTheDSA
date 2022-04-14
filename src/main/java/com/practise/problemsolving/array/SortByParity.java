@@ -1,5 +1,14 @@
 package com.practise.problemsolving.array;
 
+
+import com.practise.commons.Utils;
+
+/*
+
+Name - Sort Array By Parity
+Link - https://leetcode.com/problems/sort-array-by-parity/
+
+ */
 public class SortByParity {
 
     public static void main(String[] args) {
@@ -9,6 +18,11 @@ public class SortByParity {
         element.firstApproach(arr);
     }
 
+    /*
+    Time Complexity - O(nlogn)
+    Space Complexity - o(n)
+    Note - np
+    */
     private void firstApproach(int[] arr) {
         if (arr.length == 0 || arr.length == 1) {
             System.out.println("empty array");
@@ -23,19 +37,11 @@ public class SortByParity {
             } else if (arr[first] % 2 == 0) {
                 first++;
             } else if (arr[first] % 2 != 0 && arr[second] % 2 == 0) {
-                swap(arr, first, second);
+                Utils.swapByIndex(arr, first, second);
                 first++;
                 second++;
             }
         }
-        for (int i : arr) {
-            System.out.println(i);
-        }
-    }
-
-    private void swap(int arr[], int first, int second) {
-        int temp = arr[first];
-        arr[first] = arr[second];
-        arr[second] = temp;
+        Utils.printArray(arr);
     }
 }
