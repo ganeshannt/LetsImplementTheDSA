@@ -21,7 +21,7 @@ public class SortByParity {
     /*
     Time Complexity - O(nlogn)
     Space Complexity - o(n)
-    Note - np
+    Note - Two pointer method
     */
     private void firstApproach(int[] arr) {
         if (arr.length == 0 || arr.length == 1) {

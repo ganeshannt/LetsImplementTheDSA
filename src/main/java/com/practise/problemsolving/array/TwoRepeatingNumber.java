@@ -1,5 +1,12 @@
 package com.practise.problemsolving.array;
 
+
+/*
+
+Name - Two Repeating Number
+Link - refer disk
+
+ */
 public class TwoRepeatingNumber {
 
     public static void main(String[] args) {
@@ -12,7 +19,7 @@ public class TwoRepeatingNumber {
     // n(n+1)/2 => get sum of n number
     // (x-y)^2 = (x+y)^2-4xy => we can find x-y value here
     // using x+y and x-y you can find either x or y
-    // here bit overflow may happen if the integer length is inadiqute for given number
+    // here a bit overflow may happen if the integer length is inadequates for given number
     private void AvarageApproach(int[] arr) {
         int addition = 0;
         int m = arr.length - 2;

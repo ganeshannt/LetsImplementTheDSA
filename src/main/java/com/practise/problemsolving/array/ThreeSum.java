@@ -5,6 +5,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
+/*
+
+Name - 3Sum
+Link - https://leetcode.com/problems/3sum/
+Condition - Notice that the solution set must not contain duplicate triplets
+
+ */
 public class ThreeSum {
 
     public static void main(String[] args) {
@@ -13,8 +20,11 @@ public class ThreeSum {
         matrix.bruteForce(arr);
     }
 
-    // tc = o(n)^3
-    // sc = o(1)
+    /*
+    Time Complexity - o(n)^3
+    Space Complexity - o(1)
+    Note - calculate three values that result of sum should be zero
+    */
     private void bruteForce(int[] arr) {
         if (arr.length == 0 || arr.length == 1)
             return;
@@ -37,8 +47,11 @@ public class ThreeSum {
         }
     }
 
-    // tc = o(n)^2
-    // sc = o(1)
+    /*
+    Time Complexity - o(n)^2
+    Space Complexity - o(1)
+    Note - Sort the array, iterate through the list, and use another two pointers to approach the target.
+    */
     private void secondApproach(int arr[]) {
         Arrays.sort(arr);
         int j = 0;

@@ -26,7 +26,7 @@ public class SmallerThanCurrentNumber {
     /*
     Time Complexity - O(nlogn)
     Space Complexity - o(n)
-    Note - Hashmap
+    Note - sort given array
     */
     private void firstApproach(int[] arr) {
         int temparr[] = arr.clone();
@@ -46,22 +46,21 @@ public class SmallerThanCurrentNumber {
     /*
     Time Complexity - o(n)
     Space Complexity - o(temparr)
-    Note - go through constraints
+    Note - go through constraints and prefix-sum is a key
     */
     private void bestApproach(int[] arr) {
         int temparr[] = new int[101];
+//      traverse input array and update increment temp array value by 1
         for (int i : arr) {
             temparr[i] = (temparr[i] != 0) ? temparr[i] + 1 : 1;
         }
 
-        for (int i = 0; i < temparr.length; i++) {
-            System.out.println("index " + i + " value " + temparr[i]);
-        }
-
+//      calculate prefix-sum
         for (int i = 1; i < temparr.length; i++) {
             temparr[i] = temparr[i - 1] + temparr[i];
         }
 
+//      update input array depends on temp array value
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (arr[i] == 0) ? 0 : temparr[arr[i] - 1];
         }
