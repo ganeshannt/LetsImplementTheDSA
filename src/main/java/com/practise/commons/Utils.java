@@ -78,6 +78,20 @@ public class Utils {
         System.out.println();
     }
 
+    public static boolean isLinkedListEqual(Node head1, Node head2) {
+        while (head1 != null && head2 != null) {
+            if (!(head1.equals(head2))) {
+                return false;
+            }
+            head1 = head1.next;
+            head2 = head2.next;
+        }
+        if (head1 == null && head2 == null) {
+            return true;
+        }
+        return false;
+    }
+
 
     public static void printDoubleLinkedList(DLLNode head) {
         while (head != null) {

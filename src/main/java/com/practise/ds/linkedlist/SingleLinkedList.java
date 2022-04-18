@@ -3,6 +3,9 @@ package com.practise.ds.linkedlist;
 import com.practise.commons.Node;
 import com.practise.commons.Utils;
 
+import java.util.List;
+import java.util.Objects;
+
 public class SingleLinkedList {
 
     public Node head, tail;
@@ -16,7 +19,7 @@ public class SingleLinkedList {
 
     public static void main(String[] args) {
         SingleLinkedList singleLinkedList = new SingleLinkedList();
-        singleLinkedList.insertNodeAtFront(10);
+
         singleLinkedList.insertNodeAtFront(20);
         singleLinkedList.insertNodeAtFront(30);
         singleLinkedList.insertNodeAtFront(40);
@@ -31,12 +34,30 @@ public class SingleLinkedList {
         Utils.printSingleLinkedList(singleLinkedList.head);
     }
 
+    public static Node create(int arr[]) {
+        if (arr.length == 0) return null;
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+        for (int i : arr) {
+            singleLinkedList.insertNodeAtEnd(i);
+        }
+        return singleLinkedList.head;
+    }
+
+    public static Node create(List<Integer> arrList) {
+        if (arrList.isEmpty()) return null;
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
+        for (int i : arrList) {
+            singleLinkedList.insertNodeAtEnd(i);
+        }
+        return singleLinkedList.head;
+    }
+
     // Utility functions
     private boolean isEmpty() {
         return head == null;
     }
 
-    private int linkedListSzie() {
+    private int linkedListSize() {
         return size;
     }
 
@@ -149,5 +170,26 @@ public class SingleLinkedList {
         tail = node.next;
         node.next = null;
         size--;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SingleLinkedList)) return false;
+        SingleLinkedList that = (SingleLinkedList) o;
+        if (size == that.size && head.equals(that.head) && tail.equals(that.tail)) return false;
+        Node temp1 = head;
+        Node temp2 = that.head;
+        while (temp1.next != null) {
+            if (!temp1.equals(that)) return false;
+            temp1 = temp1.next;
+            temp2 = temp2.next;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(head, tail, size);
     }
 }

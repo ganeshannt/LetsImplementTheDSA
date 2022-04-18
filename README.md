@@ -33,3 +33,15 @@
 25 | [Sort Colors](https://leetcode.com/problems/sort-colors/)                                                                                       |   [Java](/src/main/java/com/practise/problemsolving/array/SortColorCode.java)
 26 | [3Sum](https://leetcode.com/problems/3sum/)                                                                                                     |   [Java](/src/main/java/com/practise/problemsolving/array/ThreeSum.java)
 
+
+## `Linked List`
+
+| # | Title                                                                                                                                           | Solution |
+|---|-------------------------------------------------------------------------------------------------------------------------------------------------| -------- |
+1 | [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)                                                     |   [Java](src/main/java/com/practise/problemsolving/linkedlist/SSLProblems.java)
+2 | [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)                                                     |   [Java](src/main/java/com/practise/problemsolving/linkedlist/SSLProblems.java)
+3 | [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)                                                     |   [Java](src/main/java/com/practise/problemsolving/linkedlist/SSLProblems.java)
+4 | [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)                                                     |   [Java](src/main/java/com/practise/problemsolving/linkedlist/SSLProblems.java)
+5 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)                                                     |   [Java](src/main/java/com/practise/problemsolving/linkedlist/SSLProblems.java)
+
+
