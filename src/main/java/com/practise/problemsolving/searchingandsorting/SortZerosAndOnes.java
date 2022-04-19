@@ -1,8 +1,15 @@
 package com.practise.problemsolving.searchingandsorting;
 
+import com.practise.commons.Utils;
+
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+Name - Sort Colors
+Link - https://leetcode.com/problems/sort-colors/
+Condition - Could you come up with a one-pass algorithm using only constant extra space?
+*/
 public class SortZerosAndOnes {
 
     public static void main(String[] args) {
@@ -11,11 +18,13 @@ public class SortZerosAndOnes {
         sortZerosAndOnes.singlePassSolution(arr);
     }
 
-    //  Type of Solution - best
-    //  formula - nil
-    //  Time Complexity - O(n)  -> used loop to arrange elements in order by using three pointers method so it take o(n)
-    //  Space Complexity - o(n) -> hash map stored n elements
-    public void doublePassSolution(int arr[]) {
+
+    /*
+     Time Complexity -  O(n)
+     Space Complexity - O(n)
+     Note - Hash Map
+      */
+    public static void doublePassSolution(int arr[]) {
         Map<Integer, Integer> countMap = new HashMap<Integer, Integer>();
         for (int i : arr) {
             if (countMap.containsKey(i)) {
@@ -33,35 +42,29 @@ public class SortZerosAndOnes {
         }
     }
 
-    //  Type of Solution - best
-    //  formula - nil
-    //  Time Complexity - O(n)  -> used loop to arrange elements in order by using three pointers method so it take o(n)
-    //  Space Complexity - o(1) -> no extra spaces used
-    public void singlePassSolution(int arr[]) {
+
+    /*
+    Time Complexity -  O(n)
+    Space Complexity - O(1)
+    Note - Three pointer technique
+     */
+    public static void singlePassSolution(int arr[]) {
         int c = 0, l = 0;
         int h = arr.length - 1;
         while (c <= h) {
             if (arr[c] == 0) {
                 if (c != l) {
-                    swapUsingIndex(arr, c, l);
+                    Utils.swapByIndex(arr, c, l);
                 }
                 c++;
                 l++;
             } else if (arr[c] == 1) {
                 c++;
             } else if (arr[c] == 2) {
-                swapUsingIndex(arr, c, h);
+                Utils.swapByIndex(arr, c, h);
                 h--;
             }
         }
-        for (int i : arr) {
-            System.out.println(i);
-        }
-    }
-
-    private void swapUsingIndex(int arr[], int first, int second) {
-        int temp = arr[first];
-        arr[first] = arr[second];
-        arr[second] = temp;
+        Utils.printArray(arr);
     }
 }

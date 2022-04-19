@@ -1,19 +1,21 @@
 package com.practise.problemsolving.linkedlist;
 
+import com.practise.commons.DLLNode;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class DLLProblems {
 
-    Node head;
+    DLLNode head;
 
     public static void main(String[] args) {
         DLLProblems dllProblems = new DLLProblems();
 
     }
 
-    private Node insert(int data) {
-        Node newNode = new Node(data);
+    private DLLNode insert(int data) {
+        DLLNode newNode = new DLLNode(data);
         if (head == null) {
             head = newNode;
             return head;
@@ -23,27 +25,48 @@ public class DLLProblems {
         return head;
     }
 
-    private void cloneDLLApproach1(Node head) {
+
+    /*
+    Name - Copy List with Random Pointer
+    Link - https://leetcode.com/problems/copy-list-with-random-pointer/
+    Time Complexity - O(n)
+    Space Complexity - o(n) - used hashmap
+    Note - use hash map to store value and address of node then create clone list
+    */
+
+
+    private void cloneDLLApproach1(DLLNode head) {
         Map<Integer, Integer> arbitraryHashTable = new HashMap<Integer, Integer>();
-        Map<Integer, Node> actualHashTable = new HashMap<Integer, Node>();
-        Node temp = head;
-        Node cloneList = head;
+        Map<Integer, DLLNode> actualHashTable = new HashMap<Integer, DLLNode>();
+        DLLNode temp = head;
+        DLLNode cloneList = head;
         while (temp != null) {
-            arbitraryHashTable.put(temp.data, temp.previous.data);
-            cloneList = insert(temp.data);
-            actualHashTable.put(cloneList.data, cloneList.next);
+            if (temp.previous != null) {
+                arbitraryHashTable.put(temp.value, temp.previous.value);
+            }
+            cloneList = insert(temp.value);
+            actualHashTable.put(cloneList.value, cloneList.next);
         }
-        Node cloneTemp = cloneList;
+        DLLNode cloneTemp = cloneList;
         while (cloneTemp != null) {
-            cloneTemp.previous = actualHashTable.get(arbitraryHashTable.get(cloneTemp.data));
+            cloneTemp.previous = actualHashTable.get(arbitraryHashTable.get(cloneTemp.value));
         }
     }
 
-    private void cloneDLLApproach2(Node head) {
-        Node temp = head;
+
+    /*
+    Name - Copy List with Random Pointer
+    Link - https://leetcode.com/problems/copy-list-with-random-pointer/
+    Time Complexity - O(n)
+    Space Complexity - o(1)
+    Note - Create copy of current and attach that copy node next to current node and split list
+    */
+    private void cloneDLLApproach2(DLLNode head) {
+        if (head == null) return;
+        DLLNode temp = head;
         // alternatively create node
         while (temp != null) {
-            Node newNode = new Node(temp.data);
+            DLLNode newNode = new DLLNode(temp.value);
             newNode.next = temp.next;
             temp.next = newNode;
             temp = temp.next.next;
@@ -51,30 +74,19 @@ public class DLLProblems {
         temp = head;
         // if condition needed to handle the edge case - null
         while (temp != null) {
-            if (true) {
-                return;
+            if (temp.previous != null) {
+                temp.next.previous = temp.previous.next;
             }
-            temp.next.previous = temp.previous.next;
             temp = temp.next.next;
         }
         temp = head;
-        Node cloneList = head.next;
-        Node cloneHead = cloneList;
-        while (temp != null) {
-            temp = temp.next.next;
-            cloneList = cloneList.next.next;
-        }
-    }
-
-    public class Node {
-        int data;
-        Node next;
-        Node previous;
-
-        public Node(int data) {
-            this.data = data;
-            this.next = null;
-            this.previous = null;
+        DLLNode clone = head.next;
+        DLLNode cloneHead = clone;
+        while (temp != null && clone != null) {
+            temp.next = (temp.next != null) ? temp.next.next : null;
+            clone.next = (clone.next != null) ? clone.next.next : null;
+            temp = temp.next;
+            clone = clone.next;
         }
     }
 

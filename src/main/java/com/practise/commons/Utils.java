@@ -92,7 +92,6 @@ public class Utils {
         return false;
     }
 
-
     public static void printDoubleLinkedList(DLLNode head) {
         while (head != null) {
             System.out.print("[ ");

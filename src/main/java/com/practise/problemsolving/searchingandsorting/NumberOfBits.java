@@ -1,5 +1,10 @@
 package com.practise.problemsolving.searchingandsorting;
 
+/*
+Name - Number of 1 Bits
+Link - https://leetcode.com/problems/number-of-1-bits/
+Condition - If this function is called many times, how would you optimize it?
+*/
 public class NumberOfBits {
 
     public static void main(String[] args) {
@@ -8,7 +13,13 @@ public class NumberOfBits {
         bits.approach1(n);
     }
 
-    private void approach1(int n) {
+
+    /*
+    Time Complexity -  O(n)
+    Space Complexity - o(1)
+    Note - Bit manipulation
+     */
+    private static void approach1(int n) {
         int count = 0;
         while (n != 0) {
             count += (n % 2) & 1;

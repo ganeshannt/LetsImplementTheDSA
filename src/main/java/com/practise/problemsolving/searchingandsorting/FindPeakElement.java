@@ -1,18 +1,29 @@
 package com.practise.problemsolving.searchingandsorting;
 
+
+    /*
+    Name - Find Peak Element
+    Link - https://leetcode.com/problems/find-peak-element/
+    Condition - You must write an algorithm that runs in O(log n) time.
+    */
+
+import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+
 public class FindPeakElement {
 
-    public static void main(String[] args) {
-        FindPeakElement element = new FindPeakElement();
-        int arr[] = {2, 1};
-        element.approach1(arr);
+    @Test
+    public void testFindPeakElement() {
+        int[] arr = new int[]{1, 2, 1, 3, 5, 6, 4};
+        Assertions.assertEquals(5, FindPeakElement.bestApproach(arr));
     }
 
-    //  Type of Solution - best
-    //  formula - nil
-    //  Time Complexity - O(logn)  -> customized binary tree approach
-    //  Space Complexity - o(1) -> no extra spaces used
-    private void approach1(int[] arr) {
+    /*
+    Time Complexity -  O(log n)
+    Space Complexity - o(1)
+    Note - customized binary search approach
+     */
+    private static int bestApproach(int[] arr) {
         int left = 0;
         int right = arr.length - 1;
         while (left < right) {
@@ -23,7 +34,7 @@ public class FindPeakElement {
                 right = mid;
             }
         }
-        System.out.println(left);
+        return left;
     }
 
 }
