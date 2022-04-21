@@ -3,6 +3,11 @@ package com.practise.problemsolving.string;
 import org.junit.Assert;
 import org.junit.Test;
 
+
+/*
+Name - String Compression
+Link - https://leetcode.com/problems/string-compression/
+*/
 public class RunLengthEncoding {
 
     // tc=o(n)

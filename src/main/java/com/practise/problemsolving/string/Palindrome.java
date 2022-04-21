@@ -6,9 +6,12 @@ import java.util.Stack;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-;
+/*
+Name - Valid Palindrome
+Link - https://leetcode.com/problems/valid-palindrome/
+*/
 
-public class Palidrome {
+public class Palindrome {
 
     private boolean validPalindromeBruteForceApproach(String s) {
         Stack<Character> stack = new Stack<>();
@@ -90,7 +93,7 @@ public class Palidrome {
 
     @Test
     public void testPalidrome() {
-        Palidrome palidrome = new Palidrome();
+        Palindrome palidrome = new Palindrome();
         String input = "A man, a plan, a canal: Panama";
         // assertEquals(true, palidrome.validPalindromeBestApproach(input));
         input = "aguokepatgbnvfqmgmlcupuufxoohdfpgjdmysgvhmvffcnqxjjxqncffvmhvgsymdjgpfdhooxfuupuculmgmqfvnbgtapekouga";

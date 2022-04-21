@@ -6,8 +6,19 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
+/*
+Name - Group Anagrams
+Link - https://leetcode.com/problems/group-anagrams/
+*/
+
 public class Anagrams {
 
+    /*
+    Time Complexity -  O(m*n)
+    Space Complexity - O(n)
+    Note - Hash Map
+    */
     private List<List<String>> bruteForceApproach(String[] strs) {
         List<List<String>> resultList = new ArrayList<>();
         Map<String, List<String>> map = new HashMap<>();
@@ -22,6 +33,17 @@ public class Anagrams {
         }
         resultList.addAll(map.values());
         return resultList;
+    }
+
+    public boolean isAnagram(String s, String t) {
+        char[] ca1 = s.toCharArray();
+        char[] ca2 = t.toCharArray();
+        Arrays.sort(ca1);
+        Arrays.sort(ca2);
+        if (Objects.equals(ca1,ca2)) {
+            return true;
+        }
+        return false;
     }
 
     @Test

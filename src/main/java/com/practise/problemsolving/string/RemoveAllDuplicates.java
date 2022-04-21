@@ -7,6 +7,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
+/*
+Name - Group Anagrams
+Link - https://leetcode.com/problems/group-anagrams/
+*/
 public class RemoveAllDuplicates {
 
     private String bruteForceApproach(String s) {

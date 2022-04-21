@@ -45,3 +45,23 @@
 5 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)                                                     |   [Java](src/main/java/com/practise/problemsolving/linkedlist/SSLProblems.java)
 
 
+## `Searching and sorting`
+
+| # | Title                                                                                                                                           | Solution |
+|---|-------------------------------------------------------------------------------------------------------------------------------------------------| -------- |
+1 | [Find Peak Element](https://leetcode.com/problems/find-peak-element/)                                                     |   [Java](src/main/java/com/practise/problemsolving/searchingandsorting/FindPeakElement.java)
+2 | [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)                                                     |   [Java](src/main/java/com/practise/problemsolving/searchingandsorting/KthLargestElement.java)
+3 | [Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)                                                     |   [Java](src/main/java/com/practise/problemsolving/searchingandsorting/NumberOfBits.java)
+4 | [Sort Colors](https://leetcode.com/problems/sort-colors/)                                                     |   [Java](src/main/java/com/practise/problemsolving/searchingandsorting/SortZerosAndOnes.java)
+5 | [wiggle sort](https://leetcode.com/problems/wiggle-sort/)                                                     |   [Java](src/main/java/com/practise/problemsolving/searchingandsorting/WiggleSort.java)
+
+
+## `String`
+
+| # | Title                                                                                                                                          | Solution |
+|---|------------------------------------------------------------------------------------------------------------------------------------------------| -------- |
+1 | [Group Anagrams](https://leetcode.com/problems/group-anagrams/)                                                     |   [Java](src/main/java/com/practise/problemsolving/string/Anagrams.java)
+2 | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)                                                    |   [Java](src/main/java/com/practise/problemsolving/string/MinimumWindow.java)
+3 | [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)                                                     |   [Java](src/main/java/com/practise/problemsolving/string/Palindrome.java)
+4 | [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)                                                     |   [Java](src/main/java/com/practise/problemsolving/string/ReverseWord.java)
+5 | [String Compression](https://leetcode.com/problems/string-compression/)                                                     |   [Java](src/main/java/com/practise/problemsolving/string/RunLengthEncoding.java)

@@ -6,9 +6,22 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/*
+Name - Minimum Window Substring
+Link - https://leetcode.com/problems/minimum-window-substring/
+Condition - Could you find an algorithm that runs in O(m + n) time?
+*/
+
 public class MinimumWindow {
 
-    private String minimumWindowBruteForeApproach(String s, String p) {
+
+    /*
+    Time Complexity -  O(m*n)
+    Space Complexity - O(n)
+    Note - Hash Map
+    */
+    private static String minimumWindowBruteForeApproach(String s, String p) {
         Map<Character, Integer> stringMap = new HashMap<>(p.length() - 1);
         Map<Character, Integer> patternMap = new HashMap<>(p.length() - 1);
 
@@ -63,13 +76,12 @@ public class MinimumWindow {
 
     @Test
     public void testMinimumWindow() {
-        MinimumWindow minimumWindow = new MinimumWindow();
         String str = "ADOBECODEBANC";
         String substr = "ABC";
         String output = "BANC";
         String str1 = "aa";
         String substr1 = "aa";
         String output1 = "aa";
-        Assert.assertEquals(output1, minimumWindow.minimumWindowBruteForeApproach(str1, substr1));
+        Assert.assertEquals(output1, MinimumWindow.minimumWindowBruteForeApproach(str1, substr1));
     }
 }
