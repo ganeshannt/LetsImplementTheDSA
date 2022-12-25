@@ -1,6 +1,7 @@
 package com.practise.commons;
 
 import java.util.List;
+import java.util.Map;
 
 public class Utils {
 
@@ -171,7 +172,7 @@ public class Utils {
     /*
      * TC = o(n)
      * left->root->right
-     * print value when you visit node for first time.
+     * print value when you visit node for second time.
      * */
     public static void inOrderTraversal(AVLNode root) {
         if (root == null) {
@@ -186,7 +187,7 @@ public class Utils {
     /*
      * TC = o(n)
      * left->right->root
-     * print value when you visit node for first time.
+     * print value when you visit node for third time.
      * */
     public static void postOrderTraversal(AVLNode root) {
         if (root == null) {
@@ -195,5 +196,9 @@ public class Utils {
         postOrderTraversal(root.left);
         postOrderTraversal(root.right);
         System.out.print(root.value + " ");
+    }
+
+    public static void printMap(Map map) {
+        map.forEach((k, v) -> System.out.println("Key : " + k + ", Value : " + v));
     }
 }

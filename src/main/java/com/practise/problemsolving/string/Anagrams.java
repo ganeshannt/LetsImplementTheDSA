@@ -40,7 +40,7 @@ public class Anagrams {
         char[] ca2 = t.toCharArray();
         Arrays.sort(ca1);
         Arrays.sort(ca2);
-        if (Objects.equals(ca1,ca2)) {
+        if (Objects.equals(ca1, ca2)) {
             return true;
         }
         return false;

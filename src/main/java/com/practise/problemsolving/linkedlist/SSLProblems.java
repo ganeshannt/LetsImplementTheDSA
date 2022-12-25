@@ -80,41 +80,6 @@ public class SSLProblems {
         return mergeList;
     }
 
-
-    @Test
-    public void testRemoveNodeFromNthEnd() {
-        List<Integer> inputList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
-        Node output, solution;
-
-        int k = 3;
-        output = SingleLinkedList.create(inputList);
-        output = removeNodeFromNthEnd(output, k);
-
-        inputList.remove(inputList.size() - k);
-        solution = SingleLinkedList.create(inputList);
-        Assertions.assertTrue(Utils.isLinkedListEqual(output, solution));
-
-        inputList.clear();
-        inputList.add(1);
-        k = 1;
-        output = SingleLinkedList.create(inputList);
-        output = removeNodeFromNthEnd(output, k);
-
-        inputList.remove(inputList.size() - k);
-        solution = SingleLinkedList.create(inputList);
-        Assertions.assertTrue(Utils.isLinkedListEqual(output, solution));
-    }
-
-
-    /*
-    Name - Remove Nth Node From End of List
-    Link - https://leetcode.com/problems/remove-nth-node-from-end-of-list/
-    Condition - Could you do this in one pass?
-    Time Complexity - O(n)
-    Space Complexity - o(1)
-    Note - Fast and slow pointer technique
-    */
-
     private static Node removeNodeFromNthEnd(Node head, int k) {
         Node start = new Node(0);
 
@@ -138,26 +103,10 @@ public class SSLProblems {
     }
 
 
-    @Test
-    public void testDetectLoop() {
-        List<Integer> inputList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
-        Node output, solution;
-
-        int k = 3;
-        output = SingleLinkedList.create(inputList);
-        output = removeNodeFromNthEnd(output, k);
-
-        inputList.remove(inputList.size() - k);
-        solution = SingleLinkedList.create(inputList);
-        Assertions.assertTrue(Utils.isLinkedListEqual(output, solution));
-    }
-
-
-
     /*
-    Name - Linked List Cycle
-    Link - https://leetcode.com/problems/linked-list-cycle/
-    Condition - Can you solve it using O(1) (i.e. constant) memory?
+    Name - Remove Nth Node From End of List
+    Link - https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+    Condition - Could you do this in one pass?
     Time Complexity - O(n)
     Space Complexity - o(1)
     Note - Fast and slow pointer technique
@@ -177,7 +126,6 @@ public class SSLProblems {
         System.out.println("loop not detected");
         return false;
     }
-
 
     /*
     Name - Palindrome Linked List
@@ -210,12 +158,13 @@ public class SSLProblems {
         return true;
     }
 
+
+
     /*
-    Name - Intersection of Two Linked Lists
-    Link - https://leetcode.com/problems/intersection-of-two-linked-lists/
-    Condition - Linked lists must retain their original structure after the function returns.
-              - Could you write a solution that runs in O(m + n) time and use only O(1) memory?
-    Time Complexity - O(m + n)
+    Name - Linked List Cycle
+    Link - https://leetcode.com/problems/linked-list-cycle/
+    Condition - Can you solve it using O(1) (i.e. constant) memory?
+    Time Complexity - O(n)
     Space Complexity - o(1)
     Note - Fast and slow pointer technique
     */
@@ -255,25 +204,6 @@ public class SSLProblems {
         return null;
     }
 
-    /*
-     *  Genius solution
-     * */
-    private Node getIntersectionApproach2(Node headA, Node headB) {
-        //boundary check
-        if (headA == null || headB == null) return null;
-
-        Node a = headA;
-        Node b = headB;
-
-        //if a & b have different len, then we will stop the loop after second iteration
-        while (a != b) {
-            //for the end of first iteration, we just reset the pointer to the head of another linkedlist
-            a = a == null ? headB : a.next;
-            b = b == null ? headA : b.next;
-        }
-        return a;
-    }
-
     private static void splitSLL(Node head) {
         SingleLinkedList list1 = new SingleLinkedList();
         SingleLinkedList list2 = new SingleLinkedList();
@@ -289,13 +219,14 @@ public class SSLProblems {
         Utils.printSingleLinkedList(list2.head);
     }
 
-
     /*
-    Name - Add Two Numbers
-    Link - https://leetcode.com/problems/add-two-numbers/
+    Name - Intersection of Two Linked Lists
+    Link - https://leetcode.com/problems/intersection-of-two-linked-lists/
+    Condition - Linked lists must retain their original structure after the function returns.
+              - Could you write a solution that runs in O(m + n) time and use only O(1) memory?
     Time Complexity - O(m + n)
     Space Complexity - o(1)
-    Note - make use of modulo (give remainder) and division (give quotient)
+    Note - Fast and slow pointer technique
     */
 
     private static Node addNumbers(Node first, Node second) {
@@ -351,5 +282,71 @@ public class SSLProblems {
             current = next;
         }
         return previous;
+    }
+
+    @Test
+    public void testRemoveNodeFromNthEnd() {
+        List<Integer> inputList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        Node output, solution;
+
+        int k = 3;
+        output = SingleLinkedList.create(inputList);
+        output = removeNodeFromNthEnd(output, k);
+
+        inputList.remove(inputList.size() - k);
+        solution = SingleLinkedList.create(inputList);
+        Assertions.assertTrue(Utils.isLinkedListEqual(output, solution));
+
+        inputList.clear();
+        inputList.add(1);
+        k = 1;
+        output = SingleLinkedList.create(inputList);
+        output = removeNodeFromNthEnd(output, k);
+
+        inputList.remove(inputList.size() - k);
+        solution = SingleLinkedList.create(inputList);
+        Assertions.assertTrue(Utils.isLinkedListEqual(output, solution));
+    }
+
+
+    /*
+    Name - Add Two Numbers
+    Link - https://leetcode.com/problems/add-two-numbers/
+    Time Complexity - O(m + n)
+    Space Complexity - o(1)
+    Note - make use of modulo (give remainder) and division (give quotient)
+    */
+
+    @Test
+    public void testDetectLoop() {
+        List<Integer> inputList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        Node output, solution;
+
+        int k = 3;
+        output = SingleLinkedList.create(inputList);
+        output = removeNodeFromNthEnd(output, k);
+
+        inputList.remove(inputList.size() - k);
+        solution = SingleLinkedList.create(inputList);
+        Assertions.assertTrue(Utils.isLinkedListEqual(output, solution));
+    }
+
+    /*
+     *  Genius solution
+     * */
+    private Node getIntersectionApproach2(Node headA, Node headB) {
+        //boundary check
+        if (headA == null || headB == null) return null;
+
+        Node a = headA;
+        Node b = headB;
+
+        //if a & b have different len, then we will stop the loop after second iteration
+        while (a != b) {
+            //for the end of first iteration, we just reset the pointer to the head of another linkedlist
+            a = a == null ? headB : a.next;
+            b = b == null ? headA : b.next;
+        }
+        return a;
     }
 }

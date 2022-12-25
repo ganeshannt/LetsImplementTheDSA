@@ -14,13 +14,6 @@ Link - https://leetcode.com/problems/kth-largest-element-in-an-array/
 */
 public class KthLargestElement {
 
-    @Test
-    public void testFindPeakElement() {
-        int arr[] = {3, 2, 1, 5, 6, 4};
-        Assertions.assertEquals(5, KthLargestElement.bruteForceApproach2(arr, 2));
-    }
-
-
     /*
     Time Complexity - O(nlogn)
     Space Complexity - o(1)
@@ -30,7 +23,6 @@ public class KthLargestElement {
         Arrays.sort(arr);
         return arr[arr.length - k];
     }
-
 
     /*
     Time Complexity - O(klogn)
@@ -55,5 +47,11 @@ public class KthLargestElement {
     */
     public static int bestApproach(int arr[], int k) {
         return 0;
+    }
+
+    @Test
+    public void testFindPeakElement() {
+        int arr[] = {3, 2, 1, 5, 6, 4};
+        Assertions.assertEquals(5, KthLargestElement.bruteForceApproach2(arr, 2));
     }
 }

@@ -12,12 +12,6 @@ import org.junit.jupiter.api.Assertions;
 
 public class FindPeakElement {
 
-    @Test
-    public void testFindPeakElement() {
-        int[] arr = new int[]{1, 2, 1, 3, 5, 6, 4};
-        Assertions.assertEquals(5, FindPeakElement.bestApproach(arr));
-    }
-
     /*
     Time Complexity -  O(log n)
     Space Complexity - o(1)
@@ -35,6 +29,12 @@ public class FindPeakElement {
             }
         }
         return left;
+    }
+
+    @Test
+    public void testFindPeakElement() {
+        int[] arr = new int[]{1, 2, 1, 3, 5, 6, 4};
+        Assertions.assertEquals(5, FindPeakElement.bestApproach(arr));
     }
 
 }
