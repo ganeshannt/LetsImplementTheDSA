@@ -1,36 +1,42 @@
 # Problem Solving
+### PATTERNS
+No|Problems|
+:---: | :---:|
+1|[CountAndSay.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/patterns/CountAndSay.java)|
+2|[RepeatedSubstringPattern.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/patterns/RepeatedSubstringPattern.java)|
+
 ### ARRAY
 No|Problems|
 :---: | :---:|
-1|[ShortestUnsortedContinuousSubarray.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ShortestUnsortedContinuousSubarray.java)|
-2|[KthWeakestRowInMatrix.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/KthWeakestRowInMatrix.java)|
-3|[ThreeSum.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ThreeSum.java)|
-4|[SetMatrixZero.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SetMatrixZero.java)|
-5|[RotateMatrix.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/RotateMatrix.java)|
-6|[GameOfLife.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/GameOfLife.java)|
-7|[FindLeader.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/FindLeader.java)|
-8|[EvenNumberOfDigits.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/EvenNumberOfDigits.java)|
-9|[ArrayProduct.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ArrayProduct.java)|
-10|[IncreasingTriplet.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/IncreasingTriplet.java)|
-11|[ReplaceElementWithGreatestElementWithRightSide.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ReplaceElementWithGreatestElementWithRightSide.java)|
-12|[SearchInRotatedSortedArray.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SearchInRotatedSortedArray.java)|
-13|[SortColorCode.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SortColorCode.java)|
-14|[MissingTwoNumbers.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MissingTwoNumbers.java)|
-15|[SortByParity.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SortByParity.java)|
-16|[CountNegativeNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/CountNegativeNumber.java)|
-17|[FirstMissingPositiveInteger.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/FirstMissingPositiveInteger.java)|
-18|[MedianOfTwoSortedArray.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MedianOfTwoSortedArray.java)|
-19|[SmallerThanCurrentNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SmallerThanCurrentNumber.java)|
-20|[RotateArrayKtimes.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/RotateArrayKtimes.java)|
-21|[TwoRepeatingNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/TwoRepeatingNumber.java)|
-22|[NumberOfInversion.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/NumberOfInversion.java)|
-23|[MinimumSwap.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MinimumSwap.java)|
-24|[MissingNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MissingNumber.java)|
-25|[MaxSubArray.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MaxSubArray.java)|
-26|[SingleNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SingleNumber.java)|
-27|[MajorityElement.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MajorityElement.java)|
-28|[CreateTargetArray.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/CreateTargetArray.java)|
-29|[MergeInterval.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MergeInterval.java)|
+1|[ArrayProduct.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ArrayProduct.java)|
+2|[CountNegativeNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/CountNegativeNumber.java)|
+3|[CreateTargetArray.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/CreateTargetArray.java)|
+4|[EvenNumberOfDigits.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/EvenNumberOfDigits.java)|
+5|[FindLeader.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/FindLeader.java)|
+6|[FirstMissingPositiveInteger.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/FirstMissingPositiveInteger.java)|
+7|[GameOfLife.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/GameOfLife.java)|
+8|[IncreasingTriplet.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/IncreasingTriplet.java)|
+9|[KthWeakestRowInMatrix.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/KthWeakestRowInMatrix.java)|
+10|[MajorityElement.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MajorityElement.java)|
+11|[MaxSubArray.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MaxSubArray.java)|
+12|[MedianOfTwoSortedArray.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MedianOfTwoSortedArray.java)|
+13|[MergeInterval.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MergeInterval.java)|
+14|[MinimumSwap.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MinimumSwap.java)|
+15|[MissingNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MissingNumber.java)|
+16|[MissingTwoNumbers.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MissingTwoNumbers.java)|
+17|[NumberOfInversion.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/NumberOfInversion.java)|
+18|[ReplaceElementWithGreatestElementWithRightSide.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ReplaceElementWithGreatestElementWithRightSide.java)|
+19|[RotateArrayKtimes.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/RotateArrayKtimes.java)|
+20|[RotateMatrix.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/RotateMatrix.java)|
+21|[SearchInRotatedSortedArray.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SearchInRotatedSortedArray.java)|
+22|[SetMatrixZero.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SetMatrixZero.java)|
+23|[ShortestUnsortedContinuousSubarray.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ShortestUnsortedContinuousSubarray.java)|
+24|[SingleNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SingleNumber.java)|
+25|[SmallerThanCurrentNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SmallerThanCurrentNumber.java)|
+26|[SortByParity.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SortByParity.java)|
+27|[SortColorCode.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SortColorCode.java)|
+28|[ThreeSum.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ThreeSum.java)|
+29|[TwoRepeatingNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/TwoRepeatingNumber.java)|
 
 ### LINKEDLIST
 No|Problems|
@@ -41,20 +47,20 @@ No|Problems|
 ### SEARCHING AND SORTING
 No|Problems|
 :---: | :---:|
-1|[WiggleSort.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/searchingandsorting/WiggleSort.java)|
-2|[SortZerosAndOnes.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/searchingandsorting/SortZerosAndOnes.java)|
-3|[KthLargestElement.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/searchingandsorting/KthLargestElement.java)|
-4|[NumberOfBits.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/searchingandsorting/NumberOfBits.java)|
-5|[FindPeakElement.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/searchingandsorting/FindPeakElement.java)|
+1|[FindPeakElement.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/searchingandsorting/FindPeakElement.java)|
+2|[KthLargestElement.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/searchingandsorting/KthLargestElement.java)|
+3|[NumberOfBits.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/searchingandsorting/NumberOfBits.java)|
+4|[SortZerosAndOnes.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/searchingandsorting/SortZerosAndOnes.java)|
+5|[WiggleSort.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/searchingandsorting/WiggleSort.java)|
 
 ### STRING
 No|Problems|
 :---: | :---:|
-1|[MinimumWindow.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/string/MinimumWindow.java)|
-2|[RemoveAllDuplicates.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/string/RemoveAllDuplicates.java)|
-3|[Anagrams.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/string/Anagrams.java)|
-4|[ReverseWord.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/string/ReverseWord.java)|
-5|[Palindrome.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/string/Palindrome.java)|
+1|[Anagrams.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/string/Anagrams.java)|
+2|[MinimumWindow.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/string/MinimumWindow.java)|
+3|[Palindrome.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/string/Palindrome.java)|
+4|[RemoveAllDuplicates.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/string/RemoveAllDuplicates.java)|
+5|[ReverseWord.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/string/ReverseWord.java)|
 6|[RunLengthEncoding.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/string/RunLengthEncoding.java)|
 
 ### THREAD
@@ -64,9 +70,10 @@ No|Problems|
 
 Topics|Problems|
 :---: | :---:|
+PATTERNS|2|
 ARRAY|29|
 LINKEDLIST|2|
-SEARCHINGANDSORTING|5|
+SEARCHING AND SORTING|5|
 STRING|6|
 THREAD|1|
-TOTAL|43|
+TOTAL|45|

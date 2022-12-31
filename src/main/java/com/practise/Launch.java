@@ -3,10 +3,7 @@ package com.practise;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author Ganeshan Nagarajan
@@ -48,9 +45,10 @@ public class Launch {
                 sb.append("### ").append(directoryName).append("\n");
                 sb.append("No").append("|").append("Problems").append("|").append("\n");
                 sb.append(":---: | :---:|").append("\n");
-                map.put(dir.getName().toUpperCase(), dir.list().length);
+                map.put(directoryName, dir.list().length);
                 int count = 1;
-                for (String fileName : dir.list()) {
+
+                for (String fileName : Arrays.stream(dir.list()).sorted().toList()) {
                     if (fileName.contains(".java")) {
                         sb.append(count++).append("|[").append(fileName).append("](").append(BRANCH_PATH)
                                 .append(dir.getName()).append("/").append(fileName).append(")|").append("\n");
