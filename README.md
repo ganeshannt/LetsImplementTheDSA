@@ -25,18 +25,20 @@ No|Problems|
 15|[MissingNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MissingNumber.java)|
 16|[MissingTwoNumbers.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/MissingTwoNumbers.java)|
 17|[NumberOfInversion.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/NumberOfInversion.java)|
-18|[ReplaceElementWithGreatestElementWithRightSide.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ReplaceElementWithGreatestElementWithRightSide.java)|
-19|[RotateArrayKtimes.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/RotateArrayKtimes.java)|
-20|[RotateMatrix.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/RotateMatrix.java)|
-21|[SearchInRotatedSortedArray.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SearchInRotatedSortedArray.java)|
-22|[SetMatrixZero.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SetMatrixZero.java)|
-23|[ShortestUnsortedContinuousSubarray.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ShortestUnsortedContinuousSubarray.java)|
-24|[SingleNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SingleNumber.java)|
-25|[SmallerThanCurrentNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SmallerThanCurrentNumber.java)|
-26|[SortByParity.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SortByParity.java)|
-27|[SortColorCode.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SortColorCode.java)|
-28|[ThreeSum.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ThreeSum.java)|
-29|[TwoRepeatingNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/TwoRepeatingNumber.java)|
+18|[PartitionToKEqualSumSubsets.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/PartitionToKEqualSumSubsets.java)|
+19|[ReplaceElementWithGreatestElementWithRightSide.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ReplaceElementWithGreatestElementWithRightSide.java)|
+20|[RotateArrayKtimes.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/RotateArrayKtimes.java)|
+21|[RotateMatrix.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/RotateMatrix.java)|
+22|[SearchInRotatedSortedArray.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SearchInRotatedSortedArray.java)|
+23|[SetMatrixZero.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SetMatrixZero.java)|
+24|[ShortestUnsortedContinuousSubarray.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ShortestUnsortedContinuousSubarray.java)|
+25|[SingleNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SingleNumber.java)|
+26|[SmallerThanCurrentNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SmallerThanCurrentNumber.java)|
+27|[SortByParity.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SortByParity.java)|
+28|[SortColorCode.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SortColorCode.java)|
+29|[SubArraySumEqualsK.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/SubArraySumEqualsK.java)|
+30|[ThreeSum.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ThreeSum.java)|
+31|[TwoRepeatingNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/TwoRepeatingNumber.java)|
 
 ### LINKEDLIST
 No|Problems|
@@ -71,9 +73,9 @@ No|Problems|
 Topics|Problems|
 :---: | :---:|
 PATTERNS|2|
-ARRAY|29|
+ARRAY|31|
 LINKEDLIST|2|
 SEARCHING AND SORTING|5|
 STRING|6|
 THREAD|1|
-TOTAL|45|
+TOTAL|47|

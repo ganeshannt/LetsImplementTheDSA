@@ -46,11 +46,11 @@ public class MissingNumber {
    */
     public int bestApproach(int arr[]) {
         int n = arr.length;
-        int actualsum = (n * (n + 1)) / 2;
+        int actualSum = (n * (n + 1)) / 2;
         int arrSum = 0;
         for (int i : arr) {
             arrSum += i;
         }
-        return (actualsum - arrSum);
+        return (actualSum - arrSum);
     }
 }

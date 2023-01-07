@@ -11,11 +11,10 @@ public class MissingTwoNumbers {
 
     public static void main(String[] args) {
         int arr[] = {1, 3, 5, 6};
-        MissingTwoNumbers missingTwoNumbers = new MissingTwoNumbers();
-        missingTwoNumbers.bestApproach(arr);
+        bestApproach(arr);
     }
 
-    private void bestApproach(int[] arr) {
+    private static void bestApproach(int[] arr) {
         int xor_value = arr[0];
         for (int i = 1; i < arr.length - 2; i++)
             xor_value ^= arr[i];
