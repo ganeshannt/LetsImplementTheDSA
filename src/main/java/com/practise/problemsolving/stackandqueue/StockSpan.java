@@ -23,6 +23,12 @@ public class StockSpan {
 
     int index;
 
+    public StockSpan() {
+        this.stack = new Stack<>();
+        arrayList = new ArrayList<>();
+        index = 0;
+    }
+
     public static void main(String[] args) {
 
         StockSpan stockSpanner = new StockSpan();
@@ -35,12 +41,6 @@ public class StockSpan {
                 System.out.println(stockSpanner.next(n));
             }
         }
-    }
-
-    public StockSpan() {
-        this.stack = new Stack<>();
-        arrayList = new ArrayList<>();
-        index = 0;
     }
 
     public int next(int price) {

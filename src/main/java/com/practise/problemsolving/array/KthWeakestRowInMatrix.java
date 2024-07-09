@@ -1,11 +1,12 @@
 package com.practise.problemsolving.array;
 
-
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
+
+;
 
 /*
 
@@ -87,6 +88,6 @@ public class KthWeakestRowInMatrix {
     @Test
     public void testArrayBasedApproach() {
         int[][] arr = {{1, 1, 0, 0, 0}, {1, 1, 1, 1, 0}, {1, 0, 0, 0, 0}, {1, 1, 0, 0, 0}, {1, 1, 1, 1, 1}};
-        Assert.assertArrayEquals(new int[]{2, 0, 3}, arrayBasedApproach(arr, 3));
+        Assertions.assertArrayEquals(new int[]{2, 0, 3}, arrayBasedApproach(arr, 3));
     }
 }

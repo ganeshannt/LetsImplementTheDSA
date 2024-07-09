@@ -1,7 +1,7 @@
 package com.practise.problemsolving.array;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 
 /*
@@ -101,6 +101,6 @@ public class GameOfLife {
         GameOfLife gameOfLife = new GameOfLife();
         int arr[][] = {{0, 1, 0}, {0, 0, 1}, {1, 1, 1}, {0, 0, 0}};
         int result[][] = {{0, 0, 0}, {1, 0, 1}, {0, 1, 1}, {0, 1, 0}};
-        Assert.assertArrayEquals(result, gameOfLife.bruteForceApproach(arr));
+        Assertions.assertArrayEquals(result, gameOfLife.bruteForceApproach(arr));
     }
 }

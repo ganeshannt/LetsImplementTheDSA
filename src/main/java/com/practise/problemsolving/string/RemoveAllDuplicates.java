@@ -1,7 +1,7 @@
 package com.practise.problemsolving.string;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -133,12 +133,12 @@ public class RemoveAllDuplicates {
         RemoveAllDuplicates allDuplicates = new RemoveAllDuplicates();
         // String input = "ganeshannagarajan";
         // String output = "ganeshrj";
-        // Assert.assertEquals(output, allDuplicates.bruteForceApproach(input));
+        // Assertions.assertEquals(output, allDuplicates.bruteForceApproach(input));
         // String input2 = "azxxxzy";
         // String output2 = "azxzy";
-        // Assert.assertEquals(output2,
+        // Assertions.assertEquals(output2,
         // allDuplicates.removeAllAdjecentDuplicatesUsingStack(input2));
         String input3 = "loveleetcode";
-        Assert.assertEquals(2, allDuplicates.firstUniqueCharacterBruteForceApprach(input3));
+        Assertions.assertEquals(2, allDuplicates.firstUniqueCharacterBruteForceApprach(input3));
     }
 }

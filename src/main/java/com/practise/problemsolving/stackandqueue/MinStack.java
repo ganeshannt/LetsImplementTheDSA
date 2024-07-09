@@ -22,6 +22,11 @@ public class MinStack {
     private Long min;
 
 
+    public MinStack() {
+        this.stack = new Stack<>();
+        min = Long.MAX_VALUE;
+    }
+
     public static void main(String[] args) {
         int[] arr = {4, 5, 2, 8, 1, 3};
         MinStack minStack = new MinStack();
@@ -29,11 +34,6 @@ public class MinStack {
             minStack.push(n);
             System.out.println(minStack.getMin());
         }
-    }
-
-    public MinStack() {
-        this.stack = new Stack<>();
-        min = Long.MAX_VALUE;
     }
 
     public void push(int x) {

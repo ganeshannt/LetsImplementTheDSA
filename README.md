@@ -1,11 +1,14 @@
 # Problem Solving
+
 ### PATTERNS
+
 No|Problems|
 :---: | :---:|
 1|[CountAndSay.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/patterns/CountAndSay.java)|
 2|[RepeatedSubstringPattern.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/patterns/RepeatedSubstringPattern.java)|
 
 ### ARRAY
+
 No|Problems|
 :---: | :---:|
 1|[ArrayProduct.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/ArrayProduct.java)|
@@ -41,12 +44,14 @@ No|Problems|
 31|[TwoRepeatingNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/array/TwoRepeatingNumber.java)|
 
 ### LINKEDLIST
+
 No|Problems|
 :---: | :---:|
 1|[DLLProblems.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/linkedlist/DLLProblems.java)|
 2|[SSLProblems.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/linkedlist/SSLProblems.java)|
 
 ### SEARCHING AND SORTING
+
 No|Problems|
 :---: | :---:|
 1|[FindPeakElement.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/searchingandsorting/FindPeakElement.java)|
@@ -56,6 +61,7 @@ No|Problems|
 5|[WiggleSort.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/searchingandsorting/WiggleSort.java)|
 
 ### STRING
+
 No|Problems|
 :---: | :---:|
 1|[Anagrams.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/string/Anagrams.java)|
@@ -66,16 +72,17 @@ No|Problems|
 6|[RunLengthEncoding.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/string/RunLengthEncoding.java)|
 
 ### THREAD
+
 No|Problems|
 :---: | :---:|
 1|[OddEvenPrint.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/thread/OddEvenPrint.java)|
 
-Topics|Problems|
-:---: | :---:|
-PATTERNS|2|
-ARRAY|31|
-LINKEDLIST|2|
-SEARCHING AND SORTING|5|
-STRING|6|
-THREAD|1|
-TOTAL|47|
+        Topics         |Problems|
+:---------------------:| :---:|
+       PATTERNS        |2|
+         ARRAY         |31|
+      LINKEDLIST       |2|
+ SEARCHING AND SORTING |5|
+        STRING         |6|
+        THREAD         |1|
+         TOTAL         |47|

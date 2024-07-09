@@ -1,7 +1,7 @@
 package com.practise.problemsolving.string;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /*
 Name - Reverse Words in a String
@@ -26,6 +26,6 @@ public class ReverseWord {
         ReverseWord reverseWord = new ReverseWord();
         String input = "a good   example";
         String output = "example good a";
-        Assert.assertEquals(output, reverseWord.bruteForceApproach(input));
+        Assertions.assertEquals(output, reverseWord.bruteForceApproach(input));
     }
 }

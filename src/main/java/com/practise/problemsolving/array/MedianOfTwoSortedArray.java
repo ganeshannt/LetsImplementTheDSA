@@ -1,7 +1,7 @@
 package com.practise.problemsolving.array;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 
 /*
@@ -72,11 +72,11 @@ public class MedianOfTwoSortedArray {
     public void testMedianOfTwoSortedArray() {
         int arr1[] = {1, 2};
         int arr2[] = {3, 4};
-        Assert.assertEquals(2.5, mergeSortApproach(arr1, arr2), 2.4);
+        Assertions.assertEquals(2.5, mergeSortApproach(arr1, arr2), 2.4);
 
         int arr3[] = {2};
         int arr4[] = {};
 
-        Assert.assertEquals(2, mergeSortApproach(arr3, arr4), 2);
+        Assertions.assertEquals(2, mergeSortApproach(arr3, arr4), 2);
     }
 }

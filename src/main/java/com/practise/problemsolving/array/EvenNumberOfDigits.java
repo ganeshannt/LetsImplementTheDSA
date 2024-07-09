@@ -1,7 +1,7 @@
 package com.practise.problemsolving.array;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 
 /*
@@ -62,7 +62,7 @@ public class EvenNumberOfDigits {
     public void testEvenNumberOfDigits() {
         EvenNumberOfDigits digits = new EvenNumberOfDigits();
         int arr[] = {555, 901, 482, 1771};
-        Assert.assertEquals(1, digits.bruteForceApproach(arr));
+        Assertions.assertEquals(1, digits.bruteForceApproach(arr));
     }
 
 }

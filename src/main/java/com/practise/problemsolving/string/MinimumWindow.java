@@ -1,7 +1,7 @@
 package com.practise.problemsolving.string;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -82,6 +82,6 @@ public class MinimumWindow {
         String str1 = "aa";
         String substr1 = "aa";
         String output1 = "aa";
-        Assert.assertEquals(output1, MinimumWindow.minimumWindowBruteForeApproach(str1, substr1));
+        Assertions.assertEquals(output1, MinimumWindow.minimumWindowBruteForeApproach(str1, substr1));
     }
 }
