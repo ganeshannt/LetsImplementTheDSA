@@ -9,9 +9,12 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 public final class ReadmeUpdater {
+
+    private ReadmeUpdater() {
+        throw new IllegalStateException("Utility class");
+    }
 
     private static final Logger logger = Logger.getLogger(ReadmeUpdater.class.getName());
     private static final String SRC_DIR = "src/main/java/com/practise/";
@@ -43,10 +46,11 @@ public final class ReadmeUpdater {
     private static void processDirectory(File dir, StringBuilder sb, Map<String, Integer> map) {
         var subDirs = Arrays.stream(Objects.requireNonNull(dir.listFiles(File::isDirectory)))
                 .sorted()
-                .collect(Collectors.toList());
+                .toList();
 
         for (var subDir : subDirs) {
-            if (subDir.getName().equals("problem")) {
+            logger.info(subDir.getParentFile().getName());
+            if (subDir.getName().equals("problem") || subDir.getParentFile().getName().equals("ps")) {
                 var packageName = getFormattedPackageName(subDir);
                 sb.append("### ").append(packageName).append("\n");
                 sb.append("No").append("|").append("Java File").append("|").append("\n");
@@ -72,8 +76,14 @@ public final class ReadmeUpdater {
 
     private static String getFormattedPackageName(File dir) {
         var pathElements = dir.getPath().split(File.separator);
-        var problemIndex = Arrays.asList(pathElements).indexOf("problem");
-        var packageElements = Arrays.copyOfRange(pathElements, problemIndex - 1, problemIndex);
+        var problemIndex = Arrays.asList(pathElements).indexOf(dir.getName());
+        String[] packageElements = null;
+        if (dir.getParentFile().getName().equals("ps")) {
+            packageElements = new String[]{dir.getName()};
+        } else {
+            packageElements = Arrays.copyOfRange(pathElements, problemIndex - 1, problemIndex);
+        }
+
         return String.join(" ", packageElements).replaceAll("[a-z]", " $0").toUpperCase();
     }
 

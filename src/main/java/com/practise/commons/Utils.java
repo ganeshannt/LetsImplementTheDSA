@@ -7,9 +7,9 @@ import java.util.logging.Logger;
 
 public final class Utils {
 
-    private static final Logger logger = Logger.getLogger(Utils.class.getName());
     public static final String AVL_TREE_IS_EMPTY = "AVL Tree is empty";
     public static final String TREE_IS_EMPTY = "Tree is empty";
+    private static final Logger logger = Logger.getLogger(Utils.class.getName());
 
     private Utils() {
         throw new UnsupportedOperationException("Utility class");

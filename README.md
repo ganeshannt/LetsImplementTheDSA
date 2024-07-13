@@ -1,10 +1,12 @@
 # Package Structure
 
-###  S E A R C H I N G
+### S E A R C H I N G
+
 No|Java File|
 :---:|:---:|
 
-###  S O R T I N G
+### S O R T I N G
+
 No|Java File|
 :---:|:---:|
 1|[FindPeakElement.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/algorithm/sorting/problem/FindPeakElement.java)|
@@ -14,7 +16,8 @@ No|Java File|
 5|[SortZerosAndOnes.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/algorithm/sorting/problem/SortZerosAndOnes.java)|
 6|[WiggleSort.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/algorithm/sorting/problem/WiggleSort.java)|
 
-###  A R R A Y
+### A R R A Y
+
 No|Java File|
 :---:|:---:|
 1|[ArrayProduct.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/ds/array/problem/ArrayProduct.java)|
@@ -49,13 +52,15 @@ No|Java File|
 30|[ThreeSum.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/ds/array/problem/ThreeSum.java)|
 31|[TwoRepeatingNumber.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/ds/array/problem/TwoRepeatingNumber.java)|
 
-###  L I N K E D L I S T
+### L I N K E D L I S T
+
 No|Java File|
 :---:|:---:|
 1|[DLLProblems.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/ds/linkedlist/problem/DLLProblems.java)|
 2|[SSLProblems.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/ds/linkedlist/problem/SSLProblems.java)|
 
-###  S T A C K
+### S T A C K
+
 No|Java File|
 :---:|:---:|
 1|[MinStack.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/ds/stack/problem/MinStack.java)|
@@ -63,7 +68,8 @@ No|Java File|
 3|[StockSpan.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/ds/stack/problem/StockSpan.java)|
 4|[ValidParentheses.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/ds/stack/problem/ValidParentheses.java)|
 
-###  S T R I N G
+### S T R I N G
+
 No|Java File|
 :---:|:---:|
 1|[Anagrams.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/ds/string/problem/Anagrams.java)|
@@ -74,19 +80,35 @@ No|Java File|
 6|[ReverseWord.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/ds/string/problem/ReverseWord.java)|
 7|[RunLengthEncoding.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/ds/string/problem/RunLengthEncoding.java)|
 
-###  T H R E A D
+### T H R E A D
+
 No|Java File|
 :---:|:---:|
 1|[OddEvenPrint.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/java/thread/problem/OddEvenPrint.java)|
 
-### Summary
-Package|File Count|
+### H E L L O
+
+No|Java File|
 :---:|:---:|
- S E A R C H I N G|0|
- S O R T I N G|6|
- A R R A Y|31|
- L I N K E D L I S T|2|
- S T A C K|4|
- S T R I N G|7|
- T H R E A D|1|
-TOTAL|51|
+1|[CountAndSay.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/ps/hello/CountAndSay.java)|
+
+### P A T T E R N S
+
+No|Java File|
+:---:|:---:|
+1|[CountAndSay.java](https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/ps/patterns/CountAndSay.java)|
+
+### Summary
+
+       Package       |File Count|
+:-------------------:|:---:|
+  S E A R C H I N G  |0|
+    S O R T I N G    |6|
+      A R R A Y      |31|
+ L I N K E D L I S T |2|
+      S T A C K      |4|
+     S T R I N G     |7|
+     T H R E A D     |1|
+      H E L L O      |1|
+   P A T T E R N S   |1|
+        TOTAL        |53|
