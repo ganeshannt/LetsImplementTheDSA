@@ -8,6 +8,8 @@ import java.util.logging.Logger;
 public final class Utils {
 
     private static final Logger logger = Logger.getLogger(Utils.class.getName());
+    public static final String AVL_TREE_IS_EMPTY = "AVL Tree is empty";
+    public static final String TREE_IS_EMPTY = "Tree is empty";
 
     private Utils() {
         throw new UnsupportedOperationException("Utility class");
@@ -148,7 +150,7 @@ public final class Utils {
 
     public static void preOrderTraversal(TreeNode root) {
         if (root == null) {
-            logger.info("Tree is empty");
+            logger.info(TREE_IS_EMPTY);
             return;
         }
         logger.info(() -> String.valueOf(root.value));
@@ -158,7 +160,7 @@ public final class Utils {
 
     public static void inOrderTraversal(TreeNode root) {
         if (root == null) {
-            logger.info("Tree is empty");
+            logger.info(TREE_IS_EMPTY);
             return;
         }
         inOrderTraversal(root.left);
@@ -168,7 +170,7 @@ public final class Utils {
 
     public static void postOrderTraversal(TreeNode root) {
         if (root == null) {
-            logger.info("Tree is empty");
+            logger.info(TREE_IS_EMPTY);
             return;
         }
         postOrderTraversal(root.left);
@@ -180,7 +182,7 @@ public final class Utils {
 
     public static void preOrderTraversal(AVLNode root) {
         if (root == null) {
-            logger.info("AVL Tree is empty");
+            logger.info(AVL_TREE_IS_EMPTY);
             return;
         }
         logger.info(() -> String.valueOf(root.value));
@@ -190,7 +192,7 @@ public final class Utils {
 
     public static void inOrderTraversal(AVLNode root) {
         if (root == null) {
-            logger.info("AVL Tree is empty");
+            logger.info(AVL_TREE_IS_EMPTY);
             return;
         }
         inOrderTraversal(root.left);
@@ -200,7 +202,7 @@ public final class Utils {
 
     public static void postOrderTraversal(AVLNode root) {
         if (root == null) {
-            logger.info("AVL Tree is empty");
+            logger.info(AVL_TREE_IS_EMPTY);
             return;
         }
         postOrderTraversal(root.left);

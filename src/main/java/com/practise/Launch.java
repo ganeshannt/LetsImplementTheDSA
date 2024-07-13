@@ -1,73 +1,23 @@
 package com.practise;
 
-import java.io.File;
-import java.io.FileOutputStream;
+import com.practise.commons.ReadmeUpdater;
+
 import java.io.IOException;
-import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
- * @author Ganeshan Nagarajan
- * @since 20-03-2022
+ * Launch class to update the README file with Java file names and GitHub links.
  */
-
 public class Launch {
 
-    private static final String SRC_DIR =
-            "/Users/ganeshannt/IdeaProjects/personal/LetsImplementTheDSA/src/main/java/com/practise/problemsolving/";
-    private static final String README_FILE = "/Users/ganeshannt/IdeaProjects/personal/LetsImplementTheDSA/README.md";
-    private static final String BRANCH_PATH =
-            "https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/problemsolving/";
+    private static final Logger logger = Logger.getLogger(Launch.class.getName());
 
-    public static void main(String[] args) throws IOException {
-        UpdateReadMeFile();
-    }
-
-    private static void UpdateReadMeFile() throws IOException {
-
-        Map<String, Integer> map = new LinkedHashMap<String, Integer>();
-        File srcDir = new File(SRC_DIR);
-
-        // Coding problem type will be list on high to low
-        List<File> dirList = List.of(srcDir.listFiles());
-
-        File file = new File(README_FILE);
-        FileOutputStream fos = new FileOutputStream(file);
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("# Problem Solving").append("\n");
-
-        Map<String, String> nameMapping = new HashMap<>();
-        nameMapping.put("SEARCHINGANDSORTING", "SEARCHING AND SORTING");
-
-        for (File dir : dirList) {
-            if (!dir.isFile()) {
-                String directoryName = nameMapping.getOrDefault(dir.getName().toUpperCase(), dir.getName().toUpperCase());
-                sb.append("### ").append(directoryName).append("\n");
-                sb.append("No").append("|").append("Problems").append("|").append("\n");
-                sb.append(":---: | :---:|").append("\n");
-                map.put(directoryName, dir.list().length);
-                int count = 1;
-
-                for (String fileName : Arrays.stream(dir.list()).sorted().toList()) {
-                    if (fileName.contains(".java")) {
-                        sb.append(count++).append("|[").append(fileName).append("](").append(BRANCH_PATH)
-                                .append(dir.getName()).append("/").append(fileName).append(")|").append("\n");
-                    }
-                }
-                sb.append("\n");
-            }
+    public static void main(String[] args) {
+        try {
+            ReadmeUpdater.updateReadMeFile();
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Error updating README file", e);
         }
-        sb.append("Topics").append("|").append("Problems").append("|").append("\n");
-        sb.append(":---: | :---:|").append("\n");
-        int total = 0;
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            sb.append(entry.getKey()).append("|").append(entry.getValue()).append("|").append("\n");
-            total += entry.getValue();
-        }
-        sb.append("TOTAL").append("|").append(total).append("|").append("\n");
-        fos.write(sb.toString().getBytes());
-        System.out.println("Readme File updated successfully...!");
-        fos.flush();
-        fos.close();
     }
 }
