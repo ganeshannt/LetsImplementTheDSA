@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class SearchingAlgorithms {
 
-    public static int linearSearch(int arr[], int searchElement) {
+    public static int linearSearch(int[] arr, int searchElement) {
         for (int i = 0; i < arr.length; i++) {
             if (searchElement == arr[i])
                 return i;
@@ -13,7 +13,7 @@ public class SearchingAlgorithms {
     }
 
 
-    public static int recursiveLinearSearchImpl(int arr[], int searchElement, int index) {
+    public static int recursiveLinearSearchImpl(int[] arr, int searchElement, int index) {
         if (index >= arr.length)
             return -1;
         if (arr[index] == searchElement)
@@ -22,7 +22,7 @@ public class SearchingAlgorithms {
             return recursiveLinearSearchImpl(arr, searchElement, index + 1);
     }
 
-    public static int recursiveLinearSearch(int arr[], int searchElement) {
+    public static int recursiveLinearSearch(int[] arr, int searchElement) {
         if (arr.length == 0)
             return -1;
         return recursiveLinearSearchImpl(arr, searchElement, 0);
@@ -30,7 +30,7 @@ public class SearchingAlgorithms {
 
 
     //    given array should be sorted
-    public static int iterativeBinarySearch(int arr[], int searchElement) {
+    public static int iterativeBinarySearch(int[] arr, int searchElement) {
         int start = 0;
         int end = arr.length;
         while (start < end) {
@@ -46,7 +46,7 @@ public class SearchingAlgorithms {
     }
 
 
-    public static int recursiveBinarySearchImpl(int arr[], int searchElement, int start, int end) {
+    public static int recursiveBinarySearchImpl(int[] arr, int searchElement, int start, int end) {
         if (start >= end)
             return -1;
 
@@ -60,7 +60,7 @@ public class SearchingAlgorithms {
             return recursiveBinarySearchImpl(arr, searchElement, start, mid - 1);
     }
 
-    public static int recursiveBinarySearch(int arr[], int searchElement) {
+    public static int recursiveBinarySearch(int[] arr, int searchElement) {
         if (arr.length == 0) {
             return -1;
         }
@@ -68,7 +68,7 @@ public class SearchingAlgorithms {
     }
 
 
-    public static void main(String Args[]) {
+    public static void main(String[] args) {
         int arr[] = {23, 21, 4, 2, 54, 67, 86, 67, 34, 7, 6, 43, 8, 9, 665, 346, 97, 546, 675, 25, 76};
         int arr1[] = {15};
         Arrays.sort(arr);
