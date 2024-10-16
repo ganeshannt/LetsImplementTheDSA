@@ -2,87 +2,110 @@ package com.practise.algorithm.sorting.impl.stable;
 
 import com.practise.commons.Utils;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
-/*
- in-place comparison-based sorting algorithms.
- In this algorithm, a sub-collection is maintained which is always in order(sorted)
-
-Time Complexity: O(N2). O(N) - if given array is already sorted
-Space Complexity: O(1)
-
-Best Suited Scenario:
-1)  Array and Linked list data structures
-2)  given collection is in partially unsorted order
-3)  due to time complexity, it is not feasible large number of data set
+/**
+ * Insertion Sort - In-place, stable, comparison-based sorting algorithm.
+ * <p>
+ * Time Complexity: O(N^2) in the average and worst case.
+ * Best Case: O(N) if the array is already sorted.
+ * Space Complexity: O(1) - In-place algorithm.
+ * <p>
+ * Best Suited Scenarios:
+ * 1. Small or partially sorted data sets.
+ * 2. Arrays or linked lists.
+ * 3. Inefficient for large datasets due to quadratic time complexity.
  */
-
 public class InsertionSort {
 
-    public static void iterativeInsertionSort(int arr[]) {
-//        iterate from second element to last element
+    /**
+     * Iterative Insertion Sort.
+     *
+     * @param arr The array to be sorted.
+     */
+    public static void iterativeInsertionSort(int[] arr) {
+        // Start from the second element and iterate over the array
         for (int i = 1; i < arr.length; i++) {
-//            iterate from i to 0 th index to set given element in correct position
+            int key = arr[i];
+            int j = i - 1;
+            // Move elements greater than the key one position ahead to make space
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            // Insert the key at the correct position
+            arr[j + 1] = key;
+        }
+        Utils.printArray(arr);
+    }
+
+    //    my approach
+    public static void iterativeInsertionSort0(int[] arr) {
+        // Start from the second element and iterate over the array
+        for (int i = 1; i < arr.length; i++) {
             for (int j = i; j > 0; j--) {
                 if (arr[j - 1] > arr[j]) {
-                    Utils.swapByIndex(arr, j, j - 1);
+                    Utils.swapByIndex(arr, j - 1, j); // Swap
                 } else {
-                    break;
+                    break; // Break if no swap is needed
                 }
             }
         }
         Utils.printArray(arr);
     }
 
-    public static void iterativeInsertionSort0(int arr[]) {
-        int i, j, key;
-        for (i = 1; i < arr.length; i++) {
-            key = arr[i];
-            j = i - 1;
-            while (j >= 0 && key < arr[j]) {
-                arr[j + 1] = arr[j];
-                j -= 1;
-            }
-            arr[j + 1] = key;
-        }
-        Utils.printArray(arr);
+
+    /**
+     * Recursive Insertion Sort.
+     *
+     * @param arr The array to be sorted.
+     */
+    public static void recursiveInsertionSort(int[] arr) {
+        recursiveInsertionSortImpl(arr, arr.length);
+        Utils.printArray(arr); // Assuming Utils has a method for printing the array
     }
 
-    public static void recursiveInsertionSortImpl(int arr[], int n) {
-
+    /**
+     * Helper function for Recursive Insertion Sort.
+     *
+     * @param arr The array to be sorted.
+     * @param n   The current length being sorted recursively.
+     */
+    private static void recursiveInsertionSortImpl(int[] arr, int n) {
+        // Base case: If array has only one element, return
         if (n <= 1) {
             return;
         }
 
+        // Sort the first n-1 elements
         recursiveInsertionSortImpl(arr, n - 1);
-        int j = n - 2;
+
+        // Insert the nth element at its correct position
         int key = arr[n - 1];
-        while (j >= 0 && key < arr[j]) {
+        int j = n - 2;
+
+        while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
-            j -= 1;
+            j--;
         }
         arr[j + 1] = key;
-        System.out.println();
-        Utils.printArray(arr);
     }
 
-    public static void recursiveInsertionSort(int arr[]) {
-        recursiveInsertionSortImpl(arr, arr.length);
-    }
+    /**
+     * Main method to test sorting methods.
+     *
+     * @param args Command line arguments.
+     */
+    public static void main(String[] args) {
 
-    public static void insertionSort1(int n, List<Integer> arr) {
-        List<Integer> arr1 = new ArrayList<>();
+        int[] arr = {6, 2, 5, 5, 4, 8, 1, 3, 0, -10, -1, 12};
+        var unsortedArr = arr.clone();
+        Arrays.sort(unsortedArr);
 
-        for (int i : arr) {
-            System.out.println(i + " ");
-        }
-    }
-
-    public static void main(String Args[]) {
-        int arr[] = {23, 21, 4, 2, 54, 67, 86, 67, 34, 7, 6, 43, 8, 9, 665, 346, 97, 546, 675, 25, 76};
         iterativeInsertionSort(arr);
-        //recursiveInsertionSort(arr);
-    }
+        iterativeInsertionSort0(arr);
+        recursiveInsertionSort(arr);
 
+        assert Arrays.equals(arr, unsortedArr) : "The array is not sorted correctly.";
+    }
 }
