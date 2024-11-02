@@ -99,7 +99,7 @@ public final class Utils {
 
     /************************************* Print Linked List **********************************/
 
-    public static void printSingleLinkedList(Node head) {
+    public static void printSingleLinkedList(SLLNode head) {
         if (head == null) {
             logger.warning("Linked List is null");
             return;
@@ -117,7 +117,7 @@ public final class Utils {
         }
     }
 
-    public static boolean isLinkedListEqual(Node head1, Node head2) {
+    public static boolean isLinkedListEqual(SLLNode head1, SLLNode head2) {
         while (head1 != null && head2 != null) {
             if (head1.value != head2.value) {
                 return false;

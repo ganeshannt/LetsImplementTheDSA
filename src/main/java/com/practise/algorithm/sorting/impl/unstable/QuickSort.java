@@ -35,7 +35,7 @@ public class QuickSort {
         int pivot = arr[end]; // Pivot element is the last element
 
         // Iterate over the array and compare each element with the pivot
-        for (int j = start; j <= end - 1; j++) {
+        for (int j = start; j < end; j++) {
             if (arr[j] < pivot) {
                 i++; // Increment index of smaller element
                 Utils.swapByIndex(arr, i, j); // Swap elements to move smaller elements to the left

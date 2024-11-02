@@ -1,352 +1,318 @@
 package com.practise.ds.linkedlist.problem;
 
-import com.practise.commons.Node;
+import com.practise.commons.SLLNode;
 import com.practise.commons.Utils;
 import com.practise.ds.linkedlist.impl.SingleLinkedList;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.practise.ds.linkedlist.problem.SSLProblems.mergeTwoSortedLists;
 
 public class SSLProblems {
-    public static void main(String[] args) {
-        List<Integer> inputList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
-        Node output;
-        Node solution;
-
-        output = SingleLinkedList.create(inputList);
-
-//        int k = 3;
-//        Utils.printSingleLinkedList(output);
-//        Utils.printSingleLinkedList(removeNodeFromNthEnd(output, k));
-        SSLProblems.splitSLL(output);
-
-
-    }
-
 
     /*
     Name - Merge Two Sorted Lists
     Link - https://leetcode.com/problems/merge-two-sorted-lists/
-    Condition - Both list1 and list2 are sorted in non-decreasing order
-    Time Complexity - O(n)
-    Space Complexity - o(1)
-    Note - make use of merge procedure of merge sort
+    Condition - Both lists are sorted in non-decreasing order
+    Time Complexity - O(m + n), where m and n are the lengths of the two lists
+    Space Complexity - O(1), as the solution only uses a few pointers for merging
+    Note - This is a variation of the merge procedure used in merge sort, combining two sorted linked lists into one.
     */
+    public static SLLNode mergeTwoSortedLists(SLLNode head1, SLLNode head2) {
+        if (head1 == null) return head2;
+        if (head2 == null) return head1;
 
-    public static Node mergeTwoSortedList(Node head1, Node head2) {
-        // edge case - if one of the given list is null, it will return another one.
-        if (head1 == null) {
-            return head2;
-        }
-        if (head2 == null) {
-            return head1;
-        }
-
-        Node temp;
-        Node mergeList;
-        // Set correct head value to mergeList to keep track, and it will be used as head of  mergeList
-        if (head1.value > head2.value) {
-            mergeList = head2;
-            head2 = head2.next;
-        } else {
-            mergeList = head1;
-            head1 = head1.next;
-        }
-
-        temp = mergeList;
+        SLLNode dummy = new SLLNode(0); // Placeholder to simplify merging
+        SLLNode tail = dummy;
 
         while (head1 != null && head2 != null) {
-            if (head1.value > head2.value) {
-                temp.next = head2;
-                head2 = head2.next;
-            } else {
-                temp.next = head1;
+            if (head1.value <= head2.value) {
+                tail.next = head1;
                 head1 = head1.next;
+            } else {
+                tail.next = head2;
+                head2 = head2.next;
             }
-            temp = temp.next;
+            tail = tail.next;
         }
 
-        // edge case - will execute when number nodes of two list is not equal
-        if (head1 != null) {
-            temp.next = head1;
-        }
-        if (head2 != null) {
-            temp.next = head2;
-        }
-        return mergeList;
+        tail.next = (head1 != null) ? head1 : head2; // Attach any remaining nodes
+        return dummy.next;
     }
 
-    private static Node removeNodeFromNthEnd(Node head, int k) {
-        Node start = new Node(0);
+    /*
+    Name - Remove Nth SLLNode From End of List
+    Link - https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+    Condition - The list contains at least n nodes
+    Time Complexity - O(n), where n is the length of the linked list
+    Space Complexity - O(1), as we only use a few pointers for tracking positions
+    Note - Uses the two-pointer technique (fast and slow pointers) to achieve a one-pass solution
+    */
+    public SLLNode removeNthFromEnd(SLLNode head, int n) {
+        SLLNode dummy = new SLLNode(0); // Dummy node to handle edge cases more easily
+        dummy.next = head;
+        SLLNode fast = dummy, slow = dummy;
 
-        Node slow = start;
-        Node fast = start;
-
-        slow.next = head;
-
-        //Move fast in front so that the gap between slow and fast becomes n
-        for (int i = 1; i <= k + 1; i++) {
+        for (int i = 0; i <= n; i++) {
+            if (fast == null) throw new IllegalArgumentException("List is shorter than n");
             fast = fast.next;
         }
-        //Move fast to the end, maintaining the gap
+
         while (fast != null) {
             slow = slow.next;
             fast = fast.next;
         }
-        //Skip the desired node
-        slow.next = slow.next.next;
-        return start.next;
+
+        slow.next = slow.next.next; // Remove the nth node from end
+        return dummy.next;
     }
 
-
     /*
-    Name - Remove Nth Node From End of List
-    Link - https://leetcode.com/problems/remove-nth-node-from-end-of-list/
-    Condition - Could you do this in one pass?
-    Time Complexity - O(n)
-    Space Complexity - o(1)
-    Note - Fast and slow pointer technique
+    Name - Linked List Cycle Detection
+    Link - https://leetcode.com/problems/linked-list-cycle/
+    Condition - Detect if there is a cycle within a linked list
+    Time Complexity - O(n), where n is the number of nodes in the list
+    Space Complexity - O(1), as it only requires two pointers (slow and fast)
+    Note - Uses Floyd’s Cycle-Finding Algorithm (Tortoise and Hare approach)
     */
-
-    private static boolean detectLoop(Node head) {
-        Node fast = head;
-        Node slow = head;
-        while (slow != null && fast != null && fast.next != null) {
+    public boolean hasCycle(SLLNode head) {
+        SLLNode slow = head, fast = head;
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if (slow == fast) {
-                System.out.println("loop detected");
-                return true;
-            }
+            if (slow == fast) return true; // Cycle detected
         }
-        System.out.println("loop not detected");
         return false;
     }
 
     /*
     Name - Palindrome Linked List
     Link - https://leetcode.com/problems/palindrome-linked-list/
-    Condition - Could you do it in O(n) time and O(1) space?
-    Time Complexity - O(n)
-    Space Complexity - o(1)
-    Note - Fast and slow pointer technique
+    Condition - Determine if a linked list is a palindrome
+    Time Complexity - O(n), where n is the length of the linked list
+    Space Complexity - O(1), using a reverse operation on half of the list
+    Note - Utilizes the fast and slow pointer technique, followed by reversing the second half of the list
     */
-    private static boolean palindromeInLinkedList(Node head) {
-        if (head.next == null) {
-            return true;
-        }
-        Node slow = head;
-        Node fast = head;
+    public boolean isPalindrome(SLLNode head) {
+        if (head == null || head.next == null) return true;
+
+        SLLNode slow = head, fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        slow = reverse(slow);
-        fast = head;
-        while (slow != null) {
-            if (fast.value == slow.value) {
-                slow = slow.next;
-                fast = fast.next;
-            } else {
-                return false;
-            }
+
+        SLLNode secondHalf = reverse(slow); // Reverse the second half of the list
+        SLLNode firstHalf = head;
+
+        while (secondHalf != null) {
+            if (firstHalf.value != secondHalf.value) return false;
+            firstHalf = firstHalf.next;
+            secondHalf = secondHalf.next;
         }
         return true;
-    }
-
-
-
-    /*
-    Name - Linked List Cycle
-    Link - https://leetcode.com/problems/linked-list-cycle/
-    Condition - Can you solve it using O(1) (i.e. constant) memory?
-    Time Complexity - O(n)
-    Space Complexity - o(1)
-    Note - Fast and slow pointer technique
-    */
-
-    private static Node getIntersectionApproach1(Node headA, Node headB) {
-        Node head1 = headA;
-        Node head2 = headB;
-        int c1 = 0;
-        int c2 = 0;
-        while (head1 != null) {
-            c1++;
-            head1 = head1.next;
-        }
-        while (head2 != null) {
-            c2++;
-            head2 = head2.next;
-        }
-        int diff = Math.abs(c1 - c2);
-        head1 = headA;
-        head2 = headB;
-        if (c1 > c2) {
-            for (int i = 0; i < diff; i++) {
-                head1 = head1.next;
-            }
-        } else {
-            for (int i = 0; i < diff; i++) {
-                head2 = head2.next;
-            }
-        }
-        while (head1 != null && head2 != null) {
-            if (head1 == head2) {
-                return head1;
-            }
-            head1 = head1.next;
-            head2 = head2.next;
-        }
-        return null;
-    }
-
-    private static void splitSLL(Node head) {
-        SingleLinkedList list1 = new SingleLinkedList();
-        SingleLinkedList list2 = new SingleLinkedList();
-        for (int i = 0; head != null; i++) {
-            if (i % 2 == 0) {
-                list1.insertNodeAtEnd(head.value);
-            } else {
-                list2.insertNodeAtEnd(head.value);
-            }
-            head = head.next;
-        }
-        Utils.printSingleLinkedList(list1.head);
-        Utils.printSingleLinkedList(list2.head);
     }
 
     /*
     Name - Intersection of Two Linked Lists
     Link - https://leetcode.com/problems/intersection-of-two-linked-lists/
-    Condition - Linked lists must retain their original structure after the function returns.
-              - Could you write a solution that runs in O(m + n) time and use only O(1) memory?
-    Time Complexity - O(m + n)
-    Space Complexity - o(1)
-    Note - Fast and slow pointer technique
+    Condition - Linked lists may intersect at a common node
+    Time Complexity - O(m + n), where m and n are the lengths of the two lists
+    Space Complexity - O(1), as only pointers are used for traversal
+    Note - Uses a two-pointer approach by switching heads when the end is reached
     */
+    public SLLNode getIntersectionNode(SLLNode headA, SLLNode headB) {
+        if (headA == null || headB == null) return null;
 
-    private static Node addNumbers(Node first, Node second) {
-        int quotient = 0;
-        int remainder = 0;
-        int sum = 0;
-        Node head = null;
-        Node temp = null;
-        while (first != null || second != null) {
-            sum = quotient + (((first != null) ? first.value : 0) + ((second != null) ? second.value : 0));
-            remainder = sum % 10;
-            quotient = sum / 10;
-            Node newNode = new Node(remainder);
-            if (head == null) {
-                head = newNode;
+        SLLNode a = headA, b = headB;
+        while (a != b) {
+            a = (a == null) ? headB : a.next;
+            b = (b == null) ? headA : b.next;
+        }
+
+        return a;
+    }
+
+    /*
+    Name - Split Linked List into Two Halves
+    Condition - Distributes nodes into two separate lists by alternating nodes
+    Time Complexity - O(n), where n is the length of the original linked list
+    Space Complexity - O(n), for storing nodes in two new linked lists
+    Note - Alternates nodes between two new lists, resulting in two lists with every other node
+    */
+    public void splitLinkedList(SLLNode head) {
+        SingleLinkedList list1 = new SingleLinkedList();
+        SingleLinkedList list2 = new SingleLinkedList();
+        int index = 0;
+
+        while (head != null) {
+            if (index % 2 == 0) {
+                list1.insertAtEnd(head.value);
             } else {
-                temp = head;
-                while (temp.next != null) {
-                    temp = temp.next;
-                }
-                temp.next = newNode;
-                newNode.next = null;
+                list2.insertAtEnd(head.value);
             }
+            head = head.next;
+            index++;
+        }
+
+        Utils.printSingleLinkedList(list1.getHead());
+        Utils.printSingleLinkedList(list2.getHead());
+    }
+
+    /*
+    Name - Add Two Numbers Represented by Linked Lists
+    Link - https://leetcode.com/problems/add-two-numbers/
+    Time Complexity - O(max(m, n)), where m and n are the lengths of the two lists
+    Space Complexity - O(1), aside from the output list
+    Note - Uses digit-by-digit addition with carry to form the sum list
+    */
+    public SLLNode addTwoNumbers(SLLNode first, SLLNode second) {
+        SLLNode dummy = new SLLNode(0);
+        SLLNode current = dummy;
+        int carry = 0;
+
+        while (first != null || second != null || carry != 0) {
+            int sum = carry;
             if (first != null) {
+                sum += first.value;
                 first = first.next;
             }
             if (second != null) {
+                sum += second.value;
                 second = second.next;
             }
+
+            carry = sum / 10;
+            current.next = new SLLNode(sum % 10);
+            current = current.next;
         }
-        // to cover the edge case like 900+901 = 1801 - here we have to create extra one
-        // node to store last digit
-        if (quotient > 0) {
-            Node newNode = new Node(quotient);
-            temp = head;
-            while (temp.next != null) {
-                temp = temp.next;
-            }
-            temp.next = newNode;
-            newNode.next = null;
-        }
-        return head;
+
+        return dummy.next;
     }
 
-    private static Node reverse(Node head) {
-        Node previous = null;
-        Node current = head;
-        Node next = null;
-        while (current != null) {
-            next = current.next;
-            current.next = previous;
-            previous = current;
-            current = next;
+    /*
+    Name - Reverse Linked List
+    Condition - Reverses a linked list iteratively
+    Time Complexity - O(n), where n is the length of the linked list
+    Space Complexity - O(1), using three pointers to reverse in-place
+    Note - Reverses a linked list in-place without creating new nodes
+    */
+    public SLLNode reverse(SLLNode head) {
+        SLLNode previous = null;
+        while (head != null) {
+            SLLNode next = head.next;
+            head.next = previous;
+            previous = head;
+            head = next;
         }
         return previous;
     }
+}
 
-    @Test
-    public void testRemoveNodeFromNthEnd() {
-        List<Integer> inputList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
-        Node output, solution;
 
-        int k = 3;
-        output = SingleLinkedList.create(inputList);
-        output = removeNodeFromNthEnd(output, k);
+class SSLProblemsTest {
 
-        inputList.remove(inputList.size() - k);
-        solution = SingleLinkedList.create(inputList);
-        Assertions.assertTrue(Utils.isLinkedListEqual(output, solution));
+    private SLLNode head;
+    private SSLProblems sslProblems;
 
-        inputList.clear();
-        inputList.add(1);
-        k = 1;
-        output = SingleLinkedList.create(inputList);
-        output = removeNodeFromNthEnd(output, k);
-
-        inputList.remove(inputList.size() - k);
-        solution = SingleLinkedList.create(inputList);
-        Assertions.assertTrue(Utils.isLinkedListEqual(output, solution));
+    @BeforeEach
+    void setUp() {
+        sslProblems = new SSLProblems();
+        head = new SLLNode();
     }
 
 
-    /*
-    Name - Add Two Numbers
-    Link - https://leetcode.com/problems/add-two-numbers/
-    Time Complexity - O(m + n)
-    Space Complexity - o(1)
-    Note - make use of modulo (give remainder) and division (give quotient)
-    */
-
     @Test
-    public void testDetectLoop() {
-        List<Integer> inputList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
-        Node output, solution;
+    public void testRemoveNthFromEnd() {
 
-        int k = 3;
-        output = SingleLinkedList.create(inputList);
-        output = removeNodeFromNthEnd(output, k);
+        head = SingleLinkedList.createFromList(Arrays.asList(1, 2, 3, 4, 5, 6));
 
-        inputList.remove(inputList.size() - k);
-        solution = SingleLinkedList.create(inputList);
-        Assertions.assertTrue(Utils.isLinkedListEqual(output, solution));
+        head = sslProblems.removeNthFromEnd(head, 3);
+
+        List<Integer> expectedList = Arrays.asList(1, 2, 3, 5, 6);
+        SLLNode expectedHead = SingleLinkedList.createFromList(expectedList);
+
+        Assertions.assertTrue(Utils.isLinkedListEqual(head, expectedHead));
     }
 
-    /*
-     *  Genius solution
-     * */
-    private Node getIntersectionApproach2(Node headA, Node headB) {
-        //boundary check
-        if (headA == null || headB == null) return null;
+    @Test
+    public void testHasCycle() {
+        head = SingleLinkedList.createFromList(Arrays.asList(1, 2, 3, 4, 5));
+        head.next.next.next.next.next = head.next; // Creating a cycle
 
-        Node a = headA;
-        Node b = headB;
+        Assertions.assertTrue(sslProblems.hasCycle(head));
+    }
 
-        //if a & b have different len, then we will stop the loop after second iteration
-        while (a != b) {
-            //for the end of first iteration, we just reset the pointer to the head of another linkedlist
-            a = a == null ? headB : a.next;
-            b = b == null ? headA : b.next;
-        }
-        return a;
+    @Test
+    public void testIsPalindrome() {
+        head = SingleLinkedList.createFromList(Arrays.asList(1, 2, 2, 1));
+        Assertions.assertTrue(sslProblems.isPalindrome(head));
+    }
+
+    @Test
+    public void testAddTwoNumbers() {
+        SLLNode list1 = SingleLinkedList.createFromList(Arrays.asList(9, 9, 9));
+        SLLNode list2 = SingleLinkedList.createFromList(Arrays.asList(1));
+        SLLNode result = sslProblems.addTwoNumbers(list1, list2);
+
+        List<Integer> expectedList = Arrays.asList(0, 0, 0, 1);
+        SLLNode expectedHead = SingleLinkedList.createFromList(expectedList);
+
+        Assertions.assertTrue(Utils.isLinkedListEqual(result, expectedHead));
+    }
+
+    @Test
+    public void testGetIntersectionNode() {
+        // Creating two linked lists that intersect
+        SLLNode common = new SLLNode(8);
+        common.next = new SLLNode(4);
+        common.next.next = new SLLNode(5);
+
+        SLLNode list1 = new SLLNode(4);
+        list1.next = new SLLNode(1);
+        list1.next.next = common; // List 1: 4 -> 1 -> 8 -> 4 -> 5
+
+
+        SLLNode list2 = new SLLNode(5);
+        list2.next = new SLLNode(6);
+        list2.next.next = new SLLNode(1);
+        list2.next.next.next = common; // List 2: 5 -> 6 -> 1 -> 8 -> 4 -> 5
+
+        SLLNode intersectionSLLNode = sslProblems.getIntersectionNode(list1, list2);
+
+        // Verify that the intersection node is the common node (value 8)
+        Assertions.assertNotNull(intersectionSLLNode);
+        Assertions.assertEquals(8, intersectionSLLNode.value);
+
+        // Verify that the intersection node is indeed the start of the intersection
+        Assertions.assertEquals(common, intersectionSLLNode);
+    }
+
+    @Test
+    public void testMergeTwoSortedLists() {
+        // Creating the first sorted linked list: 1 -> 3 -> 5
+        SLLNode list1 = new SLLNode(1);
+        list1.next = new SLLNode(3);
+        list1.next.next = new SLLNode(5);
+
+        // Creating the second sorted linked list: 2 -> 4 -> 6
+        SLLNode list2 = new SLLNode(2);
+        list2.next = new SLLNode(4);
+        list2.next.next = new SLLNode(6);
+
+        // Merging the two sorted linked lists
+        SLLNode mergedList = mergeTwoSortedLists(list1, list2);
+
+        // Expected merged list: 1 -> 2 -> 3 -> 4 -> 5 -> 6
+        List<Integer> expectedValues = Arrays.asList(1, 2, 3, 4, 5, 6);
+        SLLNode expectedHead = SingleLinkedList.createFromList(expectedValues);
+
+        // Check if the merged list matches the expected merged list
+        Assertions.assertTrue(Utils.isLinkedListEqual(mergedList, expectedHead));
     }
 }
+

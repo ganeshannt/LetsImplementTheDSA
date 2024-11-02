@@ -1,8 +1,19 @@
 package com.practise.ds.linkedlist.impl;
 
 import com.practise.commons.DLLNode;
-import com.practise.commons.Utils;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * A doubly linked list implementation that stores integer values.
+ */
 public class DoubleLinkedList {
 
     private DLLNode head;
@@ -10,155 +21,287 @@ public class DoubleLinkedList {
     private int size;
 
     public DoubleLinkedList() {
-        head = null;
-        tail = null;
-        size = 0;
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
     }
 
-    public static void main(String[] args) {
-        DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
-        doubleLinkedList.insertNodeAtFront(10);
-        doubleLinkedList.insertNodeAtFront(20);
-        doubleLinkedList.insertNodeAtFront(30);
-        doubleLinkedList.insertNodeAtFront(40);
-        doubleLinkedList.delete(30);
-        Utils.printDoubleLinkedList(doubleLinkedList.head);
+    /**
+     * Creates a double linked list from a list of integers.
+     * Returns head of the created list.
+     */
+    public static DLLNode createFromList(List<Integer> values) {
+        Objects.requireNonNull(values, "Input list cannot be null");
+        DoubleLinkedList dll = new DoubleLinkedList();
+        for (int value : values) {
+            dll.insertEnd(value);
+        }
+        return dll.head;
     }
 
-    // Utility functions
+    /**
+     * Creates a DoubleLinkedList instance from a list of integers
+     */
+    public static DoubleLinkedList from(List<Integer> values) {
+        Objects.requireNonNull(values, "Input list cannot be null");
+        DoubleLinkedList dll = new DoubleLinkedList();
+        for (int value : values) {
+            dll.insertEnd(value);
+        }
+        return dll;
+    }
+
     public boolean isEmpty() {
-        return head == null;
+        return size == 0;
     }
 
-    public int LinkedListSize() {
+    public int size() {
         return size;
     }
 
-    public boolean isContains(int value) {
-        DLLNode node = head;
-        while (node.next != null) {
-            if (node.value == value)
+    public boolean contains(int value) {
+        DLLNode current = head;
+        while (current != null) {
+            if (current.value == value) {
                 return true;
-            node = node.next;
+            }
+            current = current.next;
         }
         return false;
     }
 
-    public void printDoubleLinkedList() {
-        DLLNode node = head;
-        int i = 0;
-        while (node != null) {
-            System.out.println(i + " -> " + node.value);
-            node = node.next;
-            i++;
-        }
-    }
-
-    /************************************************************** */
-    // Insert operation
-    public void insertNodeAtFront(int value) {
-        DLLNode node = new DLLNode(value);
+    public void insertFront(int value) {
+        DLLNode newNode = new DLLNode(value);
         if (isEmpty()) {
-            head = tail = node;
-            return;
+            head = tail = newNode;
+        } else {
+            newNode.next = head;
+            head.previous = newNode;
+            head = newNode;
         }
-        node.next = head;
-        node.next.previous = node;
-        head = node;
         size++;
     }
 
-    public void insertNodeAtEnd(int value) {
-        DLLNode node = new DLLNode(value);
+    public void insertEnd(int value) {
+        DLLNode newNode = new DLLNode(value);
         if (isEmpty()) {
-            head = tail = node;
-            return;
+            head = tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.previous = tail;
+            tail = newNode;
         }
-        tail.next = node;
-        node.previous = tail;
-        tail = node;
         size++;
     }
 
-    public void insertNodeAtSomePoint(int point, int value) {
+    public void insertAfter(int point, int value) {
         if (isEmpty()) {
-            System.out.println("Empty list");
-            return;
+            throw new IllegalStateException("Cannot insert into empty list");
         }
 
-        if (head.value == point) {
-            insertNodeAtFront(value);
-            return;
-        }
+        DLLNode current = head;
+        while (current != null) {
+            if (current.value == point) {
+                DLLNode newNode = new DLLNode(value);
+                newNode.next = current.next;
+                newNode.previous = current;
 
-        if (tail.value == point) {
-            insertNodeAtEnd(value);
-            return;
-        }
+                if (current.next != null) {
+                    current.next.previous = newNode;
+                } else {
+                    tail = newNode;
+                }
 
-        DLLNode node = new DLLNode(value);
-        DLLNode temp = head;
-
-        while (temp.next != null) {
-            if (temp.next.value == point) {
-                node.next = temp.next;
-                node.next.previous = node;
-                temp.next = node;
-                node.previous = head;
+                current.next = newNode;
                 size++;
                 return;
             }
-            temp = temp.next;
+            current = current.next;
         }
-        System.err.println("Given element is not found");
+        throw new IllegalArgumentException("Point " + point + " not found in list");
     }
 
-    /************************************************************** */
-    // delete operation
-    public void deleteAtFront() {
+    public void deleteFront() {
         if (isEmpty()) {
-            System.out.println("Empty list");
-            return;
+            throw new IllegalStateException("Cannot delete from empty list");
         }
-        head.next.previous = null;
-        head = head.next;
+
+        if (size == 1) {
+            head = tail = null;
+        } else {
+            head = head.next;
+            head.previous = null;
+        }
         size--;
     }
 
-    public void deleteAtEnd() {
+    public void deleteEnd() {
         if (isEmpty()) {
-            System.out.println("Empty list");
-            return;
+            throw new IllegalStateException("Cannot delete from empty list");
         }
-        tail.previous.next = null;
-        tail = tail.previous;
+
+        if (size == 1) {
+            head = tail = null;
+        } else {
+            tail = tail.previous;
+            tail.next = null;
+        }
         size--;
     }
 
-    public void delete(int point) {
+    public void delete(int value) {
         if (isEmpty()) {
-            System.out.println("Empty list");
-            return;
+            throw new IllegalStateException("Cannot delete from empty list");
         }
-        if (head.value == point) {
-            deleteAtFront();
-            return;
-        }
-        if (tail.value == point) {
-            deleteAtEnd();
+
+        if (head.value == value) {
+            deleteFront();
             return;
         }
 
-        DLLNode temp = head;
-        while (temp.next != null) {
-            if (temp.next.value == point) {
-                temp.next = temp.next.next;
-                temp.next.previous = temp;
+        if (tail.value == value) {
+            deleteEnd();
+            return;
+        }
+
+        DLLNode current = head;
+        while (current != null) {
+            if (current.value == value) {
+                current.previous.next = current.next;
+                current.next.previous = current.previous;
                 size--;
                 return;
             }
-            temp = temp.next;
+            current = current.next;
         }
-        System.err.println("Element is not found");
+        throw new IllegalArgumentException("Value " + value + " not found in list");
+    }
+
+    @Override
+    public String toString() {
+        if (isEmpty()) {
+            return "[]";
+        }
+
+        StringBuilder sb = new StringBuilder("[");
+        DLLNode current = head;
+        while (current != null) {
+            sb.append(current.value);
+            if (current.next != null) {
+                sb.append(" ↔ ");
+            }
+            current = current.next;
+        }
+        return sb.append("]").toString();
+    }
+}
+
+/**
+ * Test class for DoubleLinkedList
+ */
+class DoubleLinkedListTest {
+    private DoubleLinkedList list;
+
+    @BeforeEach
+    void setUp() {
+        list = new DoubleLinkedList();
+    }
+
+    @Test
+    void testCreateFromList() {
+        // Test with normal list
+        List<Integer> numbers = Arrays.asList(1, 2, 3);
+        DLLNode head = DoubleLinkedList.createFromList(numbers);
+
+        // Verify forward traversal
+        DLLNode current = head;
+        int index = 0;
+        while (current != null) {
+            assertEquals(numbers.get(index), current.value);
+            index++;
+            current = current.next;
+        }
+
+        // Verify backward traversal
+        current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        index = numbers.size() - 1;
+        while (current != null) {
+            assertEquals(numbers.get(index), current.value);
+            index--;
+            current = current.previous;
+        }
+    }
+
+    @Test
+    void testFromList() {
+        DoubleLinkedList list = DoubleLinkedList.from(Arrays.asList(1, 2, 3));
+        assertEquals(3, list.size());
+        assertEquals("[1 ↔ 2 ↔ 3]", list.toString());
+    }
+
+    @Test
+    void testInitialState() {
+        assertTrue(list.isEmpty());
+        assertEquals(0, list.size());
+    }
+
+    @Test
+    void testInsertOperations() {
+        // Using from() to setup initial list
+        list = DoubleLinkedList.from(Arrays.asList(2, 3));
+        list.insertFront(1);
+        list.insertEnd(4);
+        list.insertAfter(2, 5);
+
+        assertEquals(5, list.size());
+        assertEquals("[1 ↔ 2 ↔ 5 ↔ 3 ↔ 4]", list.toString());
+    }
+
+    @Test
+    void testDeleteOperations() {
+        // Using from() to setup initial list
+        list = DoubleLinkedList.from(Arrays.asList(1, 2, 3, 4, 5));
+        list.deleteFront();
+        list.deleteEnd();
+        list.delete(3);
+
+        assertEquals(2, list.size());
+        assertEquals("[2 ↔ 4]", list.toString());
+    }
+
+    @Test
+    void testEdgeCases() {
+        // Empty list
+        assertNull(DoubleLinkedList.createFromList(Collections.emptyList()));
+
+        // Null list
+        assertThrows(NullPointerException.class, () ->
+                DoubleLinkedList.createFromList(null));
+
+        // Single element
+        list = DoubleLinkedList.from(Collections.singletonList(1));
+        assertEquals(1, list.size());
+        assertEquals("[1]", list.toString());
+    }
+
+    @Test
+    void testExceptionCases() {
+        list = DoubleLinkedList.from(Arrays.asList(1, 2, 3));
+
+        // Delete from empty list
+        DoubleLinkedList emptyList = new DoubleLinkedList();
+        assertThrows(IllegalStateException.class, () ->
+                emptyList.delete(1));
+
+        // Delete non-existent value
+        assertThrows(IllegalArgumentException.class, () ->
+                list.delete(5));
+
+        // Insert after non-existent point
+        assertThrows(IllegalArgumentException.class, () ->
+                list.insertAfter(5, 6));
     }
 }

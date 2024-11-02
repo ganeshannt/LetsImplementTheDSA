@@ -1,6 +1,6 @@
 package com.practise.ds.random;
 
-import com.practise.commons.Node;
+import com.practise.commons.SLLNode;
 import com.practise.commons.Utils;
 
 /**
@@ -10,7 +10,7 @@ import com.practise.commons.Utils;
 
 public class ReverseLinkedList {
 
-    private Node head;
+    private SLLNode head;
 
     public ReverseLinkedList() {
         this.head = null;
@@ -32,22 +32,22 @@ public class ReverseLinkedList {
     }
 
     public void addNode(int value) {
-        Node node = new Node(value);
+        SLLNode SLLNode = new SLLNode(value);
         if (head == null) {
-            head = node;
+            head = SLLNode;
             return;
         }
-        node.next = head;
-        head = node;
+        SLLNode.next = head;
+        head = SLLNode;
     }
 
     private void reverse() {
         if (head == null || head.next == null)
             return;
 
-        Node previous = null;
-        Node current = head;
-        Node next = null;
+        SLLNode previous = null;
+        SLLNode current = head;
+        SLLNode next = null;
         while (current != null) {
             next = current.next;
             current.next = previous;

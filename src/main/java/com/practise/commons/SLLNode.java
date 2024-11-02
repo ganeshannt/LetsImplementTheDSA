@@ -3,33 +3,32 @@ package com.practise.commons;
 import java.util.Objects;
 
 /**
- * SLLNode class for a doubly linked list.
+ * SLLNode class for a singly linked list.
  * Author: Ganeshan Nagarajan
  * Date: 09-04-2022
  */
-public class DLLNode {
-    public DLLNode previous;
-    public DLLNode next;
+
+public class SLLNode {
     public final int value;
+    public SLLNode next;
 
     // Default constructor initializing with zero
-    public DLLNode() {
+    public SLLNode() {
         this(0);
     }
 
     // Constructor with specified value
-    public DLLNode(int value) {
+    public SLLNode(int value) {
         this.value = value;
-        this.previous = null;
         this.next = null;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof DLLNode)) return false;
-        DLLNode node = (DLLNode) o;
-        return value == node.value;
+        if (!(o instanceof SLLNode)) return false;
+        SLLNode SLLNode = (SLLNode) o;
+        return value == SLLNode.value;
     }
 
     @Override
@@ -39,6 +38,6 @@ public class DLLNode {
 
     @Override
     public String toString() {
-        return "DLLNode{" + "value=" + value + '}';
+        return "SLLNode{" + "value=" + value + '}';
     }
 }
