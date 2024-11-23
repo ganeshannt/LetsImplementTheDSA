@@ -42,11 +42,11 @@ public class CreateTargetArray {
         }
     }
 
-    private void moveAhead(int arr[], int index, int value, int current_index) {
+    private void moveAhead(int[] arr, int index, int value, int currentIndex) {
         int temp = arr[index];
         arr[index] = value;
         index += 1;
-        while (index <= current_index) {
+        while (index <= currentIndex) {
             value = arr[index];
             arr[index] = temp;
             temp = value;
