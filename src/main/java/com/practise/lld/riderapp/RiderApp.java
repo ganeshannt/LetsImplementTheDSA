@@ -10,11 +10,11 @@ public class RiderApp {
     public static void main(String[] args) {
 
         Rider rider1 = new Rider("ganesh");
-        rider1.createRide(1, 10, 30, 1);
-        System.out.println("charged amount :" + rider1.closeRide());
 
-        rider1.createRide(1, 50, 30, 2);
-        System.out.println("charged amount :" + rider1.closeRide());
 
+        for (int i = 0; i < 20; i++) {
+            rider1.createRide(i, 50, 60, 2);
+            System.out.println("charged amount :" + rider1.closeRide() + " Rider id :" + i);
+        }
     }
 }

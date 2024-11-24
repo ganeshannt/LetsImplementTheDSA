@@ -29,14 +29,11 @@ class Ride {
     }
 
     int calculatePrice(boolean isPreferredRider) {
-        int price = getDistance() * PRICE_PER_KM;
-
+        int price;
         if (noOfSeats >= 2) {
-            if (isPreferredRider) {
-                price *= (int) (noOfSeats * 0.5);
-            } else {
-                price *= (int) (noOfSeats * 0.75);
-            }
+            price = isPreferredRider ? (int) (getDistance() * PRICE_PER_KM * noOfSeats * 0.5) : (int) (getDistance() * PRICE_PER_KM * noOfSeats * 0.75);
+        } else {
+            price = isPreferredRider ? (int) (getDistance() * PRICE_PER_KM * 0.75) : getDistance() * PRICE_PER_KM;
         }
         return price;
     }

@@ -57,6 +57,9 @@ class Rider extends Person {
     }
 
     int closeRide() {
+        if (currentRide.getRideStatus() != RideStatus.CREATED) {
+            logger.info("Ride is not available to close");
+        }
         currentRide.setRideStatus(RideStatus.COMPLETED);
         completedRideMap.put(currentRide.getId(), currentRide);
         return currentRide.calculatePrice(completedRideMap.size() > 10);
