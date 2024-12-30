@@ -30,14 +30,6 @@ public class SingleLinkedList {
         this.size = 0;
     }
 
-    public SLLNode getHead() {
-        return head;
-    }
-
-    public SLLNode getTail() {
-        return tail;
-    }
-
     /**
      * Creates a linked list from an array of integers
      *
@@ -62,6 +54,14 @@ public class SingleLinkedList {
         SingleLinkedList list = new SingleLinkedList();
         values.forEach(list::insertAtEnd);
         return list.head;
+    }
+
+    public SLLNode getHead() {
+        return head;
+    }
+
+    public SLLNode getTail() {
+        return tail;
     }
 
     /**

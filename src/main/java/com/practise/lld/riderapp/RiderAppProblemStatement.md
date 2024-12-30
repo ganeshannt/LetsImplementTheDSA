@@ -1,10 +1,12 @@
 # Problem Definition
 
-Design a Ride Sharing application where drivers can offer rides (origin, destination, number of seats), and riders can request rides (origin, destination, number of seats).
+Design a Ride Sharing application where drivers can offer rides (origin, destination, number of seats), and riders can
+request rides (origin, destination, number of seats).
 
 An algorithm calculates the ride amount charged for a given ride based on distance and the number of seats.
 
 ## Features
+
 1. When the ride closes, show the amount charged to the rider.
 2. **Ride Amount Calculation**:
     - **If Number of Seats ≥ 2**:  
@@ -12,11 +14,13 @@ An algorithm calculates the ride amount charged for a given ride based on distan
     - **If Number of Seats = 1**:  
       `Ride Amount = Number of kilometers * Amount Charged per KM`
 
-The program should accept input for two or more drivers and multiple riders requesting rides. Multiple rides can happen simultaneously.
+The program should accept input for two or more drivers and multiple riders requesting rides. Multiple rides can happen
+simultaneously.
 
 ---
 
 ## Assumptions
+
 1. **Amount Charged per KM** = 20
 2. **Number of Kilometers** = `Destination - Origin`
 3. All values are integers.
@@ -26,11 +30,13 @@ The program should accept input for two or more drivers and multiple riders requ
 ## Test Case
 
 ### Case 1: A requests a ride (R1) with 1 seat
+
 - **Input**: A requests `50, 60, 1`
 - **Output**:  
   `Ride Amount = 10 * 20 (Amount/KM) = 200`
 
 ### Case 2: A requests a ride (R1) with 2 seats
+
 - **Input**: A requests `50, 60, 2`
 - **Output**:  
   `Ride Amount = 10 * 2 * 0.75 * 20 (Amount/KM) = 300`
@@ -38,6 +44,7 @@ The program should accept input for two or more drivers and multiple riders requ
 ---
 
 ## Bonus Features
+
 1. **Preferred Rider**: A rider is upgraded to a preferred rider if they have completed more than 10 rides.
     - **Preferred Rider Amount Calculation**:
         - **If Number of Seats ≥ 2**:  
@@ -48,6 +55,7 @@ The program should accept input for two or more drivers and multiple riders requ
 ---
 
 ## Expected Functionalities
+
 1. **Add Driver** (name)
 2. **Add Rider** (name)
 3. **Create Ride** (id, origin, destination, number of seats)
@@ -58,6 +66,7 @@ The program should accept input for two or more drivers and multiple riders requ
 ---
 
 ## Expectations
+
 1. Create sample data. It can be included in a file, test case, or main driver program.
 2. The code should be demo-able via the main driver program or test cases.
 3. Code should be **modular** and demonstrate basic **OOP design principles**:
@@ -71,6 +80,7 @@ The program should accept input for two or more drivers and multiple riders requ
 ---
 
 ## Guidelines
+
 1. **Do not access the internet** except for syntax references.
 2. Use any programming language and IDE of your choice.
 3. The entire code must be your **own work**.

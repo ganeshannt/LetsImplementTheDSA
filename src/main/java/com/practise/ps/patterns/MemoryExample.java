@@ -13,7 +13,7 @@ public class MemoryExample {
         double height = 1.75; // Directly stored on stack
         boolean isStudent = true; // Directly stored on stack
         Integer value = 1000;
-        System.out.println(age==value);
+        System.out.println(age == value);
 
         String s1 = "hello"; // Stored in String Pool
         String s2 = "hello"; // Reuses the same literal from String Pool

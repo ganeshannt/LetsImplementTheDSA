@@ -8,9 +8,9 @@ import java.util.Objects;
  * Date: 09-04-2022
  */
 public class DLLNode {
+    public final int value;
     public DLLNode previous;
     public DLLNode next;
-    public final int value;
 
     // Default constructor initializing with zero
     public DLLNode() {

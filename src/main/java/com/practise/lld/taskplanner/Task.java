@@ -13,14 +13,13 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 class Task {
+    private static int counter = 0;
     private int id;
     private String name;
     private String subtract;
     private TaskType type;
     private TaskStatus status;
     private User user;
-
-    private static int counter = 0;
 
 
     public Task(String name, String subtract, TaskType type, TaskStatus status, User user) {

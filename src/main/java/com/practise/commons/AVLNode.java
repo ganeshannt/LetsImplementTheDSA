@@ -8,9 +8,9 @@ import java.util.Objects;
  * Date: 10-04-2022
  */
 public class AVLNode {
+    public final int value;
     public AVLNode left;
     public AVLNode right;
-    public final int value;
     public int height;
 
     // Constructor initializing value and setting default height to 1
