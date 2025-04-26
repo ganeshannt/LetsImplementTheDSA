@@ -201,13 +201,14 @@ public class SSLProblems {
     Space Complexity - O(1), using three pointers to reverse in-place
     Note - Reverses a linked list in-place without creating new nodes
     */
-    public SLLNode reverse(SLLNode head) {
+    public SLLNode reverse(SLLNode current) {
         SLLNode previous = null;
-        while (head != null) {
-            SLLNode next = head.next;
-            head.next = previous;
-            previous = head;
-            head = next;
+        SLLNode next;
+        while (current != null) {
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
         }
         return previous;
     }

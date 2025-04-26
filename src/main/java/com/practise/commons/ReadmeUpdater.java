@@ -16,6 +16,7 @@ public final class ReadmeUpdater {
     private static final String SRC_DIR = "src/main/java/com/practise/";
     private static final String README_FILE = "README.md";
     private static final String BRANCH_PATH = "https://github.com/ganeshannt/LetsImplementTheDSA/tree/master/src/main/java/com/practise/";
+
     private ReadmeUpdater() {
         throw new IllegalStateException("Utility class");
     }

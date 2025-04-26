@@ -8,7 +8,7 @@ Space Complexity: O(N)
 
 Best Suited Scenario:
     1) Array data structures
-    2) Given collection is in completely unsorted order.
+    2) Given a collection is in completely unsorted order.
     3) Efficient for very large datasets due to its O(NlogN) time complexity.
 */
 
@@ -48,12 +48,12 @@ public class MergeSort {
             temp[k++] = arr[j++];
         }
 
-        // Copy the sorted sub-array back into the original array
-        for (i = start; i <= end; i++) {
-            arr[i] = temp[i - start];
-        }
+        // Copy the sorted sub-array back into the original array - mannual for-loop
+//        for (i = start; i <= end; i++) {
+//            arr[i] = temp[i - start];
+//        }
 
-        // Copy the merged array back into the original array
+        // Copy the merged array back into the original array - leveraging System.arraycopy
         System.arraycopy(temp, 0, arr, start, temp.length);
     }
 
@@ -76,7 +76,7 @@ public class MergeSort {
         }
     }
 
-    // Main method to test both recursive and iterative versions of merge sort
+    // LambdaTester method to test both recursive and iterative versions of merge sort
     public static void main(String[] args) {
         int[] arr = {1, 234, 45, 3453, 45345, 2354, 34545, 43, 2, 34, 435345, 23};
 

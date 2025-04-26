@@ -14,96 +14,107 @@ public class BinaryTree {
 
     public static void main(String[] args) {
         BinaryTree bt = new BinaryTree();
-        bt.add(10);
-        bt.add(20);
-        bt.add(30);
-        bt.add(40);
-        bt.add(50);
-        bt.add(60);
+        bt.add(10, "left");
+        bt.add(20, "right");
+        bt.add(30, "left");
+        bt.add(40, "right");
+        bt.add(50, "left");
+        bt.add(60, "right");
+        TreeNode node = bt.find(30);
+        if (node == null) {
+            System.out.println("not found");
+        } else {
+            System.out.println("found");
+        }
+        printTree(bt.root);
+//        bt.delete(50);
         bt.preOrder();
+        bt.inOrder();
+        bt.postOrder();
     }
 
-    public TreeNode addInTree(TreeNode root, int value) {
+    public TreeNode addLeftNode(TreeNode root, int value) {
         if (root == null) {
             root = new TreeNode(value);
             return root;
         }
-        if (value < root.value) {
-            root.left = addInTree(root.left, value);
-        } else if (value >= root.value) {
-            root.right = addInTree(root.right, value);
-        }
+        root.left = addLeftNode(root.left, value);
         return root;
     }
 
-    public boolean find(int value) {
-        TreeNode node = root;
-        while (node != null) {
-            if (value == node.value) {
-                return true;
-            }
-            if (value < node.value) {
-                node = node.left;
-            } else if (value > node.value) {
-                node = node.right;
-            }
+    public TreeNode addRightNode(TreeNode root, int value) {
+        if (root == null) {
+            root = new TreeNode(value);
+            return root;
         }
-        return false;
+        root.right = addRightNode(root.right, value);
+        return root;
     }
 
-    public TreeNode deleteInTree(TreeNode root, int value) {
+    private TreeNode findTreeNodeByValue(TreeNode root, int value) {
         if (root == null) {
             return null;
         }
-
-        if (value < root.value) {
-            root.left = deleteInTree(root.left, value);
-        } else if (value > root.value) {
-            root.right = deleteInTree(root.right, value);
-        } else {
-            if (root.left == null) {
-                return root.right;
-            }
-            if (root.right == null) {
-                return root.left;
-            }
-            root.value = getLeftSubTreeMaxValue(root.left);
-            root.left = deleteInTree(root.left, root.value);
-        }
+        if (root.value == value) return root;
+        findTreeNodeByValue(root.left, value);
+        findTreeNodeByValue(root.right, value);
         return root;
-    }
-
-    private int getLeftSubTreeMaxValue(TreeNode root) {
-        int max = 0;
-        while (root != null) {
-            if (max < root.value) {
-                max = root.value;
-            }
-            root = root.right;
-        }
-        return max;
     }
 
     /****************************************************************************************/
 
     // Wrapper class
-    public void add(int value) {
-        root = addInTree(root, value);
+    public void add(int value, String position) {
+        if (position.equals("left")) {
+            root = addLeftNode(root, value);
+        } else if (position.equals("right")) {
+            root = addRightNode(root, value);
+        }
+    }
+
+    public TreeNode find(int value) {
+        return findTreeNodeByValue(root, value);
     }
 
     public void delete(int value) {
-        root = deleteInTree(root, value);
+        TreeNode treeNode = find(value);
+        if (treeNode == null) {
+            System.out.println("element not found");
+        } else {
+            deleteNode(treeNode);
+        }
+    }
+
+    //TODO: Implement deleteNode method to handle all the cases(root, full node)
+    private TreeNode deleteNode(TreeNode treeNode) {
+        if (treeNode.left == null && treeNode.right == null) {
+            return null;
+        }
+        if (treeNode.left == null) {
+            return treeNode.right;
+        }
+        if (treeNode.right == null) {
+            return treeNode.left;
+        }
+        treeNode.left = deleteNode(treeNode.left);
+        return treeNode;
     }
 
     private void preOrder() {
+        System.out.println();
+        System.out.println("PreOrder Traversal :");
         preOrderTraversal(root);
     }
 
     private void inOrder() {
+        System.out.println();
+        System.out.println("InOrder Traversal :");
         inOrderTraversal(root);
     }
 
     private void postOrder() {
+        System.out.println();
+        System.out.println("PostOrder Traversal :");
         postOrderTraversal(root);
     }
 }

@@ -29,12 +29,19 @@ public class SearchingAlgorithms {
     }
 
 
-    //    given array should be sorted
+    //    given an array should be sorted
     public static int iterativeBinarySearch(int[] arr, int searchElement) {
         int start = 0;
         int end = arr.length;
-        while (start < end) {
-            int mid = (start + end) / 2;
+        /*
+         * The reason for this preference is
+         * to avoid potential overflow issues that can occur with the second expression.
+         * When start and end are both large integers,
+         * their sum (start + end) might exceed the maximum value that can be stored in an integer type,
+         * leading to overflow and incorrect calculations.
+         * */
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
             if (arr[mid] == searchElement)
                 return arr[mid];
             if (arr[mid] > searchElement)

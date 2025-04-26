@@ -1,7 +1,9 @@
 package com.practise.commons;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -82,19 +84,36 @@ public final class Utils {
         }
     }
 
-    public static void printList(List<Integer> list) {
+//    public static void printList(List<Integer> list) {
+//        if (list == null) {
+//            logger.warning("List is null");
+//            return;
+//        }
+//        if (logger.isLoggable(Level.INFO)) {
+//            StringBuilder stringBuilder = new StringBuilder("[ ");
+//            for (int val : list) {
+//                stringBuilder.append(val).append(" ");
+//            }
+//            stringBuilder.append("]");
+//            logger.info(stringBuilder::toString);
+//        }
+//    }
+
+    public static void printList(List<?> list) {
+
         if (list == null) {
             logger.warning("List is null");
             return;
         }
         if (logger.isLoggable(Level.INFO)) {
             StringBuilder stringBuilder = new StringBuilder("[ ");
-            for (int val : list) {
+            for (Object val : list) {
                 stringBuilder.append(val).append(" ");
             }
             stringBuilder.append("]");
             logger.info(stringBuilder::toString);
         }
+
     }
 
     /************************************* Print Linked List **********************************/
@@ -148,66 +167,112 @@ public final class Utils {
 
     /************************************* Binary Tree Traversal **********************************/
 
-    public static void preOrderTraversal(TreeNode root) {
+    public static void printTree(TreeNode root) {
+        printTree(root, "", true);
+    }
+
+    private static void printTree(TreeNode root, String prefix, boolean isLeft) {
         if (root == null) {
-            logger.info(TREE_IS_EMPTY);
+            System.out.println("Empty tree");  // Or handle empty tree differently
             return;
         }
-        logger.info(() -> String.valueOf(root.value));
+        if (root.right != null) {
+            printTree(root.right, prefix + (isLeft ? "│   " : "    "), false);
+        }
+
+        System.out.println(prefix + (isLeft ? "└── " : "┌── ") + root.value);
+
+        if (root.left != null) {
+            printTree(root.left, prefix + (isLeft ? "    " : "│   "), true);
+        }
+    }
+
+
+    private static void printTree(AVLNode root, String prefix, boolean isLeft) {
+        if (root == null) {
+            return;
+        }
+        System.out.println(prefix + (isLeft ? "├── " : "└── ") + root.value);
+        printTree(root.left, prefix + (isLeft ? "│   " : "    "), true);
+        printTree(root.right, prefix + (isLeft ? "│   " : "    "), false);
+    }
+
+    public static void printTree(AVLNode root) {
+        printTree(root, "", true);
+    }
+
+
+    public static void preOrderTraversal(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        System.out.print(root.value + " ");
         preOrderTraversal(root.left);
         preOrderTraversal(root.right);
     }
 
     public static void inOrderTraversal(TreeNode root) {
         if (root == null) {
-            logger.info(TREE_IS_EMPTY);
             return;
         }
         inOrderTraversal(root.left);
-        logger.info(() -> String.valueOf(root.value));
+        System.out.print(root.value + " ");
         inOrderTraversal(root.right);
     }
 
     public static void postOrderTraversal(TreeNode root) {
         if (root == null) {
-            logger.info(TREE_IS_EMPTY);
             return;
         }
         postOrderTraversal(root.left);
         postOrderTraversal(root.right);
-        logger.info(() -> String.valueOf(root.value));
+        System.out.print(root.value + " ");
     }
 
     /************************************* AVL Tree Traversal **********************************/
 
     public static void preOrderTraversal(AVLNode root) {
         if (root == null) {
-            logger.info(AVL_TREE_IS_EMPTY);
             return;
         }
-        logger.info(() -> String.valueOf(root.value));
+        System.out.print(root.value + " ");
         preOrderTraversal(root.left);
         preOrderTraversal(root.right);
     }
 
     public static void inOrderTraversal(AVLNode root) {
         if (root == null) {
-            logger.info(AVL_TREE_IS_EMPTY);
             return;
         }
         inOrderTraversal(root.left);
-        logger.info(() -> String.valueOf(root.value));
+        System.out.print(root.value + " ");
         inOrderTraversal(root.right);
     }
 
     public static void postOrderTraversal(AVLNode root) {
         if (root == null) {
-            logger.info(AVL_TREE_IS_EMPTY);
             return;
         }
         postOrderTraversal(root.left);
         postOrderTraversal(root.right);
-        logger.info(() -> String.valueOf(root.value));
+        System.out.print(root.value + " ");
+    }
+
+
+    public static void levelOrderTraversal(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.remove();
+
+            System.out.println(node.value);
+
+            if (root.left != null) queue.add(root.left);
+            if (root.right != null) queue.add(root.right);
+        }
     }
 
     /************************************* Print Map **********************************/

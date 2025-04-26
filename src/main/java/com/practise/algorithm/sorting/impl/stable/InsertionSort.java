@@ -47,7 +47,7 @@ public class InsertionSort {
                 if (arr[j - 1] > arr[j]) {
                     Utils.swapByIndex(arr, j - 1, j); // Swap
                 } else {
-                    break; // Break if no swap is needed
+                    break; // Break if no swap is needed. Corner case to improve performance
                 }
             }
         }
@@ -92,7 +92,7 @@ public class InsertionSort {
     }
 
     /**
-     * Main method to test sorting methods.
+     * LambdaTester method to test sorting methods.
      *
      * @param args Command line arguments.
      */

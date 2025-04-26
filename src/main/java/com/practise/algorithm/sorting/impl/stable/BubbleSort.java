@@ -49,7 +49,7 @@ public class BubbleSort {
     }
 
     /**
-     * Main method for testing the bubble sort implementation.
+     * LambdaTester method for testing the bubble sort implementation.
      *
      * @param args command line arguments
      */

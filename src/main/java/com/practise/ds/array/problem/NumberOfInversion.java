@@ -41,43 +41,51 @@ public class NumberOfInversion {
     */
 
     private void bestApproach(int[] arr) {
-        int inversions = mergeSort(arr, 0, arr.length - 1);
+        int inversions = (int) mergeSort(arr, 0, arr.length - 1);
         System.out.println(inversions);
     }
 
-    private int mergeSort(int[] arr, int start, int end) {
-        int inversion = 0;
+    private long mergeSort(int[] nums, int start, int end) {
+        long inversion = 0;
         if (start < end) {
-            int mid = (end + start) / 2;
-            inversion += mergeSort(arr, start, mid);
-            inversion += mergeSort(arr, mid + 1, end);
-            inversion += mergeProcedure(arr, start, end, mid);
+            int mid = start + (end - start) / 2;
+            inversion += mergeSort(nums, start, mid);
+            inversion += mergeSort(nums, mid + 1, end);
+            inversion += mergeProcedure(nums, start, mid, end);
         }
         return inversion;
     }
 
-    private int mergeProcedure(int[] arr, int start, int end, int mid) {
+    private long mergeProcedure(int[] nums, int start, int mid, int end) {
         int i = start;
         int j = mid + 1;
-        int index = 0;
-        int count = 0;
-        int temparr[] = new int[end - start + 1];
+        long inversion = 0L;
+        int k = 0;
+
+        int[] temp = new int[end - start + 1];
+
         while (i <= mid && j <= end) {
-            if (arr[i] <= arr[j]) {
-                temparr[index++] = arr[i++];
+            if (nums[i] <= nums[j]) {
+                temp[k++] = nums[i++];
             } else {
-                count += (mid - i + 1);
-                temparr[index++] = arr[j++];
+                temp[k++] = nums[j++];
+                inversion += (mid - i + 1);
             }
         }
 
         while (i <= mid) {
-            temparr[index++] = arr[i++];
+            temp[k++] = nums[i++];
         }
+
         while (j <= end) {
-            temparr[index++] = arr[j++];
+            temp[k++] = nums[j++];
         }
-        return count;
+
+        // Copy the sorted elements back to the original array
+        System.arraycopy(temp, 0, nums, start, temp.length);
+
+        return inversion;
     }
+
 
 }

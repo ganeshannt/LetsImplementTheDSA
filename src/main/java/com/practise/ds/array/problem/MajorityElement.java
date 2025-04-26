@@ -23,7 +23,7 @@ public class MajorityElement {
 
     /*
     Time Complexity - o(mn)
-    Space Complexity - o(1)
+    Space Complexity - o(n)
     Note - hash map
     */
 
