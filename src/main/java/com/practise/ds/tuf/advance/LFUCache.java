@@ -5,7 +5,9 @@ import java.util.LinkedHashSet;
 
 public class LFUCache {
     private final int capacity;
+    // <key, Pair<frequency,value>>
     private final HashMap<Integer, Pair<Integer, Integer>> cache;
+    // <frequency,LinkedHashSet<key>>
     private final HashMap<Integer, LinkedHashSet<Integer>> frequencyMap;
     private int minFrequency;
 

@@ -252,7 +252,7 @@ class EventManager implements IEventManager {
                         Collectors.counting()
                 ));
 
-        // Convert to list of formatted strings
+        // Convert to a list of formatted strings
         return eventCountByYear.entrySet().stream()
                 .sorted(Map.Entry.comparingByKey())
                 .map(entry -> entry.getKey() + ": " + entry.getValue())
@@ -268,7 +268,7 @@ class EventManager implements IEventManager {
                         Collectors.summingLong(event -> event.getRegistrations().size())
                 ));
 
-        // Convert to list of formatted strings
+        // Convert to a list of formatted strings
         return registrationCountByYear.entrySet().stream()
                 .sorted(Map.Entry.comparingByKey())
                 .map(entry -> entry.getKey() + ": " + entry.getValue())

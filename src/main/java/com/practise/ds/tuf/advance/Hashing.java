@@ -110,4 +110,52 @@ public class Hashing {
         }
         return max;
     }
+
+    //https://leetcode.com/problems/count-number-of-pairs-with-absolute-difference-k/description/
+    public int countKDifference(int[] nums, int k) {
+
+        int result = 0;
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int num : nums) {
+            if (map.containsKey(num - k)) {
+                result += map.get(num - k);
+            }
+            if (map.containsKey(num + k)) {
+                result += map.get(num + k);
+            }
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        return result;
+    }
+
+
+    public int thirdMax(int[] nums) {
+
+        int firstMax = Integer.MIN_VALUE;
+        int secondMax = Integer.MIN_VALUE;
+        int thirdMax = Integer.MIN_VALUE;
+
+        for (int num : nums) {
+            if (firstMax == num || secondMax == num || thirdMax == num) continue;
+            if (firstMax < num) {
+                thirdMax = secondMax;
+                secondMax = firstMax;
+                firstMax = num;
+            } else if (secondMax < num) {
+                thirdMax = secondMax;
+                secondMax = num;
+            } else if (thirdMax < num) {
+                thirdMax = num;
+            }
+        }
+
+        if(secondMax == Integer.MIN_VALUE || thirdMax == Integer.MIN_VALUE) return firstMax;
+
+        return thirdMax;
+
+
+    }
+
 }

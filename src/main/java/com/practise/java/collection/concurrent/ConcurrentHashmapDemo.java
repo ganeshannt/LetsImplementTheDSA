@@ -9,6 +9,26 @@ import java.util.concurrent.Executors;
  *  1. Concurrent Hashmap is a thread-safe version of Hashmap.
  *  2. It locks only a segment of the map, not the whole map while adding or removing elements.
  *
+ *
+ * How Concurrent HashMap Internally Manages Locks and Segmentation
+ConcurrentHashMap in Java uses a sophisticated locking mechanism that has evolved across Java versions:
+
+* In Java 7 and earlier:
+
+    The map was divided into segments (default: 16 segments)
+    Each segment had its own lock (ReentrantLock)
+    Operations would lock only the relevant segment rather than the entire map
+    This approach was called "segmented locking" or "bucket locking"
+
+* In Java 8 and later:
+    The implementation was completely redesigned
+    Instead of segments, it uses a node-based approach
+    It employs a combination of CAS (Compare-And-Swap) operations and synchronized blocks on nodes
+    For put operations:
+    If the bucket is empty, it uses CAS to add the first node (no locking)
+    If the bucket has nodes, it synchronizes on the first node of the bucket
+    This finer-grained locking provides better concurrency
+ *
  * */
 
 

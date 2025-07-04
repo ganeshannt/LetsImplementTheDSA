@@ -11,7 +11,7 @@ public class LRUCache {
     private final int capacity;
 
     public LRUCache(int capacity) {
-        this.cacheMap = new HashMap<>(capacity);
+        this.cacheMap = HashMap.newHashMap(capacity);
         this.cacheOrderList = new LinkedList<>();
         this.capacity = capacity;
     }

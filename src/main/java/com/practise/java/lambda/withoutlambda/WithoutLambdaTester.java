@@ -5,7 +5,7 @@ import com.practise.java.lambda.Hotel;
 import java.util.List;
 
 /*
-here we are trying to pass function as method argument without lambda.
+here we are trying to pass function as method argument without a lambda.
 it will show you the period where lambda was not introduced in java and how we used to pass function as method argument.
 demonstrates the need of lambda to avoid duplicates and boilerplate code
  */

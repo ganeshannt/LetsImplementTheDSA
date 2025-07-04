@@ -116,6 +116,77 @@ public final class Utils {
 
     }
 
+
+    private static String formatListToString(List<?> list) {
+        if (list == null) {
+            return "null"; // Represent a null inner list explicitly
+        }
+        StringBuilder stringBuilder = new StringBuilder("[ ");
+        for (Object val : list) {
+            // Handle potential null elements within the inner list
+            stringBuilder.append(val == null ? "null" : val).append(" ");
+        }
+        // The original code leaves a trailing space before the closing bracket.
+        // If you prefer no trailing space, you could do:
+        // if (list.size() > 0) {
+        //     stringBuilder.setLength(stringBuilder.length() - 1); // Remove last space
+        // }
+        stringBuilder.append("]");
+        return stringBuilder.toString();
+    }
+
+    /**
+     * Prints the elements of a list of lists using the logger at INFO level.
+     * Handles null outer list and null inner lists gracefully.
+     * Format: [ [ inner1_elem1 inner1_elem2 ] [ inner2_elem1 ] null ]
+     *
+     * @param listOfList The list of lists to print.
+     */
+    public static void printListOfList(List<List<?>> listOfList) {
+        if (listOfList == null) {
+            logger.warning("List of lists is null");
+            return;
+        }
+
+        if (logger.isLoggable(Level.INFO)) {
+            StringBuilder stringBuilder = new StringBuilder("[ ");
+
+            boolean firstInnerList = true;
+            for (List<?> innerList : listOfList) {
+                if (!firstInnerList) {
+                    stringBuilder.append(", "); // Use comma and space as separator between inner lists
+                }
+
+                // Use the helper method to get the string representation of the inner list
+                stringBuilder.append(formatListToString(innerList));
+
+                firstInnerList = false;
+            }
+
+            // The outer list format starts with "[ " and ends with " ]"
+            // If the list was not empty, remove the potentially extra ", " or space before the closing bracket
+            // However, the current logic appends ", " *before* subsequent elements,
+            // and the formatListToString helper adds its own spaces.
+            // Let's refine the outer structure to be cleaner: [inner1, inner2, null]
+            // Let's redo the outer loop structure for a cleaner format like [ [..], [..] ]
+
+            stringBuilder = new StringBuilder("["); // Start without space inside bracket
+
+            firstInnerList = true;
+            for (List<?> innerList : listOfList) {
+                if (!firstInnerList) {
+                    stringBuilder.append(", "); // Use comma and space as separator
+                }
+                stringBuilder.append(formatListToString(innerList)); // Append the formatted inner list
+                firstInnerList = false;
+            }
+
+            stringBuilder.append("]"); // End without space inside bracket
+
+            logger.info(stringBuilder::toString);
+        }
+    }
+
     /************************************* Print Linked List **********************************/
 
     public static void printSingleLinkedList(SLLNode head) {

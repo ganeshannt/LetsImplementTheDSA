@@ -19,8 +19,8 @@ public class OddEvenPrint {
     public static void main(String[] args) {
 
         OddEvenPrint oep = new OddEvenPrint();
-        Thread t1 = new Thread(() -> oep.printEven());
-        Thread t2 = new Thread(() -> oep.printOdd());
+        Thread t1 = new Thread(oep::printEven);
+        Thread t2 = new Thread(oep::printOdd);
 
         t1.start();
         t2.start();
