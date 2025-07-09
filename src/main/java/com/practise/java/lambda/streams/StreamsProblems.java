@@ -14,6 +14,14 @@ import java.util.stream.Collectors;
 
 class StreamsProblems {
 
+    static boolean isVowelsExists(String word) {
+        return word
+                .toLowerCase()
+                .chars()
+                .mapToObj(c -> (char) c)
+                .anyMatch(character -> "aeiou".indexOf(character) >= 0);
+    }
+
     static double findAvgUsingStreams(List<Integer> integerList) {
         OptionalDouble avg = integerList.stream().mapToInt(Integer::intValue).average();
         return (avg.isPresent()) ? avg.getAsDouble() : Double.NaN;
@@ -199,5 +207,6 @@ class StreamsProblems {
 
         //convertListToMap();
         flattenStringList();
+        System.out.println(isVowelsExists("ganeshan"));
     }
 }

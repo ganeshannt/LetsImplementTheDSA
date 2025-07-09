@@ -43,7 +43,7 @@ class Book {
 }
 
 
-public class StreamsObjProblems {
+public class StreamsObjProblem1 {
 
 
     /**
