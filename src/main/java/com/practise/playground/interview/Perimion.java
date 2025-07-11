@@ -1,4 +1,4 @@
-package com.practise.playground;
+package com.practise.playground.interview;
 
 
 /**
