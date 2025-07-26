@@ -5,22 +5,45 @@ import com.practise.commons.Utils;
 import java.util.Arrays;
 
 /**
- * BubbleSort is a simple comparison-based sorting algorithm that repeatedly steps through the list,
+ * Algorithm: Bubble Sort
+ * 
+ * Description: BubbleSort is a simple comparison-based sorting algorithm that repeatedly steps through the list,
  * compares adjacent elements, and swaps them if they are in the wrong order.
  * This process is repeated until the list is sorted.
- * <p>
- * Time Complexity: O(N^2)
- * Space Complexity: O(1)
- * <p>
- * Best Suited Scenario:
- * 1) Most data structures.
- * 2) Collections that are in completely unsorted order.
- * 3) Not suitable for large datasets due to time complexity.
+ * 
+ * Category: Stable sorting algorithm
+ * 
+ * Time Complexity: 
+ * - Best Case: O(n) when array is already sorted
+ * - Average Case: O(n²)
+ * - Worst Case: O(n²)
+ * 
+ * Space Complexity: O(1) - In-place sorting algorithm
+ * 
+ * Best Suited Scenarios:
+ * 1) Educational purposes to understand sorting concepts
+ * 2) Small datasets where simplicity is more important than efficiency
+ * 3) Nearly sorted arrays where only a few elements are out of place
+ * 
+ * Not Suitable For:
+ * 1) Large datasets due to quadratic time complexity
+ * 2) Performance-critical applications
+ * 
+ * Visualization: https://visualgo.net/en/sorting
  */
 public class BubbleSort {
 
     /**
      * Performs the iterative bubble sort on the provided array.
+     * This implementation includes an optimization that breaks the loop if no swaps are made in a pass,
+     * which improves performance for nearly sorted arrays.
+     *
+     * Time Complexity: 
+     * - Best Case: O(n) when array is already sorted (no swaps in first pass)
+     * - Average Case: O(n²)
+     * - Worst Case: O(n²) when array is sorted in reverse order
+     *
+     * Space Complexity: O(1) - Only uses a few variables regardless of input size
      *
      * @param arr the array to be sorted
      */

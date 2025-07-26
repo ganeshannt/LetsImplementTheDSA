@@ -1,16 +1,25 @@
 package com.practise.ds.array.problem;
 
-
-
-/*
-
-Name - Product of Array Except Self
-Link - https://leetcode.com/problems/product-of-array-except-self/
-
- */
-
 import com.practise.commons.Utils;
 
+/**
+ * Problem: Product of Array Except Self
+ * 
+ * Description: Given an array nums of n integers where n > 1, return an array output such that 
+ * output[i] is equal to the product of all the elements of nums except nums[i].
+ * 
+ * LeetCode: https://leetcode.com/problems/product-of-array-except-self/
+ * 
+ * Approach: Multiple approaches are implemented:
+ * 1. Using separate left and right product arrays
+ * 2. Using a single output array and a right variable
+ * 3. Using a more readable approach with pre and post variables
+ * 
+ * Time Complexity: O(n) for all approaches
+ * Space Complexity: O(n) for first approach, O(1) for optimized approaches (excluding output array)
+ * 
+ * Hint: Think about calculating products from left to right and then from right to left
+ */
 public class ArrayProduct {
 
     public static void main(String[] args) {
@@ -19,10 +28,13 @@ public class ArrayProduct {
         arrayProduct.firstApproach(arr);
     }
 
-    /*
-    Time Complexity - o(n)
-    Space Complexity - o(n)
-    Note - skip first element while calculate left and skip last element while calculate right
+    /**
+     * First approach using separate left and right product arrays.
+     * 
+     * Time Complexity: O(n) - Three passes through the array
+     * Space Complexity: O(n) - Uses two additional arrays of size n
+     * 
+     * @param arr Input array
      */
     private void firstApproach(int[] arr) {
         int[] left = new int[arr.length];
@@ -48,10 +60,13 @@ public class ArrayProduct {
 
     }
 
-    /*
-    Time Complexity - o(n)
-    Space Complexity - o(1)
-    Note - optimized version of first approach
+    /**
+     * Optimized approach using a single output array and a right variable.
+     * 
+     * Time Complexity: O(n) - Two passes through the array
+     * Space Complexity: O(1) - Uses only one additional variable (excluding output array)
+     * 
+     * @param arr Input array
      */
     private void bestApproach(int[] arr) {
         int[] output = new int[arr.length];
@@ -69,10 +84,13 @@ public class ArrayProduct {
         Utils.printArray(output);
     }
 
-    /*
-    Time Complexity - o(n)
-    Space Complexity - o(1)
-    Note - optimized version of first approach
+    /**
+     * Most readable optimized approach using pre and post variables.
+     * 
+     * Time Complexity: O(n) - Two passes through the array
+     * Space Complexity: O(1) - Uses only two additional variables (excluding output array)
+     * 
+     * @param arr Input array
      */
     private void bestAndReadableApproach(int[] arr) {
         int[] output = new int[arr.length];
