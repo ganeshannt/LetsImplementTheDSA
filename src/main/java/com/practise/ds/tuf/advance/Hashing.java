@@ -151,11 +151,36 @@ public class Hashing {
             }
         }
 
-        if(secondMax == Integer.MIN_VALUE || thirdMax == Integer.MIN_VALUE) return firstMax;
+        if (secondMax == Integer.MIN_VALUE || thirdMax == Integer.MIN_VALUE) return firstMax;
 
         return thirdMax;
 
 
+    }
+
+    /*
+    * link: https://leetcode.com/problems/continuous-subarray-sum/description/
+    * */
+
+    public boolean checkSubarraySum(int[] nums, int k) {
+        Map<Integer, Integer> remainderAndIndexMap = new HashMap<>();
+        remainderAndIndexMap.put(0, -1);
+
+        int sum = 0;
+        int remainder;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            remainder = sum % k;
+
+            if (remainderAndIndexMap.containsKey(remainder)) {
+                if ((i - (remainderAndIndexMap.get(remainder))) > 1) {
+                    return true;
+                }
+            } else {
+                remainderAndIndexMap.put(remainder, i);
+            }
+        }
+        return false;
     }
 
 }
