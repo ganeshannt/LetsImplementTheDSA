@@ -155,6 +155,18 @@ class StreamsProblems {
                 .flatMap(List::stream)
                 .toList();
 
+        /*
+        List<String> flattenedList = stringLists.stream()
+                        .flatMap((e)->{
+                            if(e.size() == 1){
+                                return e.stream();
+                            }else{
+                                return e.stream().flatMap(s->Arrays.stream(s.split("")));
+                            }
+                        }).toList();
+
+         */
+
         Utils.printList(flattenedList);
     }
 
