@@ -1,14 +1,10 @@
 package com.practise.ds.tuf.advance;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StackAndQueueProblem {
-
-
-    public static void main(String[] args) {
-        StackAndQueueProblem solution = new StackAndQueueProblem();
-        System.out.println("hi");
-    }
 
     public boolean isValidParanthesis(String str) {
         ArrayDeque<Character> arrayDeque = new ArrayDeque<>();
@@ -158,6 +154,11 @@ public class StackAndQueueProblem {
         return result;
     }
 
+
+    public int[] previousGreaterOrEqualElement(int[] arr) {
+        return null;
+    }
+
     public int sumSubarrayMins(int[] arr) {
 
         int[] nse = nextSmallerElement(arr);
@@ -181,31 +182,89 @@ public class StackAndQueueProblem {
     }
 
 
-    public int[] maxSubsequence(int[] nums, int k) {
+    public int sumSubarrayMaxs(int[] arr) {
 
-        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        int[] nse = nextGreaterElements(arr);
+        int[] psee = previousGreaterOrEqualElement(arr);
+        int n = arr.length;
+        int mod = (int) 1e9 + 7; // Mod value
+        int sum = 0;
 
-        for (int i = 0; i < nums.length; i++) {
-            pq.offer(new int[]{nums[i], i});
-            if (k < pq.size()) {
-                pq.poll();
+        for (int i = 0; i < n; i++) {
+            int left = i - psee[i];
+            int right = nse[i] - i;
+            long freq = left * right * 1L;
+
+            // Contribution due to current element
+            int val = (int) ((freq * arr[i]) % mod);
+            // Updating the sum
+            sum = (sum + val) % mod;
+        }
+        return sum;
+    }
+
+
+    /*
+     * https://takeuforward.org/plus/dsa/stack-and-queues/monotonic-stack/sum-of-subarray-ranges
+     * */
+    public long subArrayRanges(int[] nums) {
+        return (long) sumSubarrayMaxs(nums) - sumSubarrayMins(nums);
+    }
+
+
+    public long subArrayRangesBf(int[] nums) {
+        long result = 0;
+        for (int i = 0; i < nums.length - 1; i++) {
+            int min = nums[i];
+            int max = nums[i];
+            for (int j = i + 1; j < nums.length; j++) {
+                min = Math.min(min, nums[j]);
+                max = Math.max(max, nums[j]);
+
+                result += max - min;
             }
         }
+        return result;
+    }
 
-        List<int[]> list = new ArrayList<>();
 
-        list.addAll(pq);
+    /*
+     * https://takeuforward.org/plus/dsa/stack-and-queues/monotonic-stack/remove-k-digits
+     * */
+    public String removeKdigits(String nums, int k) {
+        if (nums.length() <= k) return "0";
 
-        list.sort(Comparator.comparing(a -> a[1]));
+        ArrayDeque<Character> arrayDeque = new ArrayDeque<>();
+        arrayDeque.push(nums.charAt(0));
 
-        int[] result = new int[list.size()];
-        int count = 0;
-
-        for (int[] n : list) {
-            result[count++] = n[0];
+        for (int i = 1; i < nums.length(); i++) {
+            while (!arrayDeque.isEmpty() && k > 0 && nums.charAt(i) < arrayDeque.peek()) {
+                arrayDeque.pop();
+                k--;
+            }
+            arrayDeque.push(nums.charAt(i));
         }
 
-        return result;
+        while (k > 0) {
+            arrayDeque.pop();
+            k--;
+        }
+        while (!arrayDeque.isEmpty() && arrayDeque.peekLast() == '0') {
+            arrayDeque.removeLast();
+        }
+
+        StringBuilder sb = new StringBuilder();
+        while (!arrayDeque.isEmpty()) {
+            sb.append(arrayDeque.pop());
+        }
+
+        return sb.isEmpty() ? "0" : sb.reverse().toString();
+    }
+
+
+    public static void main(String[] args) {
+        StackAndQueueProblem solution = new StackAndQueueProblem();
+        solution.subArrayRangesBf(new int[]{4, -2, -3, 4, 1});
     }
 
 

@@ -1,5 +1,6 @@
 package com.practise.ds.tuf.advance;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -39,6 +40,34 @@ public class HeapFaq {
             }
         }
         return totalRevenue;
+    }
+
+
+    public int[] maxSubsequence(int[] nums, int k) {
+
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+
+        for (int i = 0; i < nums.length; i++) {
+            pq.offer(new int[]{nums[i], i});
+            if (k < pq.size()) {
+                pq.poll();
+            }
+        }
+
+        List<int[]> list = new ArrayList<>();
+
+        list.addAll(pq);
+
+        list.sort(Comparator.comparing(a -> a[1]));
+
+        int[] result = new int[list.size()];
+        int count = 0;
+
+        for (int[] n : list) {
+            result[count++] = n[0];
+        }
+
+        return result;
     }
 
     public static void main(String[] args) {
