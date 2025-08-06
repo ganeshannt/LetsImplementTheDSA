@@ -126,43 +126,10 @@ public class StackAndQueueProblem {
         return result;
     }
 
-    public int[] nextSmallerElement(int[] arr) {
-        int[] result = new int[arr.length];
-        ArrayDeque<Integer> arrayDeque = new ArrayDeque<>();
+    public int sumSubarrayMinsMod(int[] arr) {
 
-        for (int i = arr.length - 1; i >= 0; i--) {
-            while (!arrayDeque.isEmpty() && arr[i] <= arr[arrayDeque.peek()]) {
-                arrayDeque.removeFirst();
-            }
-            result[i] = (arrayDeque.isEmpty()) ? arr.length : arrayDeque.peek();
-            arrayDeque.addFirst(i);
-        }
-        return result;
-    }
-
-    public int[] previousSmallerOrEqualElement(int[] arr) {
-        int[] result = new int[arr.length];
-        ArrayDeque<Integer> arrayDeque = new ArrayDeque<>();
-
-        for (int i = 0; i < arr.length; i++) {
-            while (!arrayDeque.isEmpty() && arr[i] < arr[arrayDeque.peek()]) {
-                arrayDeque.removeFirst();
-            }
-            result[i] = (arrayDeque.isEmpty()) ? -1 : arrayDeque.peek();
-            arrayDeque.addFirst(i);
-        }
-        return result;
-    }
-
-
-    public int[] previousGreaterOrEqualElement(int[] arr) {
-        return null;
-    }
-
-    public int sumSubarrayMins(int[] arr) {
-
-        int[] nse = nextSmallerElement(arr);
-        int[] psee = previousSmallerOrEqualElement(arr);
+        int[] nse = nextSmallerElementIndex(arr);
+        int[] psee = previousSmallerOrEqualElementIndex(arr);
         int n = arr.length;
         int mod = (int) 1e9 + 7; // Mod value
         int sum = 0;
@@ -182,23 +149,93 @@ public class StackAndQueueProblem {
     }
 
 
-    public int sumSubarrayMaxs(int[] arr) {
+    public int[] nextGreaterElementsIndex(int[] arr) {
+        int[] result = new int[arr.length];
+        ArrayDeque<Integer> arrayDeque = new ArrayDeque<>();
 
-        int[] nse = nextGreaterElements(arr);
-        int[] psee = previousGreaterOrEqualElement(arr);
+        for (int i = arr.length - 1; i >= 0; --i) {
+            while (!arrayDeque.isEmpty() && arr[i] > arr[arrayDeque.peek()]) {
+                arrayDeque.removeFirst();
+            }
+            result[i] = (arrayDeque.isEmpty()) ? arr.length : arrayDeque.peek();
+            arrayDeque.addFirst(i);
+        }
+        return result;
+    }
+
+    public int[] previousGreaterOrEqualElementIndex(int[] arr) {
         int n = arr.length;
-        int mod = (int) 1e9 + 7; // Mod value
-        int sum = 0;
+        int[] result = new int[n];
+        ArrayDeque<Integer> deque = new ArrayDeque<>(n);
 
         for (int i = 0; i < n; i++) {
-            int left = i - psee[i];
-            int right = nse[i] - i;
-            long freq = left * right * 1L;
 
-            // Contribution due to current element
-            int val = (int) ((freq * arr[i]) % mod);
-            // Updating the sum
-            sum = (sum + val) % mod;
+            while (!deque.isEmpty() && arr[i] >= arr[deque.peek()]) {
+                deque.removeFirst();
+            }
+
+            result[i] = (deque.isEmpty()) ? -1 : deque.peek();
+            deque.addFirst(i);
+        }
+        return result;
+    }
+
+
+    public int[] nextSmallerElementIndex(int[] arr) {
+        int[] result = new int[arr.length];
+        ArrayDeque<Integer> arrayDeque = new ArrayDeque<>();
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            while (!arrayDeque.isEmpty() && arr[i] < arr[arrayDeque.peek()]) {
+                arrayDeque.removeFirst();
+            }
+            result[i] = (arrayDeque.isEmpty()) ? arr.length : arrayDeque.peek();
+            arrayDeque.addFirst(i);
+        }
+        return result;
+    }
+
+    public int[] previousSmallerOrEqualElementIndex(int[] arr) {
+        int[] result = new int[arr.length];
+        ArrayDeque<Integer> arrayDeque = new ArrayDeque<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            while (!arrayDeque.isEmpty() && arr[i] <= arr[arrayDeque.peek()]) {
+                arrayDeque.removeFirst();
+            }
+            result[i] = (arrayDeque.isEmpty()) ? -1 : arrayDeque.peek();
+            arrayDeque.addFirst(i);
+        }
+        return result;
+    }
+
+    public long sumSubarrayMins(int[] arr) {
+        int[] nse = nextSmallerElementIndex(arr);
+        int[] psee = previousSmallerOrEqualElementIndex(arr);
+        int n = arr.length;
+        long sum = 0L;
+
+        for (int i = 0; i < n; i++) {
+            long left = i - psee[i];
+            long right = nse[i] - i;
+            long freq = left * right;
+            sum += freq * arr[i];
+        }
+
+        return sum;
+    }
+
+    public long sumSubarrayMaxs(int[] arr) {
+        int[] nge = nextGreaterElementsIndex(arr);
+        int[] pgee = previousGreaterOrEqualElementIndex(arr);
+        int n = arr.length;
+        long sum = 0L;
+
+        for (int i = 0; i < n; i++) {
+            long left = i - pgee[i];
+            long right = nge[i] - i;
+            long freq = left * right;
+            sum += freq * arr[i];
         }
         return sum;
     }
@@ -208,7 +245,7 @@ public class StackAndQueueProblem {
      * https://takeuforward.org/plus/dsa/stack-and-queues/monotonic-stack/sum-of-subarray-ranges
      * */
     public long subArrayRanges(int[] nums) {
-        return (long) sumSubarrayMaxs(nums) - sumSubarrayMins(nums);
+        return sumSubarrayMaxs(nums) - sumSubarrayMins(nums);
     }
 
 

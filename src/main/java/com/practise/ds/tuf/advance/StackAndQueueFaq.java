@@ -26,7 +26,6 @@ public class StackAndQueueFaq {
     }
 
 
-
     public static int[] maxSlidingWindow(int[] arr, int k) {
         int[] result = new int[arr.length - k + 1];
         ArrayDeque<Integer> deque = new ArrayDeque<>();
@@ -54,12 +53,28 @@ public class StackAndQueueFaq {
     }
 
 
+    /*
+    * https://takeuforward.org/plus/dsa/stack-and-queues/faqs/stock-span-problem
+    * */
     public int[] stockSpan(int[] arr, int n) {
+        int[] result = new int[n];
+        ArrayDeque<Integer> deque = new ArrayDeque<>(n);
 
-        return null;
+        for (int i = 0; i < n; i++) {
+            int value = 1;
+            while (!deque.isEmpty() && arr[i] >= arr[deque.peek()]) {
+                value += result[deque.pop()];
+            }
+            deque.push(i);
+            result[i] = value;
+        }
+        return result;
     }
 
 
+    public int celebrity(int[][] M) {
+        return 0;
+    }
 
 
     public static void main(String[] args) {
